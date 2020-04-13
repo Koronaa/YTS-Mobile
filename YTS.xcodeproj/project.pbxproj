@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54892444826B0068C825 /* AppDelegate.swift */; };
 		3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548B2444826B0068C825 /* SceneDelegate.swift */; };
-		3D9A548E2444826B0068C825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548D2444826B0068C825 /* ViewController.swift */; };
+		3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548D2444826B0068C825 /* WelcomeViewController.swift */; };
 		3D9A54912444826B0068C825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A548F2444826B0068C825 /* Main.storyboard */; };
 		3D9A54932444826C0068C825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54922444826C0068C825 /* Assets.xcassets */; };
 		3D9A54962444826C0068C825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54942444826C0068C825 /* LaunchScreen.storyboard */; };
+		3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549D244491E30068C825 /* LoginViewController.swift */; };
+		3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549F244492000068C825 /* RegisterViewController.swift */; };
+		3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A12444924D0068C825 /* UIHelper.swift */; };
+		3D9A54A4244493E90068C825 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A3244493E90068C825 /* UIColor.swift */; };
+		3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */; };
+		3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */; };
+		3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A92444A7AB0068C825 /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3D9A54862444826B0068C825 /* YTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9A54892444826B0068C825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9A548B2444826B0068C825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D9A548D2444826B0068C825 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D9A548D2444826B0068C825 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3D9A54902444826B0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D9A54922444826C0068C825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9A54952444826C0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9A54972444826C0068C825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9A549D244491E30068C825 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3D9A549F244492000068C825 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3D9A54A12444924D0068C825 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		3D9A54A3244493E90068C825 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		3D9A54A92444A7AB0068C825 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +72,18 @@
 			children = (
 				3D9A54892444826B0068C825 /* AppDelegate.swift */,
 				3D9A548B2444826B0068C825 /* SceneDelegate.swift */,
-				3D9A548D2444826B0068C825 /* ViewController.swift */,
+				3D9A548D2444826B0068C825 /* WelcomeViewController.swift */,
 				3D9A548F2444826B0068C825 /* Main.storyboard */,
 				3D9A54922444826C0068C825 /* Assets.xcassets */,
 				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
 				3D9A54972444826C0068C825 /* Info.plist */,
+				3D9A549D244491E30068C825 /* LoginViewController.swift */,
+				3D9A549F244492000068C825 /* RegisterViewController.swift */,
+				3D9A54A12444924D0068C825 /* UIHelper.swift */,
+				3D9A54A3244493E90068C825 /* UIColor.swift */,
+				3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */,
+				3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */,
+				3D9A54A92444A7AB0068C825 /* UIConstants.swift */,
 			);
 			path = YTS;
 			sourceTree = "<group>";
@@ -138,9 +159,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9A548E2444826B0068C825 /* ViewController.swift in Sources */,
+				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
+				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
+				3D9A54A4244493E90068C825 /* UIColor.swift in Sources */,
+				3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */,
+				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */,
+				3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */,
+				3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */,
+				3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,7 +312,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -293,6 +322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,7 +332,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
