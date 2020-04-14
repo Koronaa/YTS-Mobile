@@ -11,14 +11,18 @@ import UIKit
 
 class UIHelper{
     
-    static func makeViewController(storyBoardName:String = "Main", viewControllerName:String) -> UIViewController {
+    static private func makeViewController(storyBoardName:String, viewControllerName:String) -> UIViewController {
         return UIStoryboard(name: storyBoardName, bundle: nil).instantiateViewController(withIdentifier: viewControllerName)
     }
     
-    static func makeViewController<T:UIViewController>(viewControllerName:UIConstants.StoryBoardID) -> T{
-        return makeViewController(viewControllerName: viewControllerName.rawValue) as! T
+    static func makeViewController<T:UIViewController>(in storyboard:UIConstants.StoryBoard = .Login,viewControllerName:UIConstants.StoryBoardID) -> T{
+        return makeViewController(storyBoardName: storyboard.rawValue, viewControllerName: viewControllerName.rawValue) as! T
     }
-
+    
+    static func makeHomeNavifationController() -> UINavigationController{
+        makeViewController(storyBoardName: UIConstants.StoryBoard.Main.rawValue, viewControllerName: UIConstants.StoryBoardID.HomeNC.rawValue) as! UINavigationController
+    }
+    
     static func show(navigationController controller:UINavigationController?){
         if let navController = controller{
             navController.setNavigationBarHidden(false, animated: true)
@@ -48,10 +52,16 @@ class UIHelper{
     }
     
     static func roundCorners(view :UIView, corners: UIRectCorner, radius: CGFloat){
-            let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            view.layer.mask = mask
+        let path = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        view.layer.mask = mask
+    }
+    
+    static func makeRootViewController(viewController vc:UIViewController){
+        let topWindow = UIApplication.shared.keyWindow
+        topWindow!.rootViewController = vc
+        topWindow!.makeKeyAndVisible()
     }
     
 }

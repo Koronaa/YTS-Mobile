@@ -16,6 +16,18 @@ class UIConstants{
         case RegisterVC = "registerVC"
         case ForgetPasswordVC = "forgotPasswordVC"
         case ResetPasswordVC = "resetPasswordVC"
+        case HomeVC = "homeVC"
+        case HomeNC = "homeNC"
+    }
+    
+    enum StoryBoard:String{
+        case Login = "Login"
+        case Main = "Main"
+    }
+    
+    enum Cell:String{
+        case FavouritesCollectionViewCell = "favouritesCVCell"
+        case HomeCollectionViewCell = "homeCVCell"
     }
     
 }

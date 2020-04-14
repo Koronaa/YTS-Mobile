@@ -3,41 +3,61 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54892444826B0068C825 /* AppDelegate.swift */; };
 		3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548B2444826B0068C825 /* SceneDelegate.swift */; };
 		3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548D2444826B0068C825 /* WelcomeViewController.swift */; };
-		3D9A54912444826B0068C825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A548F2444826B0068C825 /* Main.storyboard */; };
+		3D9A54912444826B0068C825 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A548F2444826B0068C825 /* Login.storyboard */; };
 		3D9A54932444826C0068C825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54922444826C0068C825 /* Assets.xcassets */; };
 		3D9A54962444826C0068C825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54942444826C0068C825 /* LaunchScreen.storyboard */; };
 		3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549D244491E30068C825 /* LoginViewController.swift */; };
 		3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549F244492000068C825 /* RegisterViewController.swift */; };
 		3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A12444924D0068C825 /* UIHelper.swift */; };
-		3D9A54A4244493E90068C825 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A3244493E90068C825 /* UIColor.swift */; };
+		3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */; };
 		3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */; };
 		3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */; };
 		3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A92444A7AB0068C825 /* UIConstants.swift */; };
+		3DAB134C2445A56D005A7D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAB134B2445A56D005A7D9B /* Main.storyboard */; };
+		3DAB134E2445A875005A7D9B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB134D2445A875005A7D9B /* HomeViewController.swift */; };
+		3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAB13582445CACA005A7D9B /* FavouritesCollectionViewCell.xib */; };
+		3DAB135B2445CB56005A7D9B /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB135A2445CB56005A7D9B /* FavouritesCollectionViewCell.swift */; };
+		3DAB135E2445CD9A005A7D9B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB135C2445CD9A005A7D9B /* HomeCollectionViewCell.swift */; };
+		3DAB135F2445CD9A005A7D9B /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAB135D2445CD9A005A7D9B /* HomeCollectionViewCell.xib */; };
+		3DAB13612445DA48005A7D9B /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB13602445DA48005A7D9B /* FavouriteTableViewCell.swift */; };
+		3DAB13632445EA6C005A7D9B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB13622445EA6C005A7D9B /* HomeTableViewCell.swift */; };
+		B2804D5E25CB4C3DCB9C0108 /* Pods_YTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A843879D611DF5B474C14 /* Pods_YTS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A107ABF22DEF348420C95BD /* Pods-YTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.debug.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.debug.xcconfig"; sourceTree = "<group>"; };
+		300A843879D611DF5B474C14 /* Pods_YTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9A54862444826B0068C825 /* YTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9A54892444826B0068C825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9A548B2444826B0068C825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3D9A548D2444826B0068C825 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		3D9A54902444826B0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D9A54902444826B0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		3D9A54922444826C0068C825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9A54952444826C0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9A54972444826C0068C825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D9A549D244491E30068C825 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3D9A549F244492000068C825 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3D9A54A12444924D0068C825 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
-		3D9A54A3244493E90068C825 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		3D9A54A92444A7AB0068C825 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		3DAB134B2445A56D005A7D9B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DAB134D2445A875005A7D9B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3DAB13582445CACA005A7D9B /* FavouritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCollectionViewCell.xib; sourceTree = "<group>"; };
+		3DAB135A2445CB56005A7D9B /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3DAB135C2445CD9A005A7D9B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3DAB135D2445CD9A005A7D9B /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3DAB13602445DA48005A7D9B /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
+		3DAB13622445EA6C005A7D9B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.release.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2804D5E25CB4C3DCB9C0108 /* Pods_YTS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +77,8 @@
 			children = (
 				3D9A54882444826B0068C825 /* YTS */,
 				3D9A54872444826B0068C825 /* Products */,
+				768F11678419537FC5F7A96E /* Pods */,
+				C54CDBE0C254E2A4BC311A9B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,22 +93,103 @@
 		3D9A54882444826B0068C825 /* YTS */ = {
 			isa = PBXGroup;
 			children = (
-				3D9A54892444826B0068C825 /* AppDelegate.swift */,
-				3D9A548B2444826B0068C825 /* SceneDelegate.swift */,
-				3D9A548D2444826B0068C825 /* WelcomeViewController.swift */,
-				3D9A548F2444826B0068C825 /* Main.storyboard */,
-				3D9A54922444826C0068C825 /* Assets.xcassets */,
-				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
-				3D9A54972444826C0068C825 /* Info.plist */,
-				3D9A549D244491E30068C825 /* LoginViewController.swift */,
-				3D9A549F244492000068C825 /* RegisterViewController.swift */,
-				3D9A54A12444924D0068C825 /* UIHelper.swift */,
-				3D9A54A3244493E90068C825 /* UIColor.swift */,
-				3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */,
-				3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */,
-				3D9A54A92444A7AB0068C825 /* UIConstants.swift */,
+				3DAB13562445C6ED005A7D9B /* Constants */,
+				3DAB13532445C67A005A7D9B /* Extensions */,
+				3DAB13522445C652005A7D9B /* Helpers */,
+				3DAB13512445C619005A7D9B /* UI */,
+				3DAB13572445C701005A7D9B /* SupportingFiles */,
 			);
 			path = YTS;
+			sourceTree = "<group>";
+		};
+		3DAB13512445C619005A7D9B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3DAB13552445C6B9005A7D9B /* Login */,
+				3DAB13542445C6B3005A7D9B /* Main */,
+				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3DAB13522445C652005A7D9B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A54A12444924D0068C825 /* UIHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3DAB13532445C67A005A7D9B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DAB13542445C6B3005A7D9B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3DAB134B2445A56D005A7D9B /* Main.storyboard */,
+				3DAB134D2445A875005A7D9B /* HomeViewController.swift */,
+				3DAB13582445CACA005A7D9B /* FavouritesCollectionViewCell.xib */,
+				3DAB135A2445CB56005A7D9B /* FavouritesCollectionViewCell.swift */,
+				3DAB135C2445CD9A005A7D9B /* HomeCollectionViewCell.swift */,
+				3DAB135D2445CD9A005A7D9B /* HomeCollectionViewCell.xib */,
+				3DAB13602445DA48005A7D9B /* FavouriteTableViewCell.swift */,
+				3DAB13622445EA6C005A7D9B /* HomeTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3DAB13552445C6B9005A7D9B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A548D2444826B0068C825 /* WelcomeViewController.swift */,
+				3D9A548F2444826B0068C825 /* Login.storyboard */,
+				3D9A549D244491E30068C825 /* LoginViewController.swift */,
+				3D9A549F244492000068C825 /* RegisterViewController.swift */,
+				3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */,
+				3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3DAB13562445C6ED005A7D9B /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A54A92444A7AB0068C825 /* UIConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3DAB13572445C701005A7D9B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A54892444826B0068C825 /* AppDelegate.swift */,
+				3D9A548B2444826B0068C825 /* SceneDelegate.swift */,
+				3D9A54922444826C0068C825 /* Assets.xcassets */,
+				3D9A54972444826C0068C825 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		768F11678419537FC5F7A96E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A107ABF22DEF348420C95BD /* Pods-YTS.debug.xcconfig */,
+				A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C54CDBE0C254E2A4BC311A9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				300A843879D611DF5B474C14 /* Pods_YTS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D9A549A2444826C0068C825 /* Build configuration list for PBXNativeTarget "YTS" */;
 			buildPhases = (
+				2CE58129216234666646F65E /* [CP] Check Pods Manifest.lock */,
 				3D9A54822444826B0068C825 /* Sources */,
 				3D9A54832444826B0068C825 /* Frameworks */,
 				3D9A54842444826B0068C825 /* Resources */,
+				DB72B4EFCFCD42E46D302C5B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,12 +253,57 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9A54962444826C0068C825 /* LaunchScreen.storyboard in Resources */,
+				3DAB135F2445CD9A005A7D9B /* HomeCollectionViewCell.xib in Resources */,
 				3D9A54932444826C0068C825 /* Assets.xcassets in Resources */,
-				3D9A54912444826B0068C825 /* Main.storyboard in Resources */,
+				3D9A54912444826B0068C825 /* Login.storyboard in Resources */,
+				3DAB134C2445A56D005A7D9B /* Main.storyboard in Resources */,
+				3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CE58129216234666646F65E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YTS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB72B4EFCFCD42E46D302C5B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YTS/Pods-YTS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YTS/Pods-YTS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YTS/Pods-YTS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D9A54822444826B0068C825 /* Sources */ = {
@@ -161,11 +312,16 @@
 			files = (
 				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
 				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
-				3D9A54A4244493E90068C825 /* UIColor.swift in Sources */,
+				3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */,
 				3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */,
+				3DAB135B2445CB56005A7D9B /* FavouritesCollectionViewCell.swift in Sources */,
+				3DAB13612445DA48005A7D9B /* FavouriteTableViewCell.swift in Sources */,
+				3DAB13632445EA6C005A7D9B /* HomeTableViewCell.swift in Sources */,
+				3DAB135E2445CD9A005A7D9B /* HomeCollectionViewCell.swift in Sources */,
 				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */,
+				3DAB134E2445A875005A7D9B /* HomeViewController.swift in Sources */,
 				3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */,
 				3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */,
 				3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */,
@@ -175,12 +331,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3D9A548F2444826B0068C825 /* Main.storyboard */ = {
+		3D9A548F2444826B0068C825 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3D9A54902444826B0068C825 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		3D9A54942444826C0068C825 /* LaunchScreen.storyboard */ = {
@@ -310,12 +466,13 @@
 		};
 		3D9A549B2444826C0068C825 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A107ABF22DEF348420C95BD /* Pods-YTS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
-				INFOPLIST_FILE = YTS/Info.plist;
+				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,12 +487,13 @@
 		};
 		3D9A549C2444826C0068C825 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
-				INFOPLIST_FILE = YTS/Info.plist;
+				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
