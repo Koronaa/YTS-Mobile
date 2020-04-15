@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="250" width="167" height="115"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ultimate Avengers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8V4-qY-1G1">
-                                        <rect key="frame" x="5" y="5" width="148.5" height="23.5"/>
+                                        <rect key="frame" x="5" y="5" width="157" height="23.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zds-lQ-sh4">
-                                        <rect key="frame" x="5" y="50" width="157" height="60"/>
+                                        <rect key="frame" x="5" y="45" width="157" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0Ef-cV-vP1">
                                                 <rect key="frame" x="0.0" y="0.0" width="157" height="30"/>
@@ -53,7 +53,7 @@
                                                             <constraint firstAttribute="width" constant="30" id="3WZ-Tw-dm8"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1h 30m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfH-EN-Gi3">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1 hr 30 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfH-EN-Gi3">
                                                         <rect key="frame" x="35" y="0.0" width="122" height="30"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                                         <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -88,8 +88,9 @@
                                     <constraint firstItem="d9K-go-jrm" firstAttribute="top" secondItem="8V4-qY-1G1" secondAttribute="bottom" id="JJk-N2-paD"/>
                                     <constraint firstItem="8V4-qY-1G1" firstAttribute="leading" secondItem="BZG-fG-Kat" secondAttribute="leading" constant="5" id="LgL-oR-h2v"/>
                                     <constraint firstItem="Zds-lQ-sh4" firstAttribute="leading" secondItem="BZG-fG-Kat" secondAttribute="leading" constant="5" id="Pia-6K-Gv3"/>
-                                    <constraint firstItem="Zds-lQ-sh4" firstAttribute="top" secondItem="d9K-go-jrm" secondAttribute="bottom" constant="5" id="exM-Rl-gio"/>
+                                    <constraint firstItem="Zds-lQ-sh4" firstAttribute="top" secondItem="d9K-go-jrm" secondAttribute="bottom" id="exM-Rl-gio"/>
                                     <constraint firstItem="8V4-qY-1G1" firstAttribute="top" secondItem="BZG-fG-Kat" secondAttribute="top" constant="5" id="kss-Or-o3u"/>
+                                    <constraint firstAttribute="trailing" secondItem="8V4-qY-1G1" secondAttribute="trailing" constant="5" id="oPb-Cj-rfF"/>
                                 </constraints>
                             </view>
                         </subviews>

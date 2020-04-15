@@ -7,5 +7,6 @@ target 'YTS' do
 
   # Pods for YTS
   pod 'Kingfisher'
+  pod 'Cosmos'
 
 end

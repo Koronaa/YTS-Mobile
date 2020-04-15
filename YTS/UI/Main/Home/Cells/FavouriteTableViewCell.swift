@@ -29,7 +29,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
         favouriteLayout.itemSize = CGSize(width: 200, height: 300)
         favouriteLayout.minimumLineSpacing = 15
         
-        favouritesCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 310), collectionViewLayout: favouriteLayout)
+        favouritesCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 30.0, height: 320), collectionViewLayout: favouriteLayout)
         if #available(iOS 13.0, *) {
             favouritesCollectionView.backgroundColor = .systemGray6
         } else {

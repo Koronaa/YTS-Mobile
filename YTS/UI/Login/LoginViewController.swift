@@ -35,9 +35,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginNowButtonOnTapped(_ sender: Any) {
         //Test
-        let homeVC = UIHelper.makeViewController(in: UIConstants.StoryBoard.Main, viewControllerName: UIConstants.StoryBoardID.HomeVC)
-        self.navigationController?.pushViewController(homeVC, animated: true)
-        
+        let detailVC = UIHelper.makeViewController(in: UIConstants.StoryBoard.Main, viewControllerName: UIConstants.StoryBoardID.MovieDetailsVC)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     @IBAction func backButtonOnTapped(_ sender: UIButton) {

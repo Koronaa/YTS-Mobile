@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULh-fJ-agO" userLabel="topView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you wanna watch today ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shj-BH-eSg">
-                                        <rect key="frame" x="40" y="40" width="334" height="96"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="35"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to watch today ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shj-BH-eSg">
+                                        <rect key="frame" x="40" y="60" width="334" height="68.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
                                         <color key="textColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="myi-5M-eR7">
-                                        <rect key="frame" x="40" y="151" width="334" height="55"/>
+                                        <rect key="frame" x="40" y="143.5" width="334" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="i8Z-t7-ytc"/>
                                         </constraints>
@@ -38,18 +38,18 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Shj-BH-eSg" secondAttribute="trailing" constant="40" id="Bys-L1-xyk"/>
                                     <constraint firstItem="myi-5M-eR7" firstAttribute="top" secondItem="Shj-BH-eSg" secondAttribute="bottom" constant="15" id="FJl-0W-Uuh"/>
-                                    <constraint firstItem="Shj-BH-eSg" firstAttribute="top" secondItem="ULh-fJ-agO" secondAttribute="top" constant="40" id="Kr9-V7-wpK"/>
+                                    <constraint firstItem="Shj-BH-eSg" firstAttribute="top" secondItem="ULh-fJ-agO" secondAttribute="top" constant="60" id="Kr9-V7-wpK"/>
                                     <constraint firstItem="myi-5M-eR7" firstAttribute="leading" secondItem="ULh-fJ-agO" secondAttribute="leading" constant="40" id="Nxk-4N-JZ4"/>
-                                    <constraint firstAttribute="height" constant="260" id="Xaq-zR-Msb"/>
+                                    <constraint firstAttribute="height" constant="240" id="Xaq-zR-Msb"/>
                                     <constraint firstItem="Shj-BH-eSg" firstAttribute="leading" secondItem="ULh-fJ-agO" secondAttribute="leading" constant="40" id="bEp-pc-izu"/>
                                     <constraint firstAttribute="trailing" secondItem="myi-5M-eR7" secondAttribute="trailing" constant="40" id="ytF-y1-73T"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0L-8x-IZG" userLabel="bottomView">
-                                <rect key="frame" x="0.0" y="240" width="414" height="656"/>
+                                <rect key="frame" x="0.0" y="220" width="414" height="676"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmr-SW-u7O">
-                                        <rect key="frame" x="15" y="20" width="384" height="636"/>
+                                        <rect key="frame" x="15" y="20" width="384" height="656"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
                                 </subviews>
@@ -83,7 +83,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff4-bu-pCn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634.78260869565224" y="-15.401785714285714"/>
+            <point key="canvasLocation" x="583" y="-15"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="fR9-nO-EpN">
+            <objects>
+                <viewController storyboardIdentifier="movieDetailsVC" id="4YF-Mq-NKn" customClass="MovieDetailViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OoE-bD-Qht">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lza-7n-kzo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="597.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lza-7n-kzo" firstAttribute="leading" secondItem="Lbv-e3-Le8" secondAttribute="leading" id="4f8-aM-lMJ"/>
+                            <constraint firstItem="lza-7n-kzo" firstAttribute="top" secondItem="OoE-bD-Qht" secondAttribute="top" id="KDP-Gb-8hE"/>
+                            <constraint firstItem="Lbv-e3-Le8" firstAttribute="trailing" secondItem="lza-7n-kzo" secondAttribute="trailing" id="ZGE-sE-ikg"/>
+                            <constraint firstItem="lza-7n-kzo" firstAttribute="height" secondItem="OoE-bD-Qht" secondAttribute="height" multiplier="2:3" id="avW-Jg-0Zr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lbv-e3-Le8"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieCoverImageView" destination="lza-7n-kzo" id="Lhl-u8-Ycd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yy7-sf-va1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442" y="-15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fYW-Aw-leK">
