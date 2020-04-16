@@ -20,6 +20,7 @@ class MovieInfoBottomSheetViewController: UIViewController {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         backgroundView.addGestureRecognizer(gesture)
         count = 0
+        print("Bottom sheet height = \(self.view.frame.height)")
         
         
     }

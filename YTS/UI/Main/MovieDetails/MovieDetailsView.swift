@@ -10,6 +10,7 @@ import UIKit
 
 class MovieDetailsView: UIView {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var watchLaterButton: UIButton!
     @IBOutlet weak var downloadButton: UIButton!
@@ -30,6 +31,11 @@ class MovieDetailsView: UIView {
     private func setupUI(){
         UIHelper.addCornerRadius(to: watchLaterButton)
         UIHelper.addCornerRadius(to: downloadButton)
+        
+        collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.castCollectionViewCell.rawValue)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     
@@ -38,8 +44,27 @@ class MovieDetailsView: UIView {
         addSubview(mainView)
         mainView.frame = self.bounds
         mainView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-        //FIXME: Figure out a way to get the content size
-        contentViewBottomConstraint.constant = (UIScreen.main.bounds.height/3)
+      
+        print("Constraint height = \(UIScreen.main.bounds.height - self.frame.height + 20)")
+        
+        //FIXME: Hanlde iPhone 8,SE & iPads
+        contentViewBottomConstraint.constant =  self.frame.height - UIScreen.main.bounds.height/2
         setupUI()
     }
+}
+
+
+extension MovieDetailsView:UICollectionViewDataSource,UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.castCollectionViewCell.rawValue, for: indexPath) as! CastCollectionViewCell
+        cell.configure()
+        return cell
+    }
+    
+    
 }

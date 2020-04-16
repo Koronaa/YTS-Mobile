@@ -30,6 +30,7 @@ class UIConstants{
     enum Cell:String{
         case FavouritesCollectionViewCell = "favouritesCVCell"
         case HomeCollectionViewCell = "homeCVCell"
+        case castCollectionViewCell = "castCVCell"
     }
     
 }

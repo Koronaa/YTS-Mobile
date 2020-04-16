@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="castCVCell" id="HZs-SM-8KW" customClass="CastCollectionViewCell" customModule="YTS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-Cl-a6x">
+                        <rect key="frame" x="7.5" y="5" width="75" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="3ma-SJ-m0X"/>
+                            <constraint firstAttribute="width" constant="75" id="mEE-oJ-Jyv"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plus Nine Four " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AsA-AD-Y5y">
+                        <rect key="frame" x="2" y="83" width="86" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="iAP-Cl-a6x" firstAttribute="centerX" secondItem="HZs-SM-8KW" secondAttribute="centerX" id="Mxz-nI-c1n"/>
+                <constraint firstItem="iAP-Cl-a6x" firstAttribute="top" secondItem="HZs-SM-8KW" secondAttribute="top" constant="5" id="RSg-fn-JpN"/>
+                <constraint firstItem="AsA-AD-Y5y" firstAttribute="centerX" secondItem="HZs-SM-8KW" secondAttribute="centerX" id="YAT-hA-bA9"/>
+                <constraint firstAttribute="trailing" secondItem="AsA-AD-Y5y" secondAttribute="trailing" constant="2" id="mlt-te-Kd5"/>
+                <constraint firstItem="AsA-AD-Y5y" firstAttribute="top" secondItem="iAP-Cl-a6x" secondAttribute="bottom" constant="3" id="qhq-bl-zV0"/>
+                <constraint firstItem="AsA-AD-Y5y" firstAttribute="leading" secondItem="HZs-SM-8KW" secondAttribute="leading" constant="2" id="rdH-hw-MRr"/>
+            </constraints>
+            <size key="customSize" width="91" height="119"/>
+            <connections>
+                <outlet property="castImageView" destination="iAP-Cl-a6x" id="uNV-u6-CUz"/>
+                <outlet property="castNameLabel" destination="AsA-AD-Y5y" id="O2y-PT-lYf"/>
+            </connections>
+            <point key="canvasLocation" x="-341.304347826087" y="-396.42857142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>

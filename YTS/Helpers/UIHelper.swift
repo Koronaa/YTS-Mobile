@@ -64,4 +64,12 @@ class UIHelper{
         topWindow!.makeKeyAndVisible()
     }
     
+    static func circular(view:UIView){
+        view.layer.borderWidth = 0.0
+        view.layer.masksToBounds = false
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.cornerRadius = view.frame.height/2
+        view.clipsToBounds = true
+    }
+    
 }
