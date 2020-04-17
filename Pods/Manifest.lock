@@ -3,24 +3,20 @@ PODS:
   - Kingfisher (5.13.3):
     - Kingfisher/Core (= 5.13.3)
   - Kingfisher/Core (5.13.3)
-  - SimpleCheckbox (2.1.0)
 
 DEPENDENCIES:
   - Cosmos
   - Kingfisher
-  - SimpleCheckbox
 
 SPEC REPOS:
   trunk:
     - Cosmos
     - Kingfisher
-    - SimpleCheckbox
 
 SPEC CHECKSUMS:
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
-  SimpleCheckbox: ddcd433ab8c3a8f57300bebda13151a8f302c7f9
 
-PODFILE CHECKSUM: 9f0193a4beaa93ce29c714d196cce5bf64fca51d
+PODFILE CHECKSUM: 323515290a82507edc0e071cefad1f560137fbe4
 
 COCOAPODS: 1.9.1
