@@ -37,6 +37,9 @@ class MovieDetailViewController: UIViewController {
         detailsBottomSheetVC.view.frame = CGRect(x: 0, y: view.frame.maxY, width: width, height: height)
     }
     
+    @IBAction func backButtonOnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     

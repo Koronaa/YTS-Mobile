@@ -34,9 +34,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginNowButtonOnTapped(_ sender: Any) {
-        //Test
-        let homeVC = UIHelper.makeViewController(in: UIConstants.StoryBoard.Main, viewControllerName: UIConstants.StoryBoardID.HomeVC)
-        self.navigationController?.pushViewController(homeVC, animated: true)
+        let homeNC = UIHelper.makeHomeNavifationController()
+        homeNC.modalPresentationStyle = .fullScreen
+        self.present(homeNC, animated: true, completion: nil)
     }
     
     @IBAction func backButtonOnTapped(_ sender: UIButton) {

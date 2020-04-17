@@ -36,6 +36,9 @@
 		3DAB13632445EA6C005A7D9B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB13622445EA6C005A7D9B /* HomeTableViewCell.swift */; };
 		3DB34D2E24483A0600FB5205 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB34D2C24483A0600FB5205 /* CastCollectionViewCell.swift */; };
 		3DB34D2F24483A0600FB5205 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB34D2D24483A0600FB5205 /* CastCollectionViewCell.xib */; };
+		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
+		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
+		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
 		B2804D5E25CB4C3DCB9C0108 /* Pods_YTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A843879D611DF5B474C14 /* Pods_YTS.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		3DAB13622445EA6C005A7D9B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		3DB34D2C24483A0600FB5205 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		3DB34D2D24483A0600FB5205 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
+		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
+		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
+		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.release.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				3D4D2D32244873D600E42FF1 /* SearchViewController.swift */,
+				3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */,
+				3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 		3D9A54882444826B0068C825 /* YTS */ = {
 			isa = PBXGroup;
 			children = (
+				3DB5D12A2449EC9E009AF3B8 /* Model */,
 				3DAB13562445C6ED005A7D9B /* Constants */,
 				3DAB13532445C67A005A7D9B /* Extensions */,
 				3DAB13522445C652005A7D9B /* Helpers */,
@@ -229,6 +238,14 @@
 				3D9A54972444826C0068C825 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3DB5D12A2449EC9E009AF3B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3DB5D12B2449ECAC009AF3B8 /* Filter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		768F11678419537FC5F7A96E /* Pods */ = {
@@ -317,6 +334,7 @@
 				3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */,
 				3D41BC942446F6C600220B20 /* MovieDetailsView.xib in Resources */,
 				3D41BC912446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib in Resources */,
+				3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */,
 				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
 				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
 				3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */,
@@ -381,6 +400,7 @@
 				3DAB135E2445CD9A005A7D9B /* HomeCollectionViewCell.swift in Sources */,
 				3D4D2D33244873D600E42FF1 /* SearchViewController.swift in Sources */,
 				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
+				3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */,
 				3DAB134E2445A875005A7D9B /* HomeViewController.swift in Sources */,

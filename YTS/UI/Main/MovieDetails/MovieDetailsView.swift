@@ -32,7 +32,7 @@ class MovieDetailsView: UIView {
         UIHelper.addCornerRadius(to: watchLaterButton)
         UIHelper.addCornerRadius(to: downloadButton)
         
-        collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.castCollectionViewCell.rawValue)
+        collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.CastCollectionViewCell.rawValue)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -61,7 +61,7 @@ extension MovieDetailsView:UICollectionViewDataSource,UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.castCollectionViewCell.rawValue, for: indexPath) as! CastCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.CastCollectionViewCell.rawValue, for: indexPath) as! CastCollectionViewCell
         cell.configure()
         return cell
     }

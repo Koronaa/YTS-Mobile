@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
         tableView?.rowHeight = UITableView.automaticDimension
         tableView.register(FavouriteTableViewCell.self, forCellReuseIdentifier: "FavouriteTableViewCell")
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
+        searchTextField.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,6 +49,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as! FavouriteTableViewCell
+            cell.collectionViewDelegate = self
             cell.section = indexPath.section
             return cell
         case 1,2:
@@ -56,6 +59,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             return UITableViewCell()
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //TODO
         
     }
     
@@ -103,8 +111,22 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         }
         return 120.0
     }
+}
+
+extension HomeViewController:UITextFieldDelegate,HomeCollectionViewDelegate{
+    func didSelectItem() {
+        let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC)
+        self.navigationController?.pushViewController(movieDetailsVC, animated: true)
+    }
     
     
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.view.endEditing(true)
+        let searchVC = UIHelper.makeViewController(in: .Main, viewControllerName: .SearchVC)
+        searchVC.modalPresentationStyle = .fullScreen
+        self.present(searchVC, animated: true, completion: nil)
+    }
     
 }
 

@@ -19,7 +19,7 @@ class UIConstants{
         case HomeVC = "homeVC"
         case HomeNC = "homeNC"
         case MovieDetailsVC = "movieDetailsVC"
-        case TestVC = "testVC"
+        case SearchVC = "searchVC"
     }
     
     enum StoryBoard:String{
@@ -30,7 +30,8 @@ class UIConstants{
     enum Cell:String{
         case FavouritesCollectionViewCell = "favouritesCVCell"
         case HomeCollectionViewCell = "homeCVCell"
-        case castCollectionViewCell = "castCVCell"
+        case CastCollectionViewCell = "castCVCell"
+        case FilterTableViewCell = "filterTVCell"
     }
     
 }

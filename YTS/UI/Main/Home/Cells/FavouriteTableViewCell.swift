@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+protocol HomeCollectionViewDelegate {
+    func didSelectItem()
+}
+
 class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
     
     var favouritesCollectionView:UICollectionView!
     var section:Int!
+    var collectionViewDelegate:HomeCollectionViewDelegate?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,5 +63,9 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
         default:
             return UICollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionViewDelegate?.didSelectItem()
     }
 }
