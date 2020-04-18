@@ -85,8 +85,21 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 5, y: 1, width: 320, height: 20)
-        myLabel.font = UIFont(name: "Avenir-Medium", size: 18)
+        myLabel.font = UIFont(name: "Avenir-Heavy", size: 18)
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
+        
+        let seeMoreButton = UIButton()
+        seeMoreButton.setTitle("See more", for: .normal)
+        seeMoreButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 15)
+        if #available(iOS 13.0, *) {
+            seeMoreButton.titleLabel?.textColor = .label
+        } else {
+            seeMoreButton.titleLabel?.textColor = .black
+        }
+        seeMoreButton.frame = CGRect(x: self.view.frame.width - 125, y: 1, width: 120, height: 20)
+        seeMoreButton.addTarget(self, action: #selector(SeeMoreButtonTapped), for: .touchUpInside)
+        
+        
         
         let headerView = UIView()
         if #available(iOS 13.0, *) {
@@ -94,6 +107,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         } else {
             // Fallback on earlier versions
         }
+        headerView.addSubview(seeMoreButton)
         headerView.addSubview(myLabel)
         
         return headerView
@@ -111,6 +125,12 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         }
         return 120.0
     }
+    
+    
+    @objc func SeeMoreButtonTapped(){
+        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC)
+        self.navigationController?.pushViewController(movieListVC, animated: true)
+    }
 }
 
 extension HomeViewController:UITextFieldDelegate,HomeCollectionViewDelegate{
@@ -124,8 +144,7 @@ extension HomeViewController:UITextFieldDelegate,HomeCollectionViewDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.view.endEditing(true)
         let searchVC = UIHelper.makeViewController(in: .Main, viewControllerName: .SearchVC)
-        searchVC.modalPresentationStyle = .fullScreen
-        self.present(searchVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
 }

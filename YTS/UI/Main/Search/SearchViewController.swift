@@ -55,11 +55,12 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButtonOnTapped(_ sender: Any) {
-        //TODO
+        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC)
+        self.navigationController?.pushViewController(movieListVC, animated: true)
     }
     
     @IBAction func closeButtonOnTapped(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupView(){
@@ -107,7 +108,6 @@ extension SearchViewController:UITabBarDelegate{
     
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        //TODO:
         filterTapBar.selectedItem = item
         switch item {
         case qualityTapBarItem:

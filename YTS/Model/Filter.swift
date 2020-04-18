@@ -34,12 +34,14 @@ class Filter:Equatable {
     static func generateFilter(for type:FilterType) -> [Filter] {
         switch type {
         case .Quality:
-            return [Filter(name: "720p"),
+            return [Filter(name: "All",isSelected: true),
+                    Filter(name: "720p"),
                     Filter(name: "1080p"),
                     Filter(name: "2160p"),
                     Filter(name: "3D")]
         case .Rating:
-            return [Filter(name: "9+"),
+            return [Filter(name: "All",isSelected: true),
+                    Filter(name: "9+"),
                     Filter(name: "8+"),
                     Filter(name: "7+"),
                     Filter(name: "6+"),
@@ -49,7 +51,8 @@ class Filter:Equatable {
                     Filter(name: "2+"),
                     Filter(name: "1+")]
         case .Genre:
-            return [Filter(name: "Action"),
+            return [Filter(name: "All",isSelected: true),
+                    Filter(name: "Action"),
                     Filter(name: "Adventure"),
                     Filter(name: "Animation"),
                     Filter(name: "Biography"),

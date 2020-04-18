@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D16D798244B2A4400CECDDD /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D797244B2A4400CECDDD /* MovieListViewController.swift */; };
 		3D41BC8C2446DCEA00220B20 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41BC8B2446DCEA00220B20 /* MovieDetailViewController.swift */; };
 		3D41BC902446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */; };
 		3D41BC912446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		2A107ABF22DEF348420C95BD /* Pods-YTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.debug.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.debug.xcconfig"; sourceTree = "<group>"; };
 		300A843879D611DF5B474C14 /* Pods_YTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D16D797244B2A4400CECDDD /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		3D41BC8B2446DCEA00220B20 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoBottomSheetViewController.swift; sourceTree = "<group>"; };
 		3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieInfoBottomSheetViewController.xib; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D16D796244B2A2200CECDDD /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				3D16D797244B2A4400CECDDD /* MovieListViewController.swift */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
 		3D41BC8A2446DC1700220B20 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,9 +184,9 @@
 		3DAB13512445C619005A7D9B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
 				3DAB13552445C6B9005A7D9B /* Login */,
 				3DAB13542445C6B3005A7D9B /* Main */,
-				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -200,6 +210,7 @@
 		3DAB13542445C6B3005A7D9B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				3D16D796244B2A2200CECDDD /* MovieList */,
 				3D4D2D31244873BE00E42FF1 /* Search */,
 				3D41BC8D2446E58C00220B20 /* MovieDetails */,
 				3D41BC8A2446DC1700220B20 /* Home */,
@@ -388,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */,
+				3D16D798244B2A4400CECDDD /* MovieListViewController.swift in Sources */,
 				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
 				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
 				3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */,

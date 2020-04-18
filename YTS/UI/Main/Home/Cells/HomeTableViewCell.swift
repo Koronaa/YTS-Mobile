@@ -29,7 +29,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
         homeLayout.itemSize = CGSize(width: 167, height: 365)
         homeLayout.minimumLineSpacing = 15
         
-        homeCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 30.0, height: 385), collectionViewLayout: homeLayout)
+        homeCollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 385), collectionViewLayout: homeLayout)
         if #available(iOS 13.0, *) {
             homeCollectionView.backgroundColor = .systemGray6
         } else {
