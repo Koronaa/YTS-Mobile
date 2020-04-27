@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="backgroundView" destination="rO6-AX-2x6" id="4OX-nl-bXV"/>
                 <outlet property="dragView" destination="YBy-dq-Acg" id="6EC-RU-8Sc"/>
+                <outlet property="movieDetailsView" destination="LjH-k6-1Ob" id="gqc-V7-QvR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

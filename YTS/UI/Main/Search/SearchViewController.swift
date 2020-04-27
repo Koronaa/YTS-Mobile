@@ -19,10 +19,10 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var genreTapBarItem: UITabBarItem!
     @IBOutlet weak var ratingTapBarItem: UITabBarItem!
     @IBOutlet weak var orderByTapBarItem: UITabBarItem!
+    @IBOutlet weak var searchTextField: UITextField!
     
-    var currenFilter:[Filter] = []
-    var genreFilter:[Filter] = [],qualityFilter:[Filter] = [],ratingFilter:[Filter] = [],orderByFilter:[Filter] = []
     
+    var searchVM:SearchViewModel = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,7 @@ class SearchViewController: UIViewController {
     }
     
     private func setupFilters(){
-        qualityFilter = Filter.generateFilter(for: .Quality)
-        genreFilter = Filter.generateFilter(for: .Genre)
-        ratingFilter = Filter.generateFilter(for: .Rating)
-        orderByFilter = Filter.generateFilter(for: .OrderBy)
-        currenFilter = qualityFilter
+        searchVM.currenFilter = searchVM.qualityFilter
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,14 +45,23 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func clearFiltersButtonOnTapped(_ sender: Any) {
-        setupFilters()
         filterTapBar.selectedItem = qualityTapBarItem
+        searchVM.selectedFilterCategory = .Quality
+        searchVM.resetFilters()
+        setupFilters()
         tableView.reloadData()
     }
     
     @IBAction func searchButtonOnTapped(_ sender: Any) {
-        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC)
-        self.navigationController?.pushViewController(movieListVC, animated: true)
+        searchVM.search(for: searchTextField.text ?? "") { movies in
+            let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
+            movieListVC.movieListVM.movies = movies
+            movieListVC.type = .SEARCH
+            
+            movieListVC.queryString = self.searchTextField.text ?? ""
+            
+            self.navigationController?.pushViewController(movieListVC, animated: true)
+        }
     }
     
     @IBAction func closeButtonOnTapped(_ sender: UIButton) {
@@ -77,26 +82,28 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currenFilter.count
+        return searchVM.currenFilter.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let selectedFilter = currenFilter[indexPath.row]
+        let selectedFilter = searchVM.currenFilter[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: UIConstants.Cell.FilterTableViewCell.rawValue, for: indexPath) as! FiltersTableViewCell
         cell.filter = selectedFilter
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFilter = currenFilter[indexPath.row]
-        for filter in currenFilter{
+        let selectedFilter = searchVM.currenFilter[indexPath.row]
+        for filter in searchVM.currenFilter{
             if selectedFilter == filter{
                 filter.isSelected = true
             }else{
                 filter.isSelected = false
             }
         }
+        searchVM.selectedFilterValue(for: indexPath.row, in: searchVM.selectedFilterCategory)
         tableView.reloadData()
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,13 +118,17 @@ extension SearchViewController:UITabBarDelegate{
         filterTapBar.selectedItem = item
         switch item {
         case qualityTapBarItem:
-            currenFilter = qualityFilter
+            searchVM.selectedFilterCategory = .Quality
+            searchVM.currenFilter = searchVM.qualityFilter
         case genreTapBarItem:
-            currenFilter = genreFilter
+            searchVM.selectedFilterCategory = .Genre
+            searchVM.currenFilter = searchVM.genreFilter
         case ratingTapBarItem:
-            currenFilter = ratingFilter
+            searchVM.selectedFilterCategory = .Rating
+            searchVM.currenFilter = searchVM.ratingFilter
         case orderByTapBarItem:
-            currenFilter = orderByFilter
+            searchVM.selectedFilterCategory = .OrderBy
+            searchVM.currenFilter = searchVM.orderByFilter
         default:()
         }
         self.tableView.reloadData()

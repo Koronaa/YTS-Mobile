@@ -12,10 +12,14 @@ class MovieInfoBottomSheetViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var dragView: UIView!
-   
+    @IBOutlet weak var movieDetailsView: MovieDetailsView!
+    
     var count:Int!
+    var movieDetailsVM:MovieDetailsViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         backgroundView.addGestureRecognizer(gesture)
@@ -34,7 +38,12 @@ class MovieInfoBottomSheetViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        movieDetailsView.setupData()
+    }
+    
     private func setupUI(){
+        movieDetailsView.movieDetailsVM = self.movieDetailsVM
         UIHelper.roundCorners(view: backgroundView, corners: [.topLeft,.topRight], radius: 25)
         UIHelper.addCornerRadius(to: dragView,withRadius: 2.5)
     }

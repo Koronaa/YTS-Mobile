@@ -9,12 +9,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsView" customModule="YTS" customModuleProvider="target">
             <connections>
+                <outlet property="availableInLabel" destination="EUM-v6-Pbe" id="W11-ll-Jbi"/>
                 <outlet property="collectionView" destination="efu-D6-sS9" id="bM9-WC-g57"/>
                 <outlet property="contentViewBottomConstraint" destination="Vpt-oy-WIV" id="scJ-j0-6ag"/>
                 <outlet property="downloadButton" destination="Wox-3d-f0V" id="ZRL-hz-0le"/>
+                <outlet property="genreLabel" destination="ZLT-eD-Eft" id="ae6-sW-UxL"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="u1Y-DA-nvf"/>
+                <outlet property="ratingView" destination="gal-ib-9vC" id="BdR-dQ-6gH"/>
                 <outlet property="scrollView" destination="rLA-dF-VeR" id="PGg-lA-JB9"/>
+                <outlet property="shortDescriptionLabel" destination="XIM-4t-2Cm" id="b4L-y0-h6a"/>
+                <outlet property="synopsisLabel" destination="H8x-tm-XpX" id="y50-zr-k3A"/>
+                <outlet property="titleLabel" destination="JPE-2q-s9i" id="2hR-Qn-7Kw"/>
                 <outlet property="watchLaterButton" destination="ILp-5i-G97" id="g6i-Ik-fkW"/>
+                <outlet property="yearLabel" destination="v9k-7n-3Tb" id="hdh-ao-FBj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -99,6 +106,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                             </state>
+                                            <connections>
+                                                <action selector="trailerButtonOnTapped:" destination="-1" eventType="touchUpInside" id="dJF-YR-zg9"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wox-3d-f0V">
                                             <rect key="frame" x="138" y="0.0" width="138" height="30.333333333333332"/>
@@ -108,6 +118,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                             </state>
+                                            <connections>
+                                                <action selector="downloadButtonOnTapped:" destination="-1" eventType="touchUpInside" id="3y6-w0-sGX"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Go4-fe-d5x">
                                             <rect key="frame" x="276" y="1.3333333333333428" width="138" height="27.666666666666668"/>
@@ -117,6 +130,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                             </state>
+                                            <connections>
+                                                <action selector="shareButtonOnTapped:" destination="-1" eventType="touchUpInside" id="pbe-aR-Scd"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

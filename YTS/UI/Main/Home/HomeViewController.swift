@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -30,12 +31,20 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI(){
+        tableView.isSkeletonable = true
         UIHelper.hide(navigationController: self.navigationController)
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
+        animateSkeletonView()
+        
+    }
+    
+    private func animateSkeletonView(){
+        tableView.updateAnimatedGradientSkeleton()
+        view.showAnimatedSkeleton()
     }
 }
 
-extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
+extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -43,6 +52,17 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        switch indexPath.section {
+        case 0:
+            return "FavouriteTableViewCell"
+        case 1,2:
+            return "HomeTableViewCell"
+        default:
+            return ""
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,6 +75,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         case 1,2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
             cell.section = indexPath.section
+            cell.collectionViewDelegate = self
             return cell
         default:
             return UITableViewCell()
@@ -63,7 +84,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //TODO
+        //TODO
         
     }
     
@@ -72,11 +93,11 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Favourites ♥️"
+            return "Latest Movies"
         case 1:
-            return "Popular 🎥"
+            return "Pupular Downloads"
         case 2:
-            return "Upcoming"
+            return "Most Rated Movies"
         default:
             return ""
         }
@@ -86,20 +107,20 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         let myLabel = UILabel()
         myLabel.frame = CGRect(x: 5, y: 1, width: 320, height: 20)
         myLabel.font = UIFont(name: "Avenir-Heavy", size: 18)
+        myLabel.isSkeletonable = true
         myLabel.text = self.tableView(tableView, titleForHeaderInSection: section)
         
         let seeMoreButton = UIButton()
         seeMoreButton.setTitle("See more", for: .normal)
         seeMoreButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 15)
+        seeMoreButton.titleColor(for: .normal)
         if #available(iOS 13.0, *) {
-            seeMoreButton.titleLabel?.textColor = .label
+            seeMoreButton.titleLabel?.textColor = UIColor.label
         } else {
             seeMoreButton.titleLabel?.textColor = .black
         }
         seeMoreButton.frame = CGRect(x: self.view.frame.width - 125, y: 1, width: 120, height: 20)
         seeMoreButton.addTarget(self, action: #selector(SeeMoreButtonTapped), for: .touchUpInside)
-        
-        
         
         let headerView = UIView()
         if #available(iOS 13.0, *) {
@@ -107,6 +128,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         } else {
             // Fallback on earlier versions
         }
+        
         headerView.addSubview(seeMoreButton)
         headerView.addSubview(myLabel)
         
@@ -134,12 +156,13 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 }
 
 extension HomeViewController:UITextFieldDelegate,HomeCollectionViewDelegate{
-    func didSelectItem() {
-        let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC)
+    
+    func didSelectItem(for movie: Movie) {
+        let movieDetailsVM = MovieDetailsViewModel(movie: movie)
+        let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC) as! MovieDetailViewController
+        movieDetailsVC.movieDetailsVM = movieDetailsVM
         self.navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
-    
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.view.endEditing(true)

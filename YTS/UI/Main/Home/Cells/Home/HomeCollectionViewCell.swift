@@ -21,9 +21,15 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     
-    func configure(){
-        setupUI()
-        moviePosterImageView.kf.setImage(with: URL(string: "https://yts.mx/assets/images/movies/ultimate_avengers_2006/large-cover.jpg"))
+    var homeCVCellVM:HomeCellViewModel!{
+        didSet{
+            setupUI()
+            moviePosterImageView.kf.setImage(with: homeCVCellVM.imageURL)
+            movietitleLabel.text = homeCVCellVM.title
+            releasedYearLabel.text = homeCVCellVM.year
+            durationLabel.text = homeCVCellVM.duration
+            ratingLabel.text = homeCVCellVM.rating
+        }
     }
     
     private func setupUI(){

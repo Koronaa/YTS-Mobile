@@ -13,6 +13,8 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
     
     var homeCollectionView:UICollectionView!
     var section:Int!
+    var collectionViewDelegate:HomeCollectionViewDelegate?
+    var homeVM:HomeViewModel = HomeViewModel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,8 +24,11 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     private func setupHomeCollectionView(){
+        homeVM.loadHomeMovies { _ in
+            self.homeCollectionView.reloadData()
+        }
         let homeLayout = UICollectionViewFlowLayout()
         homeLayout.scrollDirection = .horizontal
         homeLayout.itemSize = CGSize(width: 167, height: 365)
@@ -44,18 +49,40 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        switch self.section {
+        case 1:
+            return homeVM.popularMovies.count
+        case 2:
+            return homeVM.topRatedMovies.count
+        default:()
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var movie:Movie!
         switch self.section {
-        case 1,2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue, for: indexPath) as! HomeCollectionViewCell
-            cell.configure()
-            return cell
-        default:
-            return UICollectionViewCell()
+        case 1:
+            movie = homeVM.popularMovies[indexPath.row]
+        case 2:
+            movie = homeVM.topRatedMovies[indexPath.row]
+        default:()
         }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue, for: indexPath) as! HomeCollectionViewCell
+        cell.homeCVCellVM = HomeCellViewModel(movie: movie)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var movie:Movie!
+        switch self.section {
+        case 1:
+            movie = homeVM.popularMovies[indexPath.row]
+        case 2:
+            movie = homeVM.topRatedMovies[indexPath.row]
+        default:()
+        }
+        collectionViewDelegate?.didSelectItem(for: movie)
     }
     
     

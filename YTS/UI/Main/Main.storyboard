@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XOf-cU-eqS">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -268,6 +268,7 @@
                         <outlet property="qualityTapBarItem" destination="DyV-J3-aGX" id="CiL-2J-dNm"/>
                         <outlet property="ratingTapBarItem" destination="0hs-fc-7zh" id="rXR-x6-afv"/>
                         <outlet property="searchButton" destination="xfg-SX-uBe" id="vym-uL-K9J"/>
+                        <outlet property="searchTextField" destination="TRv-XQ-skT" id="crj-KA-acA"/>
                         <outlet property="tableView" destination="YbV-aL-2I4" id="3JM-FO-5fb"/>
                     </connections>
                 </viewController>

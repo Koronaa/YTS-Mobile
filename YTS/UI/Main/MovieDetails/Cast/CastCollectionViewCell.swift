@@ -15,13 +15,13 @@ class CastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var castNameLabel: UILabel!
     
     
-    func configure(){
-        setupCell()
-        castNameLabel.text = "Jennifer Morrison"
-        
-        castImageView.kf.setImage(with: URL(string: "https://yts.mx/assets/images/actors/thumb/nm0607185.jpg"))
+    var castCellViewModel:CastCellViewModel!{
+        didSet{
+            setupCell()
+            castImageView.kf.setImage(with:castCellViewModel.imageURL)
+            castNameLabel.text = castCellViewModel.name
+        }
     }
-    
     
     private func setupCell(){
         UIHelper.circular(view: castImageView)

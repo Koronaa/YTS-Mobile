@@ -15,9 +15,15 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
-    func configure(){
+    var favouriteCellViewModel:FavouriteCellViewModel!{
+        didSet{
+            configure(for: self.favouriteCellViewModel.movieImageURL)
+        }
+    }
+    
+    func configure(for url:URL){
         setupCell()
-        moviePosterImageView.kf.setImage(with: URL(string: "https://yts.mx/assets/images/movies/batman_hush_2019/large-cover.jpg"))
+        moviePosterImageView.kf.setImage(with: url)
     }
     
     private func setupCell(){

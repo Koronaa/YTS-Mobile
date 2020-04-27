@@ -28,5 +28,4 @@ class FiltersTableViewCell: UITableViewCell {
     private func setupCell(){
         UIHelper.addCornerRadius(to: holderView)
     }
-    
 }

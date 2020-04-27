@@ -14,13 +14,13 @@ class MovieDetailViewController: UIViewController {
     
     @IBOutlet weak var movieCoverImageView: UIImageView!
     
+    var movieDetailsVM:MovieDetailsViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieCoverImageView.kf.setImage(with: URL(string: "https://yts.mx/assets/images/movies/batman_hush_2019/large-cover.jpg"))
+        movieCoverImageView.kf.setImage(with: movieDetailsVM.movie.imageURL)
         setupUI()
     }
-    
-
     
     func setupUI(){
         addBottomSheetView()
@@ -31,6 +31,7 @@ class MovieDetailViewController: UIViewController {
         self.addChild(detailsBottomSheetVC)
         self.view.addSubview(detailsBottomSheetVC.view)
         detailsBottomSheetVC.didMove(toParent: self)
+        detailsBottomSheetVC.movieDetailsVM = self.movieDetailsVM
         
         let height = view.frame.height
         let width  = view.frame.width

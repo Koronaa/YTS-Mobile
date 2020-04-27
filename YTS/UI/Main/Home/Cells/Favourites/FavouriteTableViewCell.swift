@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 
 protocol HomeCollectionViewDelegate {
-    func didSelectItem()
+    func didSelectItem(for movie:Movie)
 }
 
 class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
+    
+    let homeVM:HomeViewModel = HomeViewModel()
     
     var favouritesCollectionView:UICollectionView!
     var section:Int!
@@ -22,13 +24,22 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupFavouritesCollectionView()
+//         homeVM.loadHomeMovies()
+        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+
     }
     
     private func setupFavouritesCollectionView(){
+        
+        homeVM.loadLatestMovies { _ in
+            self.favouritesCollectionView.reloadData()
+        }
+        
+        
         let favouriteLayout = UICollectionViewFlowLayout()
         favouriteLayout.scrollDirection = .horizontal
         favouriteLayout.itemSize = CGSize(width: 200, height: 300)
@@ -51,14 +62,16 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return homeVM.latestMoves.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch self.section {
         case 0:
+            let movie = homeVM.latestMoves[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue, for: indexPath) as! FavouritesCollectionViewCell
-            cell.configure()
+            cell.favouriteCellViewModel = FavouriteCellViewModel(movie: movie)
+
             return cell
         default:
             return UICollectionViewCell()
@@ -66,6 +79,6 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionViewDelegate?.didSelectItem()
+        collectionViewDelegate?.didSelectItem(for: homeVM.latestMoves[indexPath.row])
     }
 }
