@@ -41,15 +41,15 @@ class Filter:Equatable {
                     Filter(name: "3D")]
         case .Rating:
             return [Filter(name: "All",isSelected: true),
-                    Filter(name: "9"),
-                    Filter(name: "8"),
-                    Filter(name: "7"),
-                    Filter(name: "6"),
-                    Filter(name: "5"),
-                    Filter(name: "4"),
-                    Filter(name: "3"),
-                    Filter(name: "2"),
-                    Filter(name: "1")]
+                    Filter(name: "9+"),
+                    Filter(name: "8+"),
+                    Filter(name: "7+"),
+                    Filter(name: "6+"),
+                    Filter(name: "5+"),
+                    Filter(name: "4+"),
+                    Filter(name: "3+"),
+                    Filter(name: "2+"),
+                    Filter(name: "1+")]
         case .Genre:
             return [Filter(name: "All",isSelected: true),
                     Filter(name: "Action"),

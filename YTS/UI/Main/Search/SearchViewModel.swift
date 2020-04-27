@@ -34,7 +34,9 @@ class SearchViewModel{
         case .Quality:
             selectedQuality = row == 0 ? "" : qualityFilter[row].name
         case .Rating:
-            selectedRating = row == 0 ? "" : ratingFilter[row].name
+            var selectedRatingValue:String = row == 0 ? "" : ratingFilter[row].name
+            selectedRating = selectedRatingValue.removeFirst().description
+            print(selectedRating)
         }
     }
     
