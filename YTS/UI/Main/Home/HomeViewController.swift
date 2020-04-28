@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    let homeVM = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -83,21 +85,14 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO
-        
-    }
-    
-    
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Latest Movies"
+            return "Latest Uploads"
         case 1:
             return "Pupular Downloads"
         case 2:
-            return "Most Rated Movies"
+            return "Top Rated Movies"
         default:
             return ""
         }
@@ -112,6 +107,7 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
         
         let seeMoreButton = UIButton()
         seeMoreButton.setTitle("See more", for: .normal)
+        seeMoreButton.tag = section
         seeMoreButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 15)
         seeMoreButton.titleColor(for: .normal)
         if #available(iOS 13.0, *) {
@@ -120,7 +116,7 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
             seeMoreButton.titleLabel?.textColor = .black
         }
         seeMoreButton.frame = CGRect(x: self.view.frame.width - 125, y: 1, width: 120, height: 20)
-        seeMoreButton.addTarget(self, action: #selector(SeeMoreButtonTapped), for: .touchUpInside)
+        seeMoreButton.addTarget(self, action: #selector(seeMoreButtonTapped), for: .touchUpInside)
         
         let headerView = UIView()
         if #available(iOS 13.0, *) {
@@ -149,9 +145,31 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
     }
     
     
-    @objc func SeeMoreButtonTapped(){
-        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC)
-        self.navigationController?.pushViewController(movieListVC, animated: true)
+    @objc func seeMoreButtonTapped(sender:UIButton){
+        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
+        switch sender.tag {
+        case 0:
+            movieListVC.type = .LATEST
+            homeVM.loadLatestMovies(limit: 50) { movies in
+                movieListVC.movieListVM.movies = movies
+                self.navigationController?.pushViewController(movieListVC, animated: true)
+            }
+        case 1:
+            movieListVC.type = .POPULAR
+            homeVM.loadPopularMovies(limit: 50) { movies in
+                movieListVC.movieListVM.movies = movies
+                self.navigationController?.pushViewController(movieListVC, animated: true)
+            }
+        case 2:
+            movieListVC.type = .RATED
+            homeVM.loadMostRatedMovies(limit: 50) { movies in
+                movieListVC.movieListVM.movies = movies
+                self.navigationController?.pushViewController(movieListVC, animated: true)
+            }
+        default:()
+            
+        }
+        
     }
 }
 

@@ -40,21 +40,25 @@ class MovieListViewController: UIViewController {
     }
     
     private func setupUI(for type:MovieListType){
-        
         switch type {
         case .SEARCH:
             titleLabel.text = "Search Results"
             if queryString != ""{
                 subTItleLabel.text = "Showing results for '\(queryString!)'"
-                
             }else{
                 subTItleLabel.isHidden = true
                 //TODO
             }
-        default:()
-            
+        case .LATEST:
+            titleLabel.text = "Latest Movies"
+            subTItleLabel.text = "Showing the latest uploads on YTS"
+        case .POPULAR:
+            titleLabel.text = "Popular Movies"
+            subTItleLabel.text = "Showing most popular movies on YTS"
+        case .RATED:
+            titleLabel.text = "Top Rated Movies"
+            subTItleLabel.text = "Showing the highest IMDB rated movies"
         }
-        
         
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
     }

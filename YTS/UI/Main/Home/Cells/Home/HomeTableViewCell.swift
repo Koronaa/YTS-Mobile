@@ -26,7 +26,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
     }
     
     private func setupHomeCollectionView(){
-        homeVM.loadHomeMovies { _ in
+        homeVM.loadHomeMovies { 
             self.homeCollectionView.reloadData()
         }
         let homeLayout = UICollectionViewFlowLayout()

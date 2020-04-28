@@ -16,7 +16,7 @@ struct URLConstants {
         struct Path {
             
             static var getPopularMovies:String{
-                return HOST + "/list_movies.json?sort_by=download_count&limit=10"
+                return HOST + "/list_movies.json?sort_by=download_count&limit=%@"
             }
             
             static var getMovieDetails:String{
@@ -24,11 +24,11 @@ struct URLConstants {
             }
             
             static var getMostRatedMovies:String{
-                return HOST + "/list_movies.json?sort_by=rating&limit=10"
+                return HOST + "/list_movies.json?sort_by=rating&limit=%@"
             }
             
             static var getLatestMovies:String{
-                return HOST + "/list_movies.json?sort_by=year&limit=10"
+                return HOST + "/list_movies.json?sort_by=year&limit=%@"
             }
             
             static var searchMovies:String{

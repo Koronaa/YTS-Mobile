@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XOf-cU-eqS">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -13,17 +13,17 @@
             <objects>
                 <viewController storyboardIdentifier="homeVC" id="YS8-8H-Lxr" customClass="HomeViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qaQ-pL-yXR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What do you want to watch today ?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shj-BH-eSg">
-                                <rect key="frame" x="40" y="53.999999999999993" width="334" height="68.333333333333314"/>
+                                <rect key="frame" x="40" y="10" width="295" height="68.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="25"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="myi-5M-eR7">
-                                <rect key="frame" x="40" y="142.33333333333334" width="334" height="55"/>
+                                <rect key="frame" x="40" y="98.5" width="295" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="i8Z-t7-ytc"/>
                                 </constraints>
@@ -31,10 +31,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0L-8x-IZG" userLabel="bottomView">
-                                <rect key="frame" x="0.0" y="217.33333333333331" width="414" height="678.66666666666674"/>
+                                <rect key="frame" x="0.0" y="173.5" width="375" height="493.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmr-SW-u7O">
-                                        <rect key="frame" x="15" y="20" width="399" height="658.66666666666663"/>
+                                        <rect key="frame" x="15" y="20" width="360" height="473.5"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
                                 </subviews>
@@ -80,11 +80,11 @@
             <objects>
                 <viewController storyboardIdentifier="movieDetailsVC" id="4YF-Mq-NKn" customClass="MovieDetailViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OoE-bD-Qht">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lza-7n-kzo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="597.33333333333337"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="444.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-io-VMG">
                                 <rect key="frame" x="20" y="40" width="30" height="30"/>
@@ -122,17 +122,17 @@
             <objects>
                 <viewController storyboardIdentifier="searchVC" id="rgE-2v-MvV" customClass="SearchViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgv-xP-QJ0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse Movies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Hs-gR-UWS">
-                                <rect key="frame" x="40" y="79" width="240" height="48"/>
+                                <rect key="frame" x="40" y="35" width="240" height="48"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abw-ZF-tof">
-                                <rect key="frame" x="20" y="44" width="30" height="30"/>
+                                <rect key="frame" x="20" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GCc-I2-EmS"/>
                                     <constraint firstAttribute="width" constant="30" id="Jfc-uP-WAZ"/>
@@ -143,7 +143,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TRv-XQ-skT">
-                                <rect key="frame" x="40" y="137" width="334" height="55"/>
+                                <rect key="frame" x="40" y="93" width="295" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="ahJ-Jz-NAE"/>
                                 </constraints>
@@ -151,10 +151,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mw-XI-RtS" userLabel="ButtonHolderView">
-                                <rect key="frame" x="40" y="212" width="334" height="40"/>
+                                <rect key="frame" x="40" y="168" width="295" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfg-SX-uBe">
-                                        <rect key="frame" x="172" y="0.0" width="162" height="40"/>
+                                        <rect key="frame" x="152.5" y="0.0" width="142.5" height="40"/>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="Search Now">
@@ -165,14 +165,14 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGO-ja-1Kc">
-                                        <rect key="frame" x="162" y="0.0" width="10" height="40"/>
+                                        <rect key="frame" x="142.5" y="0.0" width="10" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="OjT-BP-98p"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylr-XV-Ja8">
-                                        <rect key="frame" x="0.0" y="0.0" width="162" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="142.5" height="40"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                         <state key="normal" title="Clear Filters">
                                             <color key="titleColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,16 +200,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh0-iy-Ss0" userLabel="FilerView">
-                                <rect key="frame" x="0.0" y="272" width="414" height="624"/>
+                                <rect key="frame" x="0.0" y="228" width="375" height="439"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkF-uq-67G">
-                                        <rect key="frame" x="20" y="5" width="374" height="24"/>
+                                        <rect key="frame" x="20" y="5" width="335" height="24"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8kF-oF-C7L">
-                                        <rect key="frame" x="10" y="34" width="394" height="49"/>
+                                        <rect key="frame" x="10" y="34" width="355" height="49"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <items>
                                             <tabBarItem title="Quality" image="movieQuality" id="DyV-J3-aGX"/>
@@ -220,7 +220,7 @@
                                         <color key="tintColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     </tabBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YbV-aL-2I4">
-                                        <rect key="frame" x="0.0" y="83" width="414" height="541"/>
+                                        <rect key="frame" x="0.0" y="83" width="375" height="356"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableView>
                                 </subviews>
@@ -281,11 +281,11 @@
             <objects>
                 <viewController storyboardIdentifier="movieListVC" id="iiU-Ix-IAy" customClass="MovieListViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e2g-G3-kMt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHk-U0-Wa6">
-                                <rect key="frame" x="20" y="44" width="30" height="30"/>
+                                <rect key="frame" x="20" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gNf-ir-0Rp"/>
                                     <constraint firstAttribute="width" constant="30" id="xtQ-y4-A48"/>
@@ -297,22 +297,22 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Results" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBZ-jw-OYM">
-                                <rect key="frame" x="40.000000000000014" y="84" width="228.33333333333337" height="48"/>
+                                <rect key="frame" x="40" y="40" width="228.5" height="48"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="35"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing results for 'Tom Hanks'" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LV-V9-YiG">
-                                <rect key="frame" x="40" y="132" width="334" height="24.666666666666657"/>
+                                <rect key="frame" x="40" y="88" width="295" height="25"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-Jd-0WR">
-                                <rect key="frame" x="0.0" y="232.33333333333331" width="414" height="663.66666666666674"/>
+                                <rect key="frame" x="0.0" y="173" width="375" height="494"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="stT-2H-FUB">
-                                        <rect key="frame" x="20" y="20" width="374" height="643.66666666666663"/>
+                                        <rect key="frame" x="20" y="20" width="335" height="474"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="uqd-Yc-QJh">
                                             <size key="itemSize" width="167" height="365"/>
@@ -381,8 +381,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="close" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="back" width="48" height="48"/>
+        <image name="close" width="48" height="48"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="movieGenre" width="30" height="30"/>
         <image name="movieQuality" width="30" height="30"/>

@@ -165,9 +165,9 @@
                   urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/UI/Main/Search/SearchViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "164">
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "55">
                </Location>
                <Location
                   uuid = "48AD078C-AED5-447E-AA0C-91B6982B4809 - e6c242cde5c2393f"
@@ -180,9 +180,9 @@
                   urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/UI/Main/Search/SearchViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "112">
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "41">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -197,8 +197,8 @@
             filePath = "YTS/Model/ModelLayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "searchMovies(for:quality:genre:rating:orderBy:onCompleted:)"
             landmarkType = "7">
             <Locations>
@@ -213,9 +213,9 @@
                   urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/Model/ModelLayer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "932">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1355">
                </Location>
                <Location
                   uuid = "2AB7F144-6EB6-4FB6-B2CD-97B76C87623F - a554f536ad63934"
@@ -228,9 +228,9 @@
                   urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/Model/ModelLayer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "152">
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "53">
                </Location>
             </Locations>
          </BreakpointContent>

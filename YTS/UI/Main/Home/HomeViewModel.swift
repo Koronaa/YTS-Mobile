@@ -21,20 +21,34 @@ class HomeViewModel{
 //    }
     
     
-    func loadLatestMovies(onCompleted:@escaping(_ movies:[Movie])->Void){
-        modelLayer.getLatestMovies { latestMovies in
+    func loadLatestMovies(limit:Int = 10,onCompleted:@escaping(_ movies:[Movie])->Void){
+        modelLayer.getLatestMovies(limit: limit) { latestMovies in
             self.latestMoves = latestMovies
             onCompleted(latestMovies)
         }
     }
     
-    func loadHomeMovies(onCompleted:@escaping(_ movies:[Movie])->Void){
-        modelLayer.getPopularMovies { popularMovies in
+    func loadHomeMovies(onCompleted:@escaping()->Void){
+        loadPopularMovies { popularMovies in
             self.popularMovies = popularMovies
-            self.modelLayer.getMostRatedMovies { mostRatedMovies in
+            self.loadMostRatedMovies { mostRatedMovies in
                 self.topRatedMovies = mostRatedMovies
-                onCompleted(mostRatedMovies)
+                onCompleted()
             }
+        }
+    }
+    
+    
+    func loadMostRatedMovies(limit:Int = 10,onCompleted:@escaping (_ movies:[Movie])->Void){
+        modelLayer.getMostRatedMovies(limit: limit) { movies in
+            onCompleted(movies)
+        }
+    }
+    
+    
+    func loadPopularMovies(limit:Int = 10,onCompleted:@escaping (_ movies:[Movie])->Void){
+        modelLayer.getPopularMovies(limit: limit) { movies in
+            onCompleted(movies)
         }
     }
 }
