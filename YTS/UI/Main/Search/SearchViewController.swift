@@ -53,15 +53,12 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButtonOnTapped(_ sender: Any) {
-        searchVM.search(for: searchTextField.text ?? "") { movies in
-            let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
-            movieListVC.movieListVM.movies = movies
-            movieListVC.type = .SEARCH
-            
-            movieListVC.queryString = self.searchTextField.text ?? ""
-            
-            self.navigationController?.pushViewController(movieListVC, animated: true)
-        }
+        searchVM.queryString = searchTextField.text ?? ""
+        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
+        movieListVC.movieSearchVM = self.searchVM
+        movieListVC.type = .SEARCH
+        self.navigationController?.pushViewController(movieListVC, animated: true)
+        
     }
     
     @IBAction func closeButtonOnTapped(_ sender: UIButton) {

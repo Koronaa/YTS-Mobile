@@ -11,7 +11,6 @@
             <connections>
                 <outlet property="availableInLabel" destination="EUM-v6-Pbe" id="W11-ll-Jbi"/>
                 <outlet property="collectionView" destination="efu-D6-sS9" id="bM9-WC-g57"/>
-                <outlet property="contentViewBottomConstraint" destination="Vpt-oy-WIV" id="scJ-j0-6ag"/>
                 <outlet property="downloadButton" destination="Wox-3d-f0V" id="ZRL-hz-0le"/>
                 <outlet property="genreLabel" destination="ZLT-eD-Eft" id="ae6-sW-UxL"/>
                 <outlet property="mainView" destination="iN0-l3-epB" id="u1Y-DA-nvf"/>
@@ -185,39 +184,40 @@
                                 </collectionView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="v9k-7n-3Tb" secondAttribute="trailing" id="00W-Xc-25g"/>
                                 <constraint firstItem="EUM-v6-Pbe" firstAttribute="top" secondItem="uUt-kp-wF3" secondAttribute="bottom" constant="10" id="0XC-gD-4OD"/>
-                                <constraint firstAttribute="trailing" secondItem="BT2-1o-k2y" secondAttribute="trailing" id="3id-TQ-WWe"/>
-                                <constraint firstAttribute="trailing" secondItem="fIa-5s-Rsz" secondAttribute="trailing" id="3zq-os-AKU"/>
-                                <constraint firstAttribute="trailing" secondItem="EUM-v6-Pbe" secondAttribute="trailing" id="7jw-Fz-WTo"/>
-                                <constraint firstItem="EUM-v6-Pbe" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="8Ci-DA-PDS"/>
+                                <constraint firstAttribute="trailing" secondItem="XIM-4t-2Cm" secondAttribute="trailing" id="2X4-bO-h4j"/>
+                                <constraint firstAttribute="trailing" secondItem="v9k-7n-3Tb" secondAttribute="trailing" id="5ce-NK-ntr"/>
+                                <constraint firstAttribute="trailing" secondItem="uUt-kp-wF3" secondAttribute="trailing" id="5oU-j0-soF"/>
+                                <constraint firstItem="pkA-As-JXE" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="9Pc-gt-Cek"/>
+                                <constraint firstAttribute="trailing" secondItem="BT2-1o-k2y" secondAttribute="trailing" id="ADf-5Y-rYG"/>
                                 <constraint firstItem="efu-D6-sS9" firstAttribute="top" secondItem="BT2-1o-k2y" secondAttribute="bottom" constant="10" id="BfM-pY-RUE"/>
-                                <constraint firstItem="efu-D6-sS9" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="CWF-eg-8nv"/>
-                                <constraint firstItem="v9k-7n-3Tb" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="EJR-MT-q1L"/>
-                                <constraint firstAttribute="trailing" secondItem="efu-D6-sS9" secondAttribute="trailing" id="HBD-IC-eyL"/>
-                                <constraint firstItem="ZLT-eD-Eft" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="L98-YK-NSF"/>
-                                <constraint firstItem="XIM-4t-2Cm" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="LGR-sM-KQm"/>
-                                <constraint firstAttribute="trailing" secondItem="H8x-tm-XpX" secondAttribute="trailing" id="MLo-wB-4AQ"/>
-                                <constraint firstAttribute="trailing" secondItem="ZLT-eD-Eft" secondAttribute="trailing" id="NhE-pj-Snc"/>
-                                <constraint firstAttribute="trailing" secondItem="gal-ib-9vC" secondAttribute="trailing" id="SJ1-fx-xYr"/>
-                                <constraint firstAttribute="trailing" secondItem="XIM-4t-2Cm" secondAttribute="trailing" id="SgE-Sv-Fks"/>
-                                <constraint firstItem="BT2-1o-k2y" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="VaX-wP-PlJ"/>
+                                <constraint firstItem="fIa-5s-Rsz" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="ETG-eV-Mjb"/>
+                                <constraint firstItem="ZLT-eD-Eft" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="F9G-ZI-Za7"/>
+                                <constraint firstItem="JPE-2q-s9i" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="Jh2-Gi-LDy"/>
+                                <constraint firstItem="XIM-4t-2Cm" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="LYg-A6-UM3"/>
+                                <constraint firstItem="gal-ib-9vC" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="PhY-dw-0rZ"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="efu-D6-sS9" secondAttribute="bottom" constant="200" id="Q3b-zs-6FG"/>
+                                <constraint firstAttribute="trailing" secondItem="EUM-v6-Pbe" secondAttribute="trailing" id="QRY-bK-EqZ"/>
+                                <constraint firstItem="EUM-v6-Pbe" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="RtI-Tj-u4K"/>
+                                <constraint firstAttribute="trailing" secondItem="fIa-5s-Rsz" secondAttribute="trailing" id="Tcd-6c-aBt"/>
+                                <constraint firstItem="efu-D6-sS9" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="Tf0-V7-OJ7"/>
                                 <constraint firstItem="BT2-1o-k2y" firstAttribute="top" secondItem="H8x-tm-XpX" secondAttribute="bottom" constant="10" id="X31-tp-gPa"/>
-                                <constraint firstItem="gal-ib-9vC" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="Xak-JM-4SG"/>
-                                <constraint firstAttribute="trailing" secondItem="uUt-kp-wF3" secondAttribute="trailing" id="aGP-Lt-qAh"/>
-                                <constraint firstItem="pkA-As-JXE" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="bhY-v4-ag6"/>
-                                <constraint firstAttribute="trailing" secondItem="JPE-2q-s9i" secondAttribute="trailing" id="dU1-sm-h8V"/>
-                                <constraint firstAttribute="trailing" secondItem="pkA-As-JXE" secondAttribute="trailing" id="gU0-NC-NK5"/>
+                                <constraint firstAttribute="trailing" secondItem="ZLT-eD-Eft" secondAttribute="trailing" id="YTw-fA-lMf"/>
+                                <constraint firstItem="uUt-kp-wF3" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="Zwj-fc-HuA"/>
+                                <constraint firstItem="JPE-2q-s9i" firstAttribute="top" secondItem="VPS-bG-bTt" secondAttribute="top" constant="10" id="btP-e2-Lba"/>
+                                <constraint firstAttribute="trailing" secondItem="efu-D6-sS9" secondAttribute="trailing" id="dtx-D6-6Jv"/>
+                                <constraint firstItem="H8x-tm-XpX" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="fJf-Ap-Ntz"/>
+                                <constraint firstAttribute="trailing" secondItem="JPE-2q-s9i" secondAttribute="trailing" id="fih-ma-KTJ"/>
+                                <constraint firstItem="BT2-1o-k2y" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="hGA-kO-qLU"/>
                                 <constraint firstItem="fIa-5s-Rsz" firstAttribute="top" secondItem="EUM-v6-Pbe" secondAttribute="bottom" constant="10" id="hHJ-2N-Lqq"/>
-                                <constraint firstItem="fIa-5s-Rsz" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="ip4-gl-muH"/>
-                                <constraint firstItem="JPE-2q-s9i" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="lAh-jg-S41"/>
+                                <constraint firstAttribute="trailing" secondItem="H8x-tm-XpX" secondAttribute="trailing" id="oRO-ZE-KiP"/>
+                                <constraint firstItem="v9k-7n-3Tb" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="oVe-qU-H6B"/>
                                 <constraint firstItem="uUt-kp-wF3" firstAttribute="top" secondItem="pkA-As-JXE" secondAttribute="bottom" constant="20" id="osX-3w-8So"/>
                                 <constraint firstItem="XIM-4t-2Cm" firstAttribute="top" secondItem="gal-ib-9vC" secondAttribute="bottom" id="pZX-Wu-yak"/>
                                 <constraint firstItem="gal-ib-9vC" firstAttribute="top" secondItem="ZLT-eD-Eft" secondAttribute="bottom" id="sTQ-zv-ihb"/>
-                                <constraint firstItem="JPE-2q-s9i" firstAttribute="top" secondItem="VPS-bG-bTt" secondAttribute="top" constant="10" id="tQo-A1-hKF"/>
-                                <constraint firstItem="uUt-kp-wF3" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="tZ5-PT-TKF"/>
-                                <constraint firstItem="H8x-tm-XpX" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="v1z-mt-p9v"/>
+                                <constraint firstAttribute="trailing" secondItem="gal-ib-9vC" secondAttribute="trailing" id="vYp-bJ-IGS"/>
                                 <constraint firstItem="v9k-7n-3Tb" firstAttribute="top" secondItem="JPE-2q-s9i" secondAttribute="bottom" constant="-5" id="vaP-d1-yf7"/>
+                                <constraint firstAttribute="trailing" secondItem="pkA-As-JXE" secondAttribute="trailing" id="xNF-WN-DhR"/>
                                 <constraint firstItem="pkA-As-JXE" firstAttribute="top" secondItem="XIM-4t-2Cm" secondAttribute="bottom" constant="20" id="xpx-rC-lfH"/>
                                 <constraint firstItem="H8x-tm-XpX" firstAttribute="top" secondItem="fIa-5s-Rsz" secondAttribute="bottom" constant="10" id="yXx-O6-RvG"/>
                                 <constraint firstItem="ZLT-eD-Eft" firstAttribute="top" secondItem="v9k-7n-3Tb" secondAttribute="bottom" id="ycs-TZ-7zk"/>
@@ -225,10 +225,10 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="VPS-bG-bTt" firstAttribute="top" secondItem="hoS-v4-UGf" secondAttribute="top" id="PUD-OK-jYm"/>
-                        <constraint firstAttribute="bottom" secondItem="VPS-bG-bTt" secondAttribute="bottom" id="Vpt-oy-WIV"/>
-                        <constraint firstItem="VPS-bG-bTt" firstAttribute="centerX" secondItem="rLA-dF-VeR" secondAttribute="centerX" id="Zjs-dW-aiH"/>
-                        <constraint firstAttribute="trailing" secondItem="VPS-bG-bTt" secondAttribute="trailing" id="Zo6-Xn-JZA"/>
+                        <constraint firstAttribute="bottom" secondItem="VPS-bG-bTt" secondAttribute="bottom" id="EOs-yw-FyW"/>
+                        <constraint firstItem="VPS-bG-bTt" firstAttribute="top" secondItem="rLA-dF-VeR" secondAttribute="top" id="cbb-Wq-xsg"/>
+                        <constraint firstItem="VPS-bG-bTt" firstAttribute="leading" secondItem="rLA-dF-VeR" secondAttribute="leading" id="oY7-xn-7B1"/>
+                        <constraint firstAttribute="trailing" secondItem="VPS-bG-bTt" secondAttribute="trailing" id="szP-fW-Xyw"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="hoS-v4-UGf"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="1DU-Lv-9Vw"/>
@@ -236,10 +236,10 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="VPS-bG-bTt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="9NX-9l-CCa"/>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DsT-9L-Diu"/>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="XmZ-Y1-EC6"/>
-                <constraint firstItem="VPS-bG-bTt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" priority="250" id="jEQ-Zs-0j1"/>
+                <constraint firstItem="VPS-bG-bTt" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" priority="250" id="azg-4V-4ec"/>
+                <constraint firstItem="VPS-bG-bTt" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="c1l-WS-KWF"/>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pls-iG-ejK"/>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="tBa-qn-Mix"/>
             </constraints>

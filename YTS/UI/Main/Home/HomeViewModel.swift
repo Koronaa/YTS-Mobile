@@ -16,11 +16,6 @@ class HomeViewModel{
     fileprivate var modelLayer:ModelLayer = ModelLayer()
     
     
-//    init(modelLayer:ModelLayer) {
-//        self.modelLayer = modelLayer
-//    }
-    
-    
     func loadLatestMovies(limit:Int = 10,onCompleted:@escaping(_ movies:[Movie])->Void){
         modelLayer.getLatestMovies(limit: limit) { latestMovies in
             self.latestMoves = latestMovies

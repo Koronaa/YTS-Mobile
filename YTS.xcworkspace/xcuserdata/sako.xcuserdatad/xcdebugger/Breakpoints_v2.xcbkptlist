@@ -94,22 +94,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F037C215-D1D7-4C24-9586-B32FF3991796"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YTS/UI/Main/MovieDetails/MovieDetails/MovieDetailsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "setupData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "53683A4A-00D7-45A6-9833-DD9C426E5557"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -133,106 +117,10 @@
             filePath = "YTS/UI/Main/MovieDetails/MovieDetails/MovieDetailsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "trailerButtonOnTapped(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "48AD078C-AED5-447E-AA0C-91B6982B4809"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YTS/UI/Main/Search/SearchViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "search(for:onCompleted:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "48AD078C-AED5-447E-AA0C-91B6982B4809 - 3980e3ccdab017d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "YTS.SearchViewModel.search(for: Swift.String, onCompleted: (Swift.Array&lt;YTS.Movie&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "YTS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/UI/Main/Search/SearchViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "55">
-               </Location>
-               <Location
-                  uuid = "48AD078C-AED5-447E-AA0C-91B6982B4809 - e6c242cde5c2393f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;YTS.Movie&gt;) -&gt; () in YTS.SearchViewModel.search(for: Swift.String, onCompleted: (Swift.Array&lt;YTS.Movie&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "YTS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/UI/Main/Search/SearchViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "41">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2AB7F144-6EB6-4FB6-B2CD-97B76C87623F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "YTS/Model/ModelLayer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "searchMovies(for:quality:genre:rating:orderBy:onCompleted:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2AB7F144-6EB6-4FB6-B2CD-97B76C87623F - 9b68fcf9f47e489d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "YTS.ModelLayer.searchMovies(for: Swift.String, quality: Swift.String, genre: Swift.String, rating: Swift.String, orderBy: Swift.String, onCompleted: (Swift.Array&lt;YTS.Movie&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "YTS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/Model/ModelLayer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "1355">
-               </Location>
-               <Location
-                  uuid = "2AB7F144-6EB6-4FB6-B2CD-97B76C87623F - a554f536ad63934"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftyJSON.JSON) -&gt; () in YTS.ModelLayer.searchMovies(for: Swift.String, quality: Swift.String, genre: Swift.String, rating: Swift.String, orderBy: Swift.String, onCompleted: (Swift.Array&lt;YTS.Movie&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "YTS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sako/Documents/GitHub/YTS/YTS/Model/ModelLayer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "53">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

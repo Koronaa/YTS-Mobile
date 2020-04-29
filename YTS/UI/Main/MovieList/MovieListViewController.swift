@@ -22,9 +22,11 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTItleLabel: UILabel!
     
-    var movieListVM = MovieListViewModel()
+    fileprivate var movieListVM = MovieListViewModel()
+    fileprivate var homeVM = HomeViewModel()
+    var movieSearchVM:SearchViewModel!
+    
     var type:MovieListType!
-    var queryString:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +45,40 @@ class MovieListViewController: UIViewController {
         switch type {
         case .SEARCH:
             titleLabel.text = "Search Results"
-            if queryString != ""{
-                subTItleLabel.text = "Showing results for '\(queryString!)'"
+            if movieSearchVM.queryString != ""{
+                subTItleLabel.text = "Showing results for '\(movieSearchVM.queryString)'"
             }else{
                 subTItleLabel.isHidden = true
                 //TODO
             }
+            movieSearchVM.search { movies in
+                self.movieListVM.movies = movies
+                self.collectionView.reloadData()
+            }
         case .LATEST:
             titleLabel.text = "Latest Movies"
             subTItleLabel.text = "Showing the latest uploads on YTS"
+            
+            homeVM.loadLatestMovies(limit: 50) { movies in
+                self.movieListVM.movies = movies
+                self.collectionView.reloadData()
+            }
+            
         case .POPULAR:
             titleLabel.text = "Popular Movies"
             subTItleLabel.text = "Showing most popular movies on YTS"
+            
+            homeVM.loadPopularMovies(limit: 50) { movies in
+                self.movieListVM.movies = movies
+                self.collectionView.reloadData()
+            }
         case .RATED:
             titleLabel.text = "Top Rated Movies"
             subTItleLabel.text = "Showing the highest IMDB rated movies"
+            homeVM.loadMostRatedMovies(limit: 50) { movies in
+                self.movieListVM.movies = movies
+                self.collectionView.reloadData()
+            }
         }
         
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)

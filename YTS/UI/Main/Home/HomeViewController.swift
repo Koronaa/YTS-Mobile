@@ -150,25 +150,13 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
         switch sender.tag {
         case 0:
             movieListVC.type = .LATEST
-            homeVM.loadLatestMovies(limit: 50) { movies in
-                movieListVC.movieListVM.movies = movies
-                self.navigationController?.pushViewController(movieListVC, animated: true)
-            }
         case 1:
             movieListVC.type = .POPULAR
-            homeVM.loadPopularMovies(limit: 50) { movies in
-                movieListVC.movieListVM.movies = movies
-                self.navigationController?.pushViewController(movieListVC, animated: true)
-            }
         case 2:
             movieListVC.type = .RATED
-            homeVM.loadMostRatedMovies(limit: 50) { movies in
-                movieListVC.movieListVM.movies = movies
-                self.navigationController?.pushViewController(movieListVC, animated: true)
-            }
         default:()
-            
         }
+        self.navigationController?.pushViewController(movieListVC, animated: true)
         
     }
 }

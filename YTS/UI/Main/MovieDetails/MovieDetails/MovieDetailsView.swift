@@ -16,7 +16,6 @@ class MovieDetailsView: UIView {
     @IBOutlet weak var watchLaterButton: UIButton!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet var mainView: UIView!
-    @IBOutlet weak var contentViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var availableInLabel: UILabel!
     @IBOutlet weak var shortDescriptionLabel: UILabel!
@@ -91,11 +90,13 @@ class MovieDetailsView: UIView {
         availableInLabel.text = movieDetailsVM.availableIn
         synopsisLabel.text = movieDetailsVM.synopsis
         
-        movieDetailsVM.getCast { _ in
+        movieDetailsVM.getCast {
             self.collectionView.reloadData()
         }
-        
     }
+    
+
+    
     
     
     private func commonInit(){
@@ -103,11 +104,6 @@ class MovieDetailsView: UIView {
         addSubview(mainView)
         mainView.frame = self.bounds
         mainView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-        
-        print("Constraint height = \(UIScreen.main.bounds.height - self.frame.height + 20)")
-        
-        //FIXME: Hanlde iPhone 8,SE & iPads
-        contentViewBottomConstraint.constant =  self.frame.height - UIScreen.main.bounds.height/2
         setupUI()
     }
 }

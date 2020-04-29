@@ -35,10 +35,10 @@ class MovieDetailsViewModel{
     var cast:[Cast] = []
     
     
-    func getCast(onCompleted:@escaping (_ cast:[Cast])-> Void){
+    func getCast(onCompleted:@escaping ()-> Void){
         modelLayer.getCastDetails(for: movie.id.description) { cast in
             self.cast = cast
-            onCompleted(cast)
+            onCompleted()
         }
     }
     
