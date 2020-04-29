@@ -56,6 +56,14 @@
 		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
 		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
 		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
+		3DF9E08C2459744100EEB3EE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E08A2459744100EEB3EE /* iCarousel.m */; };
+		3DF9E0902459758400EEB3EE /* CorouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E08F2459758400EEB3EE /* CorouselView.swift */; };
+		3DF9E0922459759A00EEB3EE /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9E0912459759A00EEB3EE /* CarouselView.xib */; };
+		3DF9E0942459789700EEB3EE /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E0932459789700EEB3EE /* DownloadViewController.swift */; };
+		3DF9E096245978AF00EEB3EE /* DownloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E095245978AF00EEB3EE /* DownloadViewModel.swift */; };
+		3DF9E09824597A7700EEB3EE /* TorrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E09724597A7700EEB3EE /* TorrentView.swift */; };
+		3DF9E09A24597A8400EEB3EE /* TorrentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9E09924597A8400EEB3EE /* TorrentView.xib */; };
+		3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */; };
 		B2804D5E25CB4C3DCB9C0108 /* Pods_YTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A843879D611DF5B474C14 /* Pods_YTS.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +121,16 @@
 		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3DF9E0892459744000EEB3EE /* YTS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTS-Bridging-Header.h"; sourceTree = "<group>"; };
+		3DF9E08A2459744100EEB3EE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		3DF9E08B2459744100EEB3EE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		3DF9E08F2459758400EEB3EE /* CorouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorouselView.swift; sourceTree = "<group>"; };
+		3DF9E0912459759A00EEB3EE /* CarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
+		3DF9E0932459789700EEB3EE /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		3DF9E095245978AF00EEB3EE /* DownloadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewModel.swift; sourceTree = "<group>"; };
+		3DF9E09724597A7700EEB3EE /* TorrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentView.swift; sourceTree = "<group>"; };
+		3DF9E09924597A8400EEB3EE /* TorrentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
+		3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentViewViewModel.swift; sourceTree = "<group>"; };
 		A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.release.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +279,7 @@
 		3D9A54882444826B0068C825 /* YTS */ = {
 			isa = PBXGroup;
 			children = (
+				3DF9E08D2459745F00EEB3EE /* Libs */,
 				3D0C5B3B245465CC00C257EC /* Translation */,
 				3D0C5B3624545BA000C257EC /* Network */,
 				3DB5D12A2449EC9E009AF3B8 /* Model */,
@@ -303,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAB134B2445A56D005A7D9B /* Main.storyboard */,
+				3DF9E08E2459755000EEB3EE /* Download */,
 				3D16D796244B2A2200CECDDD /* MovieList */,
 				3D4D2D31244873BE00E42FF1 /* Search */,
 				3D41BC8D2446E58C00220B20 /* MovieDetails */,
@@ -353,6 +373,30 @@
 				3D3984EA2456AC940019E5B9 /* ModelLayer.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3DF9E08D2459745F00EEB3EE /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				3DF9E08B2459744100EEB3EE /* iCarousel.h */,
+				3DF9E08A2459744100EEB3EE /* iCarousel.m */,
+				3DF9E0892459744000EEB3EE /* YTS-Bridging-Header.h */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		3DF9E08E2459755000EEB3EE /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				3DF9E08F2459758400EEB3EE /* CorouselView.swift */,
+				3DF9E0912459759A00EEB3EE /* CarouselView.xib */,
+				3DF9E0932459789700EEB3EE /* DownloadViewController.swift */,
+				3DF9E095245978AF00EEB3EE /* DownloadViewModel.swift */,
+				3DF9E09724597A7700EEB3EE /* TorrentView.swift */,
+				3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */,
+				3DF9E09924597A8400EEB3EE /* TorrentView.xib */,
+			);
+			path = Download;
 			sourceTree = "<group>";
 		};
 		768F11678419537FC5F7A96E /* Pods */ = {
@@ -406,6 +450,7 @@
 				TargetAttributes = {
 					3D9A54852444826B0068C825 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -434,12 +479,14 @@
 			files = (
 				3D9A54962444826C0068C825 /* LaunchScreen.storyboard in Resources */,
 				3DAB135F2445CD9A005A7D9B /* HomeCollectionViewCell.xib in Resources */,
+				3DF9E0922459759A00EEB3EE /* CarouselView.xib in Resources */,
 				3D9A54932444826C0068C825 /* Assets.xcassets in Resources */,
 				3D9A54912444826B0068C825 /* Login.storyboard in Resources */,
 				3DB34D2F24483A0600FB5205 /* CastCollectionViewCell.xib in Resources */,
 				3DAB134C2445A56D005A7D9B /* Main.storyboard in Resources */,
 				3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */,
 				3D41BC942446F6C600220B20 /* MovieDetailsView.xib in Resources */,
+				3DF9E09A24597A8400EEB3EE /* TorrentView.xib in Resources */,
 				3D41BC912446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib in Resources */,
 				3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */,
 			);
@@ -501,10 +548,13 @@
 				3D6E81F22456F83B00041BCB /* SearchViewModel.swift in Sources */,
 				3D6E81F42457069400041BCB /* MovieListViewModel.swift in Sources */,
 				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
+				3DF9E096245978AF00EEB3EE /* DownloadViewModel.swift in Sources */,
 				3D0C5B3824545BEE00C257EC /* ReachabilityManager.swift in Sources */,
 				3D0C5B352454568D00C257EC /* Cast.swift in Sources */,
 				3D3984F22456C3B10019E5B9 /* HomeCellViewModel.swift in Sources */,
+				3DF9E0942459789700EEB3EE /* DownloadViewController.swift in Sources */,
 				3D6E81EC2456CBB100041BCB /* MovieDetailsViewModel.swift in Sources */,
+				3DF9E09824597A7700EEB3EE /* TorrentView.swift in Sources */,
 				3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */,
 				3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */,
 				3DB34D2E24483A0600FB5205 /* CastCollectionViewCell.swift in Sources */,
@@ -515,10 +565,12 @@
 				3DAB13632445EA6C005A7D9B /* HomeTableViewCell.swift in Sources */,
 				3DAB135E2445CD9A005A7D9B /* HomeCollectionViewCell.swift in Sources */,
 				3D0C5B3D245465D900C257EC /* TranslationLayer.swift in Sources */,
+				3DF9E08C2459744100EEB3EE /* iCarousel.m in Sources */,
 				3D4D2D33244873D600E42FF1 /* SearchViewController.swift in Sources */,
 				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
 				3D0C5B31245451AE00C257EC /* Movie.swift in Sources */,
 				3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */,
+				3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3D0C5B3A24545C5E00C257EC /* ServiceManager.swift in Sources */,
 				3D0C5B3F24546EA400C257EC /* URLConstants.swift in Sources */,
@@ -529,6 +581,7 @@
 				3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */,
 				3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */,
 				3D6E81F02456D47A00041BCB /* CastCellViewModel.swift in Sources */,
+				3DF9E0902459758400EEB3EE /* CorouselView.swift in Sources */,
 				3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */,
 				3D3984E92456AAB60019E5B9 /* NetworkLayer.swift in Sources */,
 				3D41BC962446F9D900220B20 /* MovieDetailsView.swift in Sources */,
@@ -677,6 +730,7 @@
 			baseConfigurationReference = 2A107ABF22DEF348420C95BD /* Pods-YTS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
@@ -688,6 +742,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +754,7 @@
 			baseConfigurationReference = A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
@@ -709,6 +766,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

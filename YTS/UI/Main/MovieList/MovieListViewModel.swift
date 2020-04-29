@@ -8,9 +8,7 @@
 
 import Foundation
 class MovieListViewModel{
-    
     var movies:[Movie] = []
-    
 }
 
 

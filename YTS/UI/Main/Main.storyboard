@@ -379,6 +379,52 @@
             </objects>
             <point key="canvasLocation" x="-275.36231884057975" y="-15.401785714285714"/>
         </scene>
+        <!--Download View Controller-->
+        <scene sceneID="f2H-63-bxb">
+            <objects>
+                <viewController storyboardIdentifier="downloadVC" id="Z1v-QE-687" customClass="DownloadViewController" customModule="YTS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UrX-94-woR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qu9-SL-RG4" customClass="CorouselView" customModule="YTS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="627" id="6ZC-3C-7Sr"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YH-XO-l3l">
+                                <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6nq-Dl-HJq"/>
+                                    <constraint firstAttribute="width" constant="30" id="dij-cd-L1c"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonOnTapped:" destination="rgE-2v-MvV" eventType="touchUpInside" id="gad-gG-rcA"/>
+                                    <action selector="closeButtonOnTapped:" destination="Z1v-QE-687" eventType="touchUpInside" id="ntY-t3-bNs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.49149977992957744" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5cC-x1-rEk" firstAttribute="trailing" secondItem="Qu9-SL-RG4" secondAttribute="trailing" id="9ph-6c-D15"/>
+                            <constraint firstItem="5YH-XO-l3l" firstAttribute="top" secondItem="5cC-x1-rEk" secondAttribute="top" constant="20" id="Rv4-3v-7l5"/>
+                            <constraint firstItem="Qu9-SL-RG4" firstAttribute="centerX" secondItem="UrX-94-woR" secondAttribute="centerX" id="TJG-2X-SQa"/>
+                            <constraint firstItem="5YH-XO-l3l" firstAttribute="leading" secondItem="5cC-x1-rEk" secondAttribute="leading" constant="20" id="YY1-NL-2pg"/>
+                            <constraint firstItem="Qu9-SL-RG4" firstAttribute="leading" secondItem="5cC-x1-rEk" secondAttribute="leading" id="eNG-if-6Jj"/>
+                            <constraint firstItem="Qu9-SL-RG4" firstAttribute="centerY" secondItem="UrX-94-woR" secondAttribute="centerY" id="yAm-BT-4Te"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5cC-x1-rEk"/>
+                    </view>
+                    <connections>
+                        <outlet property="carouselHolderView" destination="Qu9-SL-RG4" id="HIl-DB-lgS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NuR-Q1-xl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-276" y="736"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="48" height="48"/>

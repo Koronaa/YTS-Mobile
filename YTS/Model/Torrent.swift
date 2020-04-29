@@ -12,4 +12,5 @@ struct Torrent {
     var quality:String
     var type:String
     var size:String
+    var posterURL:URL
 }

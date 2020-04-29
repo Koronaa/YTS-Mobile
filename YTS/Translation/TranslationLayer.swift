@@ -13,11 +13,11 @@ class TranslationLayer{
     
     func getMovies(from json:JSON) -> [Movie]{
         var receivedMovies:[Movie] = []
-        var receivedTorrents:[Torrent] = []
-        
+        var receivedTorrents:[Torrent]
         if let data = json["data"].dictionary{
             if let movies = data["movies"]?.array{
                 for movie in movies{
+                    receivedTorrents = []
                     if let title = movie["title"].string,
                         let id = movie["id"].int,
                         let year = movie["year"].int,
@@ -31,13 +31,12 @@ class TranslationLayer{
                         let description = movie["synopsis"].string,
                         let imageURLString = movie["large_cover_image"].string,
                         let torrents = movie["torrents"].array {
-                        
                         for torrent in torrents{
                             if let downloadURLString = torrent["url"].string,
                                 let quality = torrent["quality"].string,
                                 let type = torrent["type"].string,
                                 let size = torrent["size"].string{
-                                let torrent = Torrent(downloadURL:  URL(string: downloadURLString)! , quality: quality, type: type, size: size)
+                                let torrent = Torrent(downloadURL:  URL(string: downloadURLString)! , quality: quality, type: type, size: size, posterURL: URL(string: imageURLString)!)
                                 receivedTorrents.append(torrent)
                             }
                         }

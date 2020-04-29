@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -25,7 +24,7 @@ class HomeViewController: UIViewController {
         tableView.register(FavouriteTableViewCell.self, forCellReuseIdentifier: "FavouriteTableViewCell")
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         searchTextField.delegate = self
-    }
+}
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -33,20 +32,12 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI(){
-        tableView.isSkeletonable = true
         UIHelper.hide(navigationController: self.navigationController)
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
-        animateSkeletonView()
-        
-    }
-    
-    private func animateSkeletonView(){
-        tableView.updateAnimatedGradientSkeleton()
-        view.showAnimatedSkeleton()
     }
 }
 
-extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
+extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -54,17 +45,6 @@ extension HomeViewController:UITableViewDelegate,SkeletonTableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
-    }
-    
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        switch indexPath.section {
-        case 0:
-            return "FavouriteTableViewCell"
-        case 1,2:
-            return "HomeTableViewCell"
-        default:
-            return ""
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

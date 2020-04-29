@@ -9,6 +9,11 @@
 import UIKit
 import Cosmos
 
+protocol MovieDetailsDelegate {
+    func downloadButtonOnTapped(for movieDetailsVM:MovieDetailsViewModel)
+    func shareButtonOnTapped(for movieDetailsVM:MovieDetailsViewModel)
+}
+
 class MovieDetailsView: UIView {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,7 +30,7 @@ class MovieDetailsView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     
     var movieDetailsVM:MovieDetailsViewModel!
-    
+    var movieDetailsDelegate:MovieDetailsDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -55,19 +60,11 @@ class MovieDetailsView: UIView {
     }
     
     @IBAction func downloadButtonOnTapped(_ sender: Any) {
-        //TODO
+        movieDetailsDelegate.downloadButtonOnTapped(for: movieDetailsVM)
     }
     
     @IBAction func shareButtonOnTapped(_ sender: Any) {
-        
-        //TODO
-            let code = "Here's the yts link for the movie \(movieDetailsVM.movie.title). Enjoy! \t \t \(movieDetailsVM.movie.ytsPageURL)"
-            let textToShare = [code]
-            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self
-//            self.present(activityViewController, animated: true, completion: nil)
-        
-        
+        movieDetailsDelegate.shareButtonOnTapped(for: movieDetailsVM)
     }
     
     
@@ -95,7 +92,7 @@ class MovieDetailsView: UIView {
         }
     }
     
-
+    
     
     
     

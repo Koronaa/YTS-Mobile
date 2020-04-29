@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 enum MovieListType{
     case SEARCH
@@ -34,6 +35,14 @@ class MovieListViewController: UIViewController {
         collectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isSkeletonable = true
+        
+        collectionView.prepareSkeleton { isDone in
+            self.collectionView.showAnimatedGradientSkeleton()
+            self.collectionView.startSkeletonAnimation()
+        }
+        
+        loadData(for: type)
     }
     
     override func viewDidLayoutSubviews() {
@@ -41,7 +50,10 @@ class MovieListViewController: UIViewController {
         setupUI(for: type)
     }
     
+    
+    
     private func setupUI(for type:MovieListType){
+        UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
         switch type {
         case .SEARCH:
             titleLabel.text = "Search Results"
@@ -51,37 +63,52 @@ class MovieListViewController: UIViewController {
                 subTItleLabel.isHidden = true
                 //TODO
             }
+        case .LATEST:
+            titleLabel.text = "Latest Movies"
+            subTItleLabel.text = "Showing the latest uploads on YTS"
+        case .POPULAR:
+            titleLabel.text = "Popular Movies"
+            subTItleLabel.text = "Showing most popular movies on YTS"
+        case .RATED:
+            titleLabel.text = "Top Rated Movies"
+            subTItleLabel.text = "Showing the highest IMDB rated movies"
+        }
+        
+        
+    }
+    
+    func loadData(for type:MovieListType){
+        switch type {
+        case .SEARCH:
             movieSearchVM.search { movies in
+                self.collectionView.stopSkeletonAnimation()
+                self.collectionView.hideSkeleton()
                 self.movieListVM.movies = movies
                 self.collectionView.reloadData()
             }
         case .LATEST:
-            titleLabel.text = "Latest Movies"
-            subTItleLabel.text = "Showing the latest uploads on YTS"
-            
             homeVM.loadLatestMovies(limit: 50) { movies in
+                self.collectionView.stopSkeletonAnimation()
+                self.collectionView.hideSkeleton()
                 self.movieListVM.movies = movies
                 self.collectionView.reloadData()
             }
             
         case .POPULAR:
-            titleLabel.text = "Popular Movies"
-            subTItleLabel.text = "Showing most popular movies on YTS"
-            
             homeVM.loadPopularMovies(limit: 50) { movies in
+                self.collectionView.stopSkeletonAnimation()
+                self.collectionView.hideSkeleton()
                 self.movieListVM.movies = movies
                 self.collectionView.reloadData()
             }
         case .RATED:
-            titleLabel.text = "Top Rated Movies"
-            subTItleLabel.text = "Showing the highest IMDB rated movies"
             homeVM.loadMostRatedMovies(limit: 50) { movies in
+                self.collectionView.stopSkeletonAnimation()
+                self.collectionView.hideSkeleton()
                 self.movieListVM.movies = movies
                 self.collectionView.reloadData()
             }
         }
-        
-        UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
     }
     
     
@@ -92,7 +119,7 @@ class MovieListViewController: UIViewController {
     
 }
 
-extension MovieListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieListVM.movies.count
@@ -114,7 +141,11 @@ extension MovieListViewController:UICollectionViewDelegate,UICollectionViewDataS
         
     }
     
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return UIConstants.Cell.HomeCollectionViewCell.rawValue
+    }
     
-    
-    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
 }

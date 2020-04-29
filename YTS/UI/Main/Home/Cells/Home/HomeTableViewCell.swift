@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
-class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
+class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollectionViewDataSource{
     
     var homeCollectionView:UICollectionView!
     var section:Int!
@@ -19,16 +20,28 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupHomeCollectionView()
+        homeCollectionView.prepareSkeleton { isDone in
+            self.homeCollectionView.showAnimatedGradientSkeleton()
+            self.homeCollectionView.startSkeletonAnimation()
+        }
+        loadData()
+        
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func setupHomeCollectionView(){
-        homeVM.loadHomeMovies { 
+    fileprivate func loadData() {
+        homeVM.loadHomeMovies {
+            self.homeCollectionView.stopSkeletonAnimation()
+            self.homeCollectionView.hideSkeleton()
             self.homeCollectionView.reloadData()
         }
+    }
+    
+    private func setupHomeCollectionView(){
+        
         let homeLayout = UICollectionViewFlowLayout()
         homeLayout.scrollDirection = .horizontal
         homeLayout.itemSize = CGSize(width: 167, height: 365)
@@ -40,12 +53,15 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
         } else {
             // Fallback on earlier versions
         }
+        homeCollectionView.isSkeletonable = true
         homeCollectionView.showsHorizontalScrollIndicator = false
         homeCollectionView.contentMode = .center
         homeCollectionView.register(UINib(nibName: "HomeCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue)
         homeCollectionView.dataSource = self
         homeCollectionView.delegate = self
         self.addSubview(homeCollectionView)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,7 +101,13 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVie
         collectionViewDelegate?.didSelectItem(for: movie)
     }
     
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return UIConstants.Cell.HomeCollectionViewCell.rawValue
+    }
     
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
     
     
     

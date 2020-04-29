@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import SkeletonView
 
 protocol HomeCollectionViewDelegate {
     func didSelectItem(for movie:Movie)
 }
 
-class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource{
+class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollectionViewDataSource{
     
     let homeVM:HomeViewModel = HomeViewModel()
     
@@ -24,22 +25,20 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupFavouritesCollectionView()
-//         homeVM.loadHomeMovies()
+        favouritesCollectionView.prepareSkeleton { isDone in
+            self.favouritesCollectionView.showAnimatedGradientSkeleton()
+            self.favouritesCollectionView.startSkeletonAnimation()
+        }
+        
         
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
+        
     }
     
     private func setupFavouritesCollectionView(){
-        
-        homeVM.loadLatestMovies { _ in
-            self.favouritesCollectionView.reloadData()
-        }
-        
-        
         let favouriteLayout = UICollectionViewFlowLayout()
         favouriteLayout.scrollDirection = .horizontal
         favouriteLayout.itemSize = CGSize(width: 200, height: 300)
@@ -51,12 +50,19 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
         } else {
             // Fallback on earlier versions
         }
+        favouritesCollectionView.isSkeletonable = true
         favouritesCollectionView.showsHorizontalScrollIndicator = false
         favouritesCollectionView.contentMode = .center
         favouritesCollectionView.register(UINib(nibName: "FavouritesCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue)
         favouritesCollectionView.dataSource = self
         favouritesCollectionView.delegate = self
         self.addSubview(favouritesCollectionView)
+        
+        homeVM.loadLatestMovies { _ in
+            self.favouritesCollectionView.stopSkeletonAnimation()
+            self.favouritesCollectionView.hideSkeleton()
+            self.favouritesCollectionView.reloadData()
+        }
     }
     
     
@@ -71,7 +77,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
             let movie = homeVM.latestMoves[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue, for: indexPath) as! FavouritesCollectionViewCell
             cell.favouriteCellViewModel = FavouriteCellViewModel(movie: movie)
-
+            
             return cell
         default:
             return UICollectionViewCell()
@@ -80,5 +86,13 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionViewDelegate?.didSelectItem(for: homeVM.latestMoves[indexPath.row])
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return UIConstants.Cell.FavouritesCollectionViewCell.rawValue
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
     }
 }

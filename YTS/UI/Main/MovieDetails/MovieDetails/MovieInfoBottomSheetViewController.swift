@@ -20,7 +20,7 @@ class MovieInfoBottomSheetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        movieDetailsView.movieDetailsDelegate = self
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         backgroundView.addGestureRecognizer(gesture)
         count = 0
@@ -87,3 +87,25 @@ extension MovieInfoBottomSheetViewController{
         static var partialViewYPosition:CGFloat { (UIScreen.main.bounds.height/3)*2 - 100}
     }
 }
+
+extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
+    
+    func downloadButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
+        let downloadVC = UIHelper.makeViewController(in: .Main, viewControllerName: .DownloadVC) as! DownloadViewController
+        downloadVC.movieDetailsVM = movieDetailsVM
+        downloadVC.modalPresentationStyle = .overFullScreen
+        self.present(downloadVC, animated: true, completion: nil)
+    }
+    
+    func shareButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
+        let code = "Here's the YTS link for the movie '\(movieDetailsVM.movie.title)'. Enjoy! \n \n \(movieDetailsVM.movie.ytsPageURL)"
+        let textToShare = [code]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+}
+
+
+
+

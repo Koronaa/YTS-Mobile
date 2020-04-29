@@ -21,6 +21,7 @@ class UIConstants{
         case MovieDetailsVC = "movieDetailsVC"
         case SearchVC = "searchVC"
         case MovieListVC = "movieListVC"
+        case DownloadVC = "downloadVC"
     }
     
     enum StoryBoard:String{
