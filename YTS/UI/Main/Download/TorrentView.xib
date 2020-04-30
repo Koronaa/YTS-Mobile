@@ -23,7 +23,7 @@
                                 <constraint firstAttribute="height" constant="60" id="9gb-Wl-MxU"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                            <state key="normal" title="Download Torrent">
+                            <state key="normal" title="Share Torrent URL">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>

@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var ratingTapBarItem: UITabBarItem!
     @IBOutlet weak var orderByTapBarItem: UITabBarItem!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var closeButton: UIButton!
     
     
     var searchVM:SearchViewModel = SearchViewModel()
@@ -66,6 +67,7 @@ class SearchViewController: UIViewController {
     }
     
     func setupView(){
+        UIHelper.circular(view: closeButton)
         filterTapBar.selectedItem = qualityTapBarItem
         UIHelper.addCornerRadius(to: searchButton)
         UIHelper.addCornerRadius(to: clearFiltersButton, withborder: true, using: UIColor().YTSGreen.cgColor)

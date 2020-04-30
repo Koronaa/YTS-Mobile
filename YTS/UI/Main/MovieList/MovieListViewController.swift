@@ -18,10 +18,14 @@ enum MovieListType{
 
 class MovieListViewController: UIViewController {
     
+    @IBOutlet weak var collectionViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTItleLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     fileprivate var movieListVM = MovieListViewModel()
     fileprivate var homeVM = HomeViewModel()
@@ -53,6 +57,19 @@ class MovieListViewController: UIViewController {
     
     
     private func setupUI(for type:MovieListType){
+        
+        switch DeviceManager.getDeviceType() {
+        case .iPhone_6_6s_7_8,.iPhone_X_Xs_11Pro:
+            collectionViewLeadingConstraint.constant = 7.5
+            collectionViewTopConstraint.constant = 7.5
+            collectionViewTrailingConstraint.constant = 7.5
+        default:()
+            
+        }
+        
+        UIHelper.addCornerRadius(to: backButton)
+        
+        
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
         switch type {
         case .SEARCH:

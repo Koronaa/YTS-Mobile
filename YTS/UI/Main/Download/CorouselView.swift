@@ -38,6 +38,7 @@ class CorouselView: UIView {
         
         carouselView.dataSource = self
         carouselView.type = .rotary
+        carouselView.isPagingEnabled = true
     }
 }
 
@@ -47,9 +48,15 @@ extension CorouselView:iCarouselDataSource{
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        let torrentView:TorrentView!
         let torrent = downloadVM.torrents[index]
         let torrentViewVM = TorrentViewViewModel(torrent: torrent)
-        let torrentView = Bundle.main.loadNibNamed("TorrentView", owner: self, options: nil)!.first as! TorrentView
+        if DeviceManager.getDeviceType() == .iPhone_5_5s_5C_SE{
+            torrentView = Bundle.main.loadNibNamed("TorrentViewSmall", owner: self, options: nil)!.first as? TorrentView
+        }else{
+            torrentView = Bundle.main.loadNibNamed("TorrentView", owner: self, options: nil)!.first as? TorrentView
+        }
+        
         torrentView.torrentViewVM = torrentViewVM
         torrentView.torrentViewDelegate = self
         return torrentView

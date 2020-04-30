@@ -16,6 +16,10 @@ protocol MovieDetailsDelegate {
 
 class MovieDetailsView: UIView {
     
+    @IBOutlet weak var noCastInfoLabel: UILabel!
+    @IBOutlet weak var castHeaderLabel: UILabel!
+    @IBOutlet weak var synopsisHeaderLabel: UILabel!
+    @IBOutlet weak var availableInHeaderLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var watchLaterButton: UIButton!
@@ -28,6 +32,7 @@ class MovieDetailsView: UIView {
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     var movieDetailsVM:MovieDetailsViewModel!
     var movieDetailsDelegate:MovieDetailsDelegate!
@@ -75,6 +80,25 @@ class MovieDetailsView: UIView {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        
+        switch DeviceManager.getDeviceType() {
+        case .iPhone_5_5s_5C_SE:
+            bottomViewConstraint.constant = 75
+            ratingView.settings.starSize = 20
+        case .iPhone_6_6s_7_8:
+            bottomViewConstraint.constant = 110
+        case .iPhone_6Plus_6sPlus_7Plus_8Plus:
+            bottomViewConstraint.constant = 130
+        case .iPhone_X_Xs_11Pro:
+            bottomViewConstraint.constant = 170
+        case .iPhone_Xr_11:
+            bottomViewConstraint.constant = 200
+        case .iPhone_XsMax_11ProMax:
+            bottomViewConstraint.constant = 200
+        default:
+            bottomViewConstraint.constant = 200
+        }
     }
     
     func setupData(){
@@ -87,13 +111,27 @@ class MovieDetailsView: UIView {
         availableInLabel.text = movieDetailsVM.availableIn
         synopsisLabel.text = movieDetailsVM.synopsis
         
+        UIHelper.addShadow(to: availableInHeaderLabel)
+        UIHelper.addCornerRadius(to: availableInHeaderLabel)
+        availableInHeaderLabel.layer.masksToBounds = true
+        
+        UIHelper.addShadow(to: synopsisHeaderLabel)
+        UIHelper.addCornerRadius(to: synopsisHeaderLabel)
+        synopsisHeaderLabel.layer.masksToBounds = true
+        
+        UIHelper.addShadow(to: castHeaderLabel)
+        UIHelper.addCornerRadius(to: castHeaderLabel)
+        castHeaderLabel.layer.masksToBounds = true
+        
         movieDetailsVM.getCast {
             self.collectionView.reloadData()
+            if self.movieDetailsVM.cast.count == 0{
+                self.collectionView.isHidden = true
+            }else{
+                self.collectionView.isHidden = false
+            }
         }
     }
-    
-    
-    
     
     
     private func commonInit(){

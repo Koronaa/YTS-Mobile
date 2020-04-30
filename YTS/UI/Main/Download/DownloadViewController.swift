@@ -13,6 +13,7 @@ class DownloadViewController: UIViewController {
     
     var movieDetailsVM:MovieDetailsViewModel!
     
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var carouselHolderView: CorouselView!
     
     override func viewDidLoad() {
@@ -20,6 +21,11 @@ class DownloadViewController: UIViewController {
         carouselHolderView.downloadVM = DownloadViewModel(torrents: movieDetailsVM.movie.torrents)
         carouselHolderView.carousalViewDelegate = self
         carouselHolderView.setupUI()
+        setupUI()
+    }
+    
+    private func setupUI(){
+        UIHelper.circular(view: closeButton)
     }
     
     

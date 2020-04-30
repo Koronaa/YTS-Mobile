@@ -91,9 +91,9 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         seeMoreButton.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 15)
         seeMoreButton.titleColor(for: .normal)
         if #available(iOS 13.0, *) {
-            seeMoreButton.titleLabel?.textColor = UIColor.label
+            seeMoreButton.setTitleColor(UIColor.label, for: .normal)
         } else {
-            seeMoreButton.titleLabel?.textColor = .black
+            seeMoreButton.setTitleColor(.white, for: .normal)
         }
         seeMoreButton.frame = CGRect(x: self.view.frame.width - 125, y: 1, width: 120, height: 20)
         seeMoreButton.addTarget(self, action: #selector(seeMoreButtonTapped), for: .touchUpInside)

@@ -26,7 +26,8 @@ class MovieInfoBottomSheetViewController: UIViewController {
         count = 0
         print("Bottom sheet height = \(self.view.frame.height)")
         
-        
+        movieDetailsView.movieDetailsVM = self.movieDetailsVM
+        movieDetailsView.setupData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,12 +39,7 @@ class MovieInfoBottomSheetViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        movieDetailsView.setupData()
-    }
-    
     private func setupUI(){
-        movieDetailsView.movieDetailsVM = self.movieDetailsVM
         UIHelper.roundCorners(view: backgroundView, corners: [.topLeft,.topRight], radius: 25)
         UIHelper.addCornerRadius(to: dragView,withRadius: 2.5)
     }
