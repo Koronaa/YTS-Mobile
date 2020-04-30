@@ -77,35 +77,39 @@ class MovieListViewController: UIViewController {
         
     }
     
-    func loadData(for type:MovieListType){
+    func loadData(for type:MovieListType, for pageNo:Int = 1){
         switch type {
         case .SEARCH:
-            movieSearchVM.search { movies in
+            movieSearchVM.search(pageNo: pageNo, limit: 50) { movies,data  in
                 self.collectionView.stopSkeletonAnimation()
                 self.collectionView.hideSkeleton()
-                self.movieListVM.movies = movies
+                self.movieListVM.addMovies(movies: movies)
+                self.movieListVM.data = data
                 self.collectionView.reloadData()
             }
         case .LATEST:
-            homeVM.loadLatestMovies(limit: 50) { movies in
+            homeVM.loadLatestMovies(limit: 50,pageNo: pageNo) {
                 self.collectionView.stopSkeletonAnimation()
                 self.collectionView.hideSkeleton()
-                self.movieListVM.movies = movies
+                self.movieListVM.addMovies(movies: self.homeVM.latestMoves)
+                self.movieListVM.data = self.homeVM.latestMovieData
                 self.collectionView.reloadData()
             }
             
         case .POPULAR:
-            homeVM.loadPopularMovies(limit: 50) { movies in
+            homeVM.loadPopularMovies(limit: 50,pageNo: pageNo) {
                 self.collectionView.stopSkeletonAnimation()
                 self.collectionView.hideSkeleton()
-                self.movieListVM.movies = movies
+                self.movieListVM.addMovies(movies: self.homeVM.popularMovies)
+                self.movieListVM.data = self.homeVM.popularMoviesData
                 self.collectionView.reloadData()
             }
         case .RATED:
-            homeVM.loadMostRatedMovies(limit: 50) { movies in
+            homeVM.loadMostRatedMovies(limit: 50,pageNo: pageNo) {
                 self.collectionView.stopSkeletonAnimation()
                 self.collectionView.hideSkeleton()
-                self.movieListVM.movies = movies
+                self.movieListVM.addMovies(movies: self.homeVM.topRatedMovies)
+                self.movieListVM.data = self.homeVM.topRatedMoviesData
                 self.collectionView.reloadData()
             }
         }
@@ -139,6 +143,14 @@ extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionVie
         movieDetailsVC.movieDetailsVM = movieDetailsVM
         self.navigationController?.pushViewController(movieDetailsVC, animated: true)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == movieListVM.totalMovies - 4{
+            if movieListVM.currentPage + 1 <= movieListVM.totalNoOfPages{
+                loadData(for: type, for: movieListVM.currentPage + 1)
+            }
+        }
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {

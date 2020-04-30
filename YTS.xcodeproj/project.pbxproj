@@ -56,6 +56,7 @@
 		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
 		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
 		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
+		3DC6C373245AB85F00A754C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C372245AB85F00A754C5 /* Data.swift */; };
 		3DF9E08C2459744100EEB3EE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E08A2459744100EEB3EE /* iCarousel.m */; };
 		3DF9E0902459758400EEB3EE /* CorouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E08F2459758400EEB3EE /* CorouselView.swift */; };
 		3DF9E0922459759A00EEB3EE /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9E0912459759A00EEB3EE /* CarouselView.xib */; };
@@ -121,6 +122,7 @@
 		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3DC6C372245AB85F00A754C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3DF9E0892459744000EEB3EE /* YTS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTS-Bridging-Header.h"; sourceTree = "<group>"; };
 		3DF9E08A2459744100EEB3EE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		3DF9E08B2459744100EEB3EE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				3D0C5B322454567C00C257EC /* Torrent.swift */,
 				3D0C5B342454568D00C257EC /* Cast.swift */,
 				3D3984EA2456AC940019E5B9 /* ModelLayer.swift */,
+				3DC6C372245AB85F00A754C5 /* Data.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
 				3D0C5B31245451AE00C257EC /* Movie.swift in Sources */,
 				3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */,
+				3DC6C373245AB85F00A754C5 /* Data.swift in Sources */,
 				3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3D0C5B3A24545C5E00C257EC /* ServiceManager.swift in Sources */,

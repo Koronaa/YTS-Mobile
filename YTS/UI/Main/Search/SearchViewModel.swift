@@ -15,7 +15,6 @@ class SearchViewModel{
     var selectedRating:String = ""
     var selectedOrderBy:String = "Latest"
     var queryString:String = ""
-    
     var selectedFilterCategory:FilterType = .Quality
     
     let modelLayer:ModelLayer = ModelLayer()
@@ -54,9 +53,9 @@ class SearchViewModel{
     
     
     
-    func search(onCompleted:@escaping (_ movies:[Movie])->Void){
-        modelLayer.searchMovies(for: queryString, quality: selectedQuality, genre: selectedGenre, rating: selectedRating, orderBy: selectedOrderBy) { movies in
-            onCompleted(movies)
+    func search(pageNo:Int = 1,limit:Int = 50,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
+        modelLayer.searchMovies(for: queryString, quality: selectedQuality, genre: selectedGenre, rating: selectedRating, orderBy: selectedOrderBy,pageNo: pageNo,limit: limit) { movies,data in
+            onCompleted(movies,data)
         }
     }
     

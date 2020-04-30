@@ -58,7 +58,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
         favouritesCollectionView.delegate = self
         self.addSubview(favouritesCollectionView)
         
-        homeVM.loadLatestMovies { _ in
+        homeVM.loadLatestMovies { 
             self.favouritesCollectionView.stopSkeletonAnimation()
             self.favouritesCollectionView.hideSkeleton()
             self.favouritesCollectionView.reloadData()

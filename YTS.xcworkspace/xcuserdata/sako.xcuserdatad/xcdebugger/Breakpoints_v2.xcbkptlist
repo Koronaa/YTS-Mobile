@@ -126,32 +126,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1DA95CE1-9F80-4500-940F-EB9A10343F07"
-            shouldBeEnabled = "Yes"
+            uuid = "C768BF3C-4A48-407B-AC85-97E3000BE2AE"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YTS/UI/Main/MovieList/MovieListViewController.swift"
+            filePath = "YTS/Translation/TranslationLayer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "loadData(for:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "getMovies(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C768BF3C-4A48-407B-AC85-97E3000BE2AE"
+            uuid = "5FF44927-05A1-4B8E-A0AD-31935F226293"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "YTS/Translation/TranslationLayer.swift"
+            filePath = "YTS/UI/Main/MovieList/MovieListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "getMovies(from:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "collectionView(_:willDisplay:forItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

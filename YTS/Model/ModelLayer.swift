@@ -20,24 +20,27 @@ class ModelLayer{
     //    }
     
     
-    func getMostRatedMovies(limit:Int,onCompleted:@escaping (_ movies:[Movie])->Void){
-        let url = URL(string: String(format: URLConstants.Api.Path.getMostRatedMovies, limit.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+    func getMostRatedMovies(limit:Int,pageNo:Int,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getMostRatedMovies, limit.description,pageNo.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         networkLayer.getMoviesJSON(for: url!) { responseJSON in
-            onCompleted(self.translationLayer.getMovies(from: responseJSON))
+            let (data,movies) = self.translationLayer.getMovies(from: responseJSON)
+            onCompleted(movies,data)
         }
     }
     
-    func getLatestMovies(limit:Int,onCompleted:@escaping (_ movies:[Movie])->Void){
-        let url = URL(string: String(format: URLConstants.Api.Path.getLatestMovies, limit.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+    func getLatestMovies(limit:Int,pageNo:Int,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getLatestMovies, limit.description,pageNo.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         networkLayer.getMoviesJSON(for: url!) { responseJSON in
-            onCompleted(self.translationLayer.getMovies(from: responseJSON))
+            let (data,movies) = self.translationLayer.getMovies(from: responseJSON)
+            onCompleted(movies,data)
         }
     }
     
-    func getPopularMovies(limit:Int,onCompleted:@escaping (_ movies:[Movie])->Void){
-        let url = URL(string: String(format: URLConstants.Api.Path.getPopularMovies, limit.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+    func getPopularMovies(limit:Int,pageNo:Int,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.getPopularMovies, limit.description,pageNo.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         networkLayer.getMoviesJSON(for: url!) { responseJSON in
-            onCompleted(self.translationLayer.getMovies(from: responseJSON))
+            let (data,movies) = self.translationLayer.getMovies(from: responseJSON)
+            onCompleted(movies,data)
         }
     }
     
@@ -49,10 +52,11 @@ class ModelLayer{
     }
     
     
-    func searchMovies(for query:String,quality:String,genre:String,rating:String,orderBy:String,onCompleted:@escaping (_ movies:[Movie])-> Void){
-        let url = URL(string: String(format: URLConstants.Api.Path.searchMovies, query,quality,genre,rating,orderBy).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
+    func searchMovies(for query:String,quality:String,genre:String,rating:String,orderBy:String,pageNo:Int,limit:Int,onCompleted:@escaping (_ movies:[Movie],_ data:Data)-> Void){
+        let url = URL(string: String(format: URLConstants.Api.Path.searchMovies, query,quality,genre,rating,orderBy,pageNo.description,limit.description).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)
         networkLayer.getMoviesJSON(for: url!) { responseJSON in
-            onCompleted(self.translationLayer.getMovies(from: responseJSON))
+            let (data,movies) = self.translationLayer.getMovies(from: responseJSON)
+            onCompleted(movies,data)
         }
     }
     

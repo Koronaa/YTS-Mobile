@@ -11,10 +11,18 @@ import SwiftyJSON
 
 class TranslationLayer{
     
-    func getMovies(from json:JSON) -> [Movie]{
+    func getMovies(from json:JSON) -> (Data,[Movie]){
         var receivedMovies:[Movie] = []
         var receivedTorrents:[Torrent]
+        var receivedData:Data!
         if let data = json["data"].dictionary{
+            
+            if let movieCount = data["movie_count"]?.int,
+                let limit = data["limit"]?.int,
+                let pageNO = data["page_number"]?.int{
+                receivedData = Data(limit: limit, pageNo: pageNO, movieCount: movieCount)
+            }
+            
             if let movies = data["movies"]?.array{
                 for movie in movies{
                     receivedTorrents = []
@@ -46,7 +54,7 @@ class TranslationLayer{
                 }
             }
         }
-        return receivedMovies
+        return (receivedData,receivedMovies)
     }
     
     func  getCastDetails(from json:JSON) -> [Cast]{
