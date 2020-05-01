@@ -46,6 +46,11 @@ class MovieDetailsView: UIView {
         commonInit()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        setupRatingView()
+    }
+    
     @IBAction func trailerButtonOnTapped(_ sender: UIButton) {
         if let trailerCode = movieDetailsVM.movie.youtubeTrailerCode{
             if trailerCode != "" {
@@ -81,6 +86,7 @@ class MovieDetailsView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        setupRatingView()
         
         switch DeviceManager.getDeviceType() {
         case .iPhone_5_5s_5C_SE:
@@ -99,6 +105,22 @@ class MovieDetailsView: UIView {
         default:
             bottomViewConstraint.constant = 200
         }
+    }
+    
+    private func setupRatingView(){
+        if #available(iOS 13.0, *) {
+            ratingView.settings.filledColor = .label
+            ratingView.settings.emptyBorderColor = .label
+            ratingView.settings.filledBorderColor = .label
+            ratingView.settings.textColor = .label
+        } else {
+            ratingView.settings.filledColor = .white
+            ratingView.settings.emptyBorderColor = .white
+            ratingView.settings.filledBorderColor = .white
+            ratingView.settings.textColor = .white
+        }
+        ratingView.settings.textFont = UIFont(name: "Avenir-Medium", size: 18)!
+        
     }
     
     func setupData(){

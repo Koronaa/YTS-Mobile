@@ -18,9 +18,7 @@ enum MovieListType{
 
 class MovieListViewController: UIViewController {
     
-    @IBOutlet weak var collectionViewLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var collectionViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var collectionViewTrailingConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -60,11 +58,9 @@ class MovieListViewController: UIViewController {
         
         switch DeviceManager.getDeviceType() {
         case .iPhone_6_6s_7_8,.iPhone_X_Xs_11Pro:
-            collectionViewLeadingConstraint.constant = 7.5
-            collectionViewTopConstraint.constant = 7.5
-            collectionViewTrailingConstraint.constant = 7.5
+            let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 10)
         default:()
-            
         }
         
         UIHelper.addCornerRadius(to: backButton)
@@ -78,7 +74,6 @@ class MovieListViewController: UIViewController {
                 subTItleLabel.text = "Showing results for '\(movieSearchVM.queryString)'"
             }else{
                 subTItleLabel.isHidden = true
-                //TODO
             }
         case .LATEST:
             titleLabel.text = "Latest Movies"
@@ -90,8 +85,6 @@ class MovieListViewController: UIViewController {
             titleLabel.text = "Top Rated Movies"
             subTItleLabel.text = "Showing the highest IMDB rated movies"
         }
-        
-        
     }
     
     func loadData(for type:MovieListType, for pageNo:Int = 1){
@@ -159,7 +152,6 @@ extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionVie
         let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC) as! MovieDetailViewController
         movieDetailsVC.movieDetailsVM = movieDetailsVM
         self.navigationController?.pushViewController(movieDetailsVC, animated: true)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

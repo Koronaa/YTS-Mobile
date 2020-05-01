@@ -32,7 +32,13 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         filterTapBar.delegate = self
+        searchTextField.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchTextField.becomeFirstResponder()
     }
     
     private func setupFilters(){
@@ -54,12 +60,15 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func searchButtonOnTapped(_ sender: Any) {
+        performSearch()
+    }
+    
+    private func performSearch(){
         searchVM.queryString = searchTextField.text ?? ""
         let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
         movieListVC.movieSearchVM = self.searchVM
         movieListVC.type = .SEARCH
         self.navigationController?.pushViewController(movieListVC, animated: true)
-        
     }
     
     @IBAction func closeButtonOnTapped(_ sender: UIButton) {
@@ -133,4 +142,13 @@ extension SearchViewController:UITabBarDelegate{
         self.tableView.reloadData()
     }
     
+}
+
+extension SearchViewController:UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.resignFirstResponder()
+        performSearch()
+        return true
+    }
 }

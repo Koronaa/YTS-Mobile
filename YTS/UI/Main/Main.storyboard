@@ -151,7 +151,7 @@
                                     <constraint firstAttribute="height" constant="55" id="ahJ-Jz-NAE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="search"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mw-XI-RtS" userLabel="ButtonHolderView">
                                 <rect key="frame" x="40" y="173" width="295" height="40"/>
@@ -316,25 +316,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXx-Jd-0WR">
                                 <rect key="frame" x="0.0" y="133" width="375" height="534"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="stT-2H-FUB">
-                                        <rect key="frame" x="20" y="20" width="335" height="514"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="stT-2H-FUB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
                                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="0.0" id="uqd-Yc-QJh">
                                             <size key="itemSize" width="167" height="365"/>
                                             <size key="estimatedItemSize" width="167" height="365"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="stT-2H-FUB" firstAttribute="leading" secondItem="vXx-Jd-0WR" secondAttribute="leading" constant="20" id="8Lf-zC-xw9"/>
-                                    <constraint firstItem="stT-2H-FUB" firstAttribute="top" secondItem="vXx-Jd-0WR" secondAttribute="top" constant="20" id="Rqs-Sq-Gle"/>
+                                    <constraint firstItem="stT-2H-FUB" firstAttribute="leading" secondItem="vXx-Jd-0WR" secondAttribute="leading" id="8Lf-zC-xw9"/>
+                                    <constraint firstItem="stT-2H-FUB" firstAttribute="top" secondItem="vXx-Jd-0WR" secondAttribute="top" id="Rqs-Sq-Gle"/>
                                     <constraint firstAttribute="bottom" secondItem="stT-2H-FUB" secondAttribute="bottom" id="Ygk-Cv-tRw"/>
-                                    <constraint firstAttribute="trailing" secondItem="stT-2H-FUB" secondAttribute="trailing" constant="20" id="xUA-CE-c1d"/>
+                                    <constraint firstAttribute="trailing" secondItem="stT-2H-FUB" secondAttribute="trailing" id="xUA-CE-c1d"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -358,9 +358,6 @@
                         <outlet property="backButton" destination="dHk-U0-Wa6" id="Cvf-7v-p0o"/>
                         <outlet property="bottomView" destination="vXx-Jd-0WR" id="asq-i0-TQN"/>
                         <outlet property="collectionView" destination="stT-2H-FUB" id="SyJ-SB-fBc"/>
-                        <outlet property="collectionViewLeadingConstraint" destination="8Lf-zC-xw9" id="hIg-ja-e6p"/>
-                        <outlet property="collectionViewTopConstraint" destination="Rqs-Sq-Gle" id="Ivi-ON-O0k"/>
-                        <outlet property="collectionViewTrailingConstraint" destination="xUA-CE-c1d" id="M3D-9r-ZqY"/>
                         <outlet property="subTItleLabel" destination="4LV-V9-YiG" id="8pH-iy-ZAu"/>
                         <outlet property="titleLabel" destination="DBZ-jw-OYM" id="2yK-N9-dHa"/>
                     </connections>
