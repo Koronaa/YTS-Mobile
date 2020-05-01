@@ -267,7 +267,9 @@
                         <outlet property="closeButton" destination="Abw-ZF-tof" id="l5v-X1-4Cd"/>
                         <outlet property="filerHolderView" destination="vh0-iy-Ss0" id="Txw-AS-cNg"/>
                         <outlet property="filterTapBar" destination="8kF-oF-C7L" id="wSG-va-JNj"/>
+                        <outlet property="filterView" destination="vh0-iy-Ss0" id="58y-0h-NGp"/>
                         <outlet property="genreTapBarItem" destination="BFA-a3-BeR" id="ERO-J4-Wtd"/>
+                        <outlet property="mainView" destination="hgv-xP-QJ0" id="tb9-4G-wZx"/>
                         <outlet property="orderByTapBarItem" destination="Q34-t6-WfZ" id="eXR-gC-joP"/>
                         <outlet property="qualityTapBarItem" destination="DyV-J3-aGX" id="CiL-2J-dNm"/>
                         <outlet property="ratingTapBarItem" destination="0hs-fc-7zh" id="rXR-x6-afv"/>

@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var filterTapBar: UITabBar!
     @IBOutlet weak var filerHolderView: UIView!
@@ -34,6 +36,9 @@ class SearchViewController: UIViewController {
         filterTapBar.delegate = self
         searchTextField.delegate = self
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.delegate = self
+        mainView.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +49,10 @@ class SearchViewController: UIViewController {
     private func setupFilters(){
         searchVM.currenFilter = searchVM.qualityFilter
     }
+    
+    @objc private func dismissKeyboard(){
+           self.view.endEditing(true)
+       }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -147,8 +156,16 @@ extension SearchViewController:UITabBarDelegate{
 extension SearchViewController:UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder()
         performSearch()
+        return true
+    }
+}
+
+extension SearchViewController:UIGestureRecognizerDelegate{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: filterView))!{
+            return false
+        }
         return true
     }
 }
