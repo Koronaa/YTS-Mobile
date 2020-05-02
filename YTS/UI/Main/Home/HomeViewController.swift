@@ -127,15 +127,18 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     @objc func seeMoreButtonTapped(sender:UIButton){
         let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
+        var type:MovieListType?
         switch sender.tag {
         case 0:
-            movieListVC.type = .LATEST
+            type = .LATEST
         case 1:
-            movieListVC.type = .POPULAR
+           type = .POPULAR
         case 2:
-            movieListVC.type = .RATED
+            type = .RATED
         default:()
         }
+        let movieListVM = MovieListViewModel(searchViewModel: nil, movieListType: type!)
+        movieListVC.configure(with: movieListVM)
         self.navigationController?.pushViewController(movieListVC, animated: true)
         
     }

@@ -68,13 +68,13 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeVM.latestMoves.count
+        return homeVM.latestMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch self.section {
         case 0:
-            let movie = homeVM.latestMoves[indexPath.row]
+            let movie = homeVM.latestMovies[indexPath.row]
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue, for: indexPath) as! FavouritesCollectionViewCell
             cell.favouriteCellViewModel = FavouriteCellViewModel(movie: movie)
             
@@ -85,7 +85,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionViewDelegate?.didSelectItem(for: homeVM.latestMoves[indexPath.row])
+        collectionViewDelegate?.didSelectItem(for: homeVM.latestMovies[indexPath.row])
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {

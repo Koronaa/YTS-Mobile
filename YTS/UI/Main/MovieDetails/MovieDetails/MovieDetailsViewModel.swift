@@ -34,7 +34,6 @@ class MovieDetailsViewModel{
     var synopsis:String {return movie.description}
     var cast:[Cast] = []
     
-    
     func getCast(onCompleted:@escaping ()-> Void){
         modelLayer.getCastDetails(for: movie.id.description) { cast in
             self.cast = cast

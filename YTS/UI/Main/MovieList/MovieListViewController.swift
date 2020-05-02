@@ -25,11 +25,12 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var subTItleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    fileprivate var movieListVM = MovieListViewModel()
-    fileprivate var homeVM = HomeViewModel()
-    var movieSearchVM:SearchViewModel!
+    var movieListVM:MovieListViewModel!
     
-    var type:MovieListType!
+    
+    func configure(with movieListVM:MovieListViewModel){
+        self.movieListVM = movieListVM
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,24 +39,21 @@ class MovieListViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isSkeletonable = true
-        
         collectionView.prepareSkeleton { isDone in
             self.collectionView.showAnimatedGradientSkeleton()
             self.collectionView.startSkeletonAnimation()
         }
-        
-        loadData(for: type)
+        loadData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupUI(for: type)
+        setupUI(for: movieListVM.movieListType)
     }
     
     
     
     private func setupUI(for type:MovieListType){
-        
         switch DeviceManager.getDeviceType() {
         case .iPhone_6_6s_7_8,.iPhone_X_Xs_11Pro:
             let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -70,8 +68,8 @@ class MovieListViewController: UIViewController {
         switch type {
         case .SEARCH:
             titleLabel.text = "Search Results"
-            if movieSearchVM.queryString != ""{
-                subTItleLabel.text = "Showing results for '\(movieSearchVM.queryString)'"
+            if movieListVM.searchViewModel!.queryString != ""{
+                subTItleLabel.text = "Showing results for '\(movieListVM.searchViewModel!.queryString)'"
             }else{
                 subTItleLabel.isHidden = true
             }
@@ -87,41 +85,11 @@ class MovieListViewController: UIViewController {
         }
     }
     
-    func loadData(for type:MovieListType, for pageNo:Int = 1){
-        switch type {
-        case .SEARCH:
-            movieSearchVM.search(pageNo: pageNo, limit: 50) { movies,data  in
-                self.collectionView.stopSkeletonAnimation()
-                self.collectionView.hideSkeleton()
-                self.movieListVM.addMovies(movies: movies)
-                self.movieListVM.data = data
-                self.collectionView.reloadData()
-            }
-        case .LATEST:
-            homeVM.loadLatestMovies(limit: 50,pageNo: pageNo) {
-                self.collectionView.stopSkeletonAnimation()
-                self.collectionView.hideSkeleton()
-                self.movieListVM.addMovies(movies: self.homeVM.latestMoves)
-                self.movieListVM.data = self.homeVM.latestMovieData
-                self.collectionView.reloadData()
-            }
-            
-        case .POPULAR:
-            homeVM.loadPopularMovies(limit: 50,pageNo: pageNo) {
-                self.collectionView.stopSkeletonAnimation()
-                self.collectionView.hideSkeleton()
-                self.movieListVM.addMovies(movies: self.homeVM.popularMovies)
-                self.movieListVM.data = self.homeVM.popularMoviesData
-                self.collectionView.reloadData()
-            }
-        case .RATED:
-            homeVM.loadMostRatedMovies(limit: 50,pageNo: pageNo) {
-                self.collectionView.stopSkeletonAnimation()
-                self.collectionView.hideSkeleton()
-                self.movieListVM.addMovies(movies: self.homeVM.topRatedMovies)
-                self.movieListVM.data = self.homeVM.topRatedMoviesData
-                self.collectionView.reloadData()
-            }
+    func loadData(){
+        movieListVM.loadData {
+            self.collectionView.stopSkeletonAnimation()
+            self.collectionView.hideSkeleton()
+            self.collectionView.reloadData()
         }
     }
     
@@ -129,8 +97,6 @@ class MovieListViewController: UIViewController {
     @IBAction func backButtonOnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    
 }
 
 extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionViewDataSource{
@@ -157,7 +123,8 @@ extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionVie
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == movieListVM.totalMovies - 4{
             if movieListVM.currentPage + 1 <= movieListVM.totalNoOfPages{
-                loadData(for: type, for: movieListVM.currentPage + 1)
+                movieListVM.data!.pageNo = movieListVM.currentPage + 1
+                loadData()
             }
         }
     }

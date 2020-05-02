@@ -56,6 +56,7 @@
 		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
 		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
 		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
+		3DBBD8F6245D93C300E3FADC /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */; };
 		3DC6C373245AB85F00A754C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C372245AB85F00A754C5 /* Data.swift */; };
 		3DC6C376245AF59300A754C5 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C375245AF59300A754C5 /* DeviceManager.swift */; };
 		3DC6C378245AF67500A754C5 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C377245AF67500A754C5 /* UIDevice+Extensions.swift */; };
@@ -125,6 +126,7 @@
 		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		3DC6C372245AB85F00A754C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3DC6C375245AF59300A754C5 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		3DC6C377245AF67500A754C5 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
@@ -225,9 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				3D4D2D32244873D600E42FF1 /* SearchViewController.swift */,
-				3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */,
-				3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */,
 				3D6E81F12456F83B00041BCB /* SearchViewModel.swift */,
+				3DBBD8F3245D8AED00E3FADC /* Filters */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -247,11 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				3D41BC8B2446DCEA00220B20 /* MovieDetailViewController.swift */,
-				3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */,
-				3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */,
-				3D41BC932446F6C500220B20 /* MovieDetailsView.xib */,
-				3D41BC952446F9D900220B20 /* MovieDetailsView.swift */,
 				3D6E81EB2456CBB100041BCB /* MovieDetailsViewModel.swift */,
+				3DBBD8F4245D8B2C00E3FADC /* BottomView */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -287,16 +285,16 @@
 		3D9A54882444826B0068C825 /* YTS */ = {
 			isa = PBXGroup;
 			children = (
-				3DC6C374245AF58300A754C5 /* Managers */,
-				3DF9E08D2459745F00EEB3EE /* Libs */,
-				3D0C5B3B245465CC00C257EC /* Translation */,
-				3D0C5B3624545BA000C257EC /* Network */,
-				3DB5D12A2449EC9E009AF3B8 /* Model */,
 				3DAB13562445C6ED005A7D9B /* Constants */,
 				3DAB13532445C67A005A7D9B /* Extensions */,
 				3DAB13522445C652005A7D9B /* Helpers */,
-				3DAB13512445C619005A7D9B /* UI */,
+				3DF9E08D2459745F00EEB3EE /* Libs */,
+				3DC6C374245AF58300A754C5 /* Managers */,
+				3DB5D12A2449EC9E009AF3B8 /* Model */,
+				3D0C5B3624545BA000C257EC /* Network */,
 				3DAB13572445C701005A7D9B /* SupportingFiles */,
+				3D0C5B3B245465CC00C257EC /* Translation */,
+				3DAB13512445C619005A7D9B /* UI */,
 			);
 			path = YTS;
 			sourceTree = "<group>";
@@ -333,10 +331,11 @@
 			children = (
 				3DAB134B2445A56D005A7D9B /* Main.storyboard */,
 				3DF9E08E2459755000EEB3EE /* Download */,
+				3D41BC8A2446DC1700220B20 /* Home */,
+				3D41BC8D2446E58C00220B20 /* MovieDetails */,
 				3D16D796244B2A2200CECDDD /* MovieList */,
 				3D4D2D31244873BE00E42FF1 /* Search */,
-				3D41BC8D2446E58C00220B20 /* MovieDetails */,
-				3D41BC8A2446DC1700220B20 /* Home */,
+				3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -386,6 +385,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3DBBD8F2245D8AC700E3FADC /* Carousel  */ = {
+			isa = PBXGroup;
+			children = (
+				3DF9E08F2459758400EEB3EE /* CorouselView.swift */,
+				3DF9E0912459759A00EEB3EE /* CarouselView.xib */,
+				3DF9E09724597A7700EEB3EE /* TorrentView.swift */,
+				3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */,
+				3DF9E09924597A8400EEB3EE /* TorrentView.xib */,
+				3DC6C379245AFFA800A754C5 /* TorrentViewSmall.xib */,
+			);
+			path = "Carousel ";
+			sourceTree = "<group>";
+		};
+		3DBBD8F3245D8AED00E3FADC /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */,
+				3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		3DBBD8F4245D8B2C00E3FADC /* BottomView */ = {
+			isa = PBXGroup;
+			children = (
+				3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */,
+				3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */,
+				3D41BC932446F6C500220B20 /* MovieDetailsView.xib */,
+				3D41BC952446F9D900220B20 /* MovieDetailsView.swift */,
+			);
+			path = BottomView;
+			sourceTree = "<group>";
+		};
 		3DC6C374245AF58300A754C5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,14 +439,9 @@
 		3DF9E08E2459755000EEB3EE /* Download */ = {
 			isa = PBXGroup;
 			children = (
-				3DF9E08F2459758400EEB3EE /* CorouselView.swift */,
-				3DF9E0912459759A00EEB3EE /* CarouselView.xib */,
 				3DF9E0932459789700EEB3EE /* DownloadViewController.swift */,
 				3DF9E095245978AF00EEB3EE /* DownloadViewModel.swift */,
-				3DF9E09724597A7700EEB3EE /* TorrentView.swift */,
-				3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */,
-				3DF9E09924597A8400EEB3EE /* TorrentView.xib */,
-				3DC6C379245AFFA800A754C5 /* TorrentViewSmall.xib */,
+				3DBBD8F2245D8AC700E3FADC /* Carousel  */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -596,6 +623,7 @@
 				3DC6C373245AB85F00A754C5 /* Data.swift in Sources */,
 				3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
+				3DBBD8F6245D93C300E3FADC /* CommonViewModel.swift in Sources */,
 				3D0C5B3A24545C5E00C257EC /* ServiceManager.swift in Sources */,
 				3D0C5B3F24546EA400C257EC /* URLConstants.swift in Sources */,
 				3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */,
@@ -755,7 +783,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
@@ -767,7 +795,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS App Store";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -781,7 +809,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
@@ -793,7 +821,7 @@
 				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS App Store";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

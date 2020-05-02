@@ -10,14 +10,21 @@ import Foundation
 
 class SearchViewModel{
     
+    fileprivate let modelLayer:ModelLayer = ModelLayer()
+    
+//    init(modelLayer:ModelLayer) {
+//        self.modelLayer = modelLayer
+//    }
+    
+    var searchedMovies:[Movie] = []
+    var searchedData:Data!
+    
     var selectedGenre:String = ""
     var selectedQuality:String = ""
     var selectedRating:String = ""
     var selectedOrderBy:String = "Latest"
     var queryString:String = ""
     var selectedFilterCategory:FilterType = .Quality
-    
-    let modelLayer:ModelLayer = ModelLayer()
     
     var currenFilter:[Filter] = []
     var genreFilter:[Filter] = Filter.generateFilter(for: .Genre)
@@ -51,12 +58,11 @@ class SearchViewModel{
     }
     
     
-    
-    func search(pageNo:Int = 1,limit:Int = 50,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
+    func search(pageNo:Int = 1,limit:Int = 50,onCompleted:@escaping ()->Void){
         modelLayer.searchMovies(for: queryString, quality: selectedQuality, genre: selectedGenre, rating: selectedRating, orderBy: selectedOrderBy,pageNo: pageNo,limit: limit) { movies,data in
-            onCompleted(movies,data)
+            self.searchedMovies = movies
+            self.searchedData = data
+            onCompleted()
         }
     }
-    
-    
 }

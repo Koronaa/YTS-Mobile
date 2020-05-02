@@ -24,11 +24,12 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var closeButton: UIButton!
     
-    
-    var searchVM:SearchViewModel = SearchViewModel()
+    var searchVM:SearchViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchVM = SearchViewModel()
         setupFilters()
         tableView.register(UINib(nibName: "FiltersTableViewCell", bundle: .main), forCellReuseIdentifier: UIConstants.Cell.FilterTableViewCell.rawValue)
         tableView.dataSource = self
@@ -75,8 +76,7 @@ class SearchViewController: UIViewController {
     private func performSearch(){
         searchVM.queryString = searchTextField.text ?? ""
         let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
-        movieListVC.movieSearchVM = self.searchVM
-        movieListVC.type = .SEARCH
+        movieListVC.configure(with: MovieListViewModel(searchViewModel: self.searchVM, movieListType: .SEARCH))
         self.navigationController?.pushViewController(movieListVC, animated: true)
     }
     

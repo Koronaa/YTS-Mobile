@@ -8,21 +8,60 @@
 
 import Foundation
 class MovieListViewModel{
-    var movies:[Movie] = []
-    var data:Data!
     
-    var totalNoOfPages:Int { return data.movieCount/data.limit}
-    var currentPage:Int {return data.pageNo}
+    
+    fileprivate var commonViewModel:CommonViewModel = CommonViewModel()
+    var searchViewModel:SearchViewModel?
+    var movieListType:MovieListType
+    
+    init(searchViewModel:SearchViewModel?,movieListType:MovieListType) {
+        self.searchViewModel = searchViewModel
+        self.movieListType = movieListType
+    }
+    
+    var movies:[Movie] = []
+    var data:Data?
+    
+    var limit:Int {data?.limit ?? 0}
+    var totalNoOfPages:Int { return (data?.movieCount) ?? 0/limit}
+    var currentPage:Int {return data?.pageNo ?? 0}
     var totalMovies:Int {return movies.count}
     
-    func addMovies(movies:[Movie]){
+    func addMovies(movies:[Movie],data:Data){
         if self.movies.count == 0{
             self.movies = movies
+            self.data = data
         }else{
             self.movies += movies
         }
     }
     
+    
+    func loadData(onCompleted:@escaping()->Void){
+        switch movieListType {
+        case .LATEST:
+            commonViewModel.loadLatestMovies(limit: 50, pageNo: currentPage) { (movies, data) in
+                self.addMovies(movies: movies, data: data)
+                onCompleted()
+            }
+        case .POPULAR:
+            commonViewModel.loadPopularMovies(limit: 50, pageNo: currentPage){ (movies, data) in
+                self.addMovies(movies: movies, data: data)
+                onCompleted()
+            }
+        case .RATED:
+            commonViewModel.loadMostRatedMovies(limit: 50, pageNo: currentPage){ (movies, data) in
+                self.addMovies(movies: movies, data: data)
+                onCompleted()
+            }
+        case .SEARCH:
+            searchViewModel!.search(pageNo: currentPage, limit: 50) {
+                self.addMovies(movies: self.searchViewModel!.searchedMovies, data: self.searchViewModel!.searchedData)
+                onCompleted()
+            }
+            
+        }
+    }
     
 }
 
