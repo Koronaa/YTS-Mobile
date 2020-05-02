@@ -93,7 +93,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         if #available(iOS 13.0, *) {
             seeMoreButton.setTitleColor(UIColor.label, for: .normal)
         } else {
-            seeMoreButton.setTitleColor(.white, for: .normal)
+            seeMoreButton.setTitleColor(.black, for: .normal)
         }
         seeMoreButton.frame = CGRect(x: self.view.frame.width - 125, y: 1, width: 120, height: 20)
         seeMoreButton.addTarget(self, action: #selector(seeMoreButtonTapped), for: .touchUpInside)
@@ -102,7 +102,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         if #available(iOS 13.0, *) {
             headerView.backgroundColor = .systemGray6
         } else {
-            // Fallback on earlier versions
+            headerView.backgroundColor = .systemGray6Fallback
         }
         
         headerView.addSubview(seeMoreButton)

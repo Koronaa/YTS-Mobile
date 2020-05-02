@@ -13,6 +13,7 @@ class DownloadViewController: UIViewController {
     
     var movieDetailsVM:MovieDetailsViewModel!
     
+    @IBOutlet weak var closeButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var carouselHolderView: CorouselView!
     
@@ -25,6 +26,9 @@ class DownloadViewController: UIViewController {
     }
     
     private func setupUI(){
+        if #available(iOS 13, *){
+            closeButtonTopConstraint.constant = 20
+        }
         UIHelper.circular(view: closeButton)
     }
     

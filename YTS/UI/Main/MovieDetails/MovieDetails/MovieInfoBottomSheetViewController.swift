@@ -24,7 +24,6 @@ class MovieInfoBottomSheetViewController: UIViewController {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         backgroundView.addGestureRecognizer(gesture)
         count = 0
-        print("Bottom sheet height = \(self.view.frame.height)")
         
         movieDetailsView.movieDetailsVM = self.movieDetailsVM
         movieDetailsView.setupData()
@@ -89,7 +88,12 @@ extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
     func downloadButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
         let downloadVC = UIHelper.makeViewController(in: .Main, viewControllerName: .DownloadVC) as! DownloadViewController
         downloadVC.movieDetailsVM = movieDetailsVM
-        downloadVC.modalPresentationStyle = .overFullScreen
+        
+        if #available(iOS 13, *){
+        }else{
+            downloadVC.modalPresentationStyle = .overCurrentContext
+        }
+        
         self.present(downloadVC, animated: true, completion: nil)
     }
     

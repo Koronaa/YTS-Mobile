@@ -48,7 +48,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
         if #available(iOS 13.0, *) {
             favouritesCollectionView.backgroundColor = .systemGray6
         } else {
-            // Fallback on earlier versions
+            favouritesCollectionView.backgroundColor = .systemGray6Fallback
         }
         favouritesCollectionView.isSkeletonable = true
         favouritesCollectionView.showsHorizontalScrollIndicator = false

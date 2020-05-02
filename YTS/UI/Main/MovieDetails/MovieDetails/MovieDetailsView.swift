@@ -22,8 +22,9 @@ class MovieDetailsView: UIView {
     @IBOutlet weak var availableInHeaderLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var watchLaterButton: UIButton!
+    @IBOutlet weak var watchTrailerButton: UIButton!
     @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var availableInLabel: UILabel!
@@ -60,11 +61,11 @@ class MovieDetailsView: UIView {
                 }
                 UIApplication.shared.open(url!, options: [:], completionHandler: nil)
             }else{
-                print("NO youtube link")
+//                print("NO youtube link")
                 //ERROR
             }
         }else{
-            print("NO youtube link")
+//            print("NO youtube link")
         }
         
     }
@@ -79,7 +80,7 @@ class MovieDetailsView: UIView {
     
     
     private func setupUI(){
-        UIHelper.addCornerRadius(to: watchLaterButton)
+        UIHelper.addCornerRadius(to: watchTrailerButton)
         UIHelper.addCornerRadius(to: downloadButton)
         collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.CastCollectionViewCell.rawValue)
         
@@ -105,6 +106,14 @@ class MovieDetailsView: UIView {
         default:
             bottomViewConstraint.constant = 200
         }
+        
+        if #available(iOS 13.0, *) {
+            //Storyboard will handle this
+        }else{
+            downloadButton.setImage(UIImage(named: "download"), for: .normal)
+            watchTrailerButton.setImage(UIImage(named: "play"), for: .normal)
+            shareButton.setImage(UIImage(named: "share"), for: .normal)
+        }
     }
     
     private func setupRatingView(){
@@ -114,10 +123,10 @@ class MovieDetailsView: UIView {
             ratingView.settings.filledBorderColor = .label
             ratingView.settings.textColor = .label
         } else {
-            ratingView.settings.filledColor = .white
-            ratingView.settings.emptyBorderColor = .white
-            ratingView.settings.filledBorderColor = .white
-            ratingView.settings.textColor = .white
+            ratingView.settings.filledColor = .black
+            ratingView.settings.emptyBorderColor = .black
+            ratingView.settings.filledBorderColor = .black
+            ratingView.settings.textColor = .black
         }
         ratingView.settings.textFont = UIFont(name: "Avenir-Medium", size: 18)!
         

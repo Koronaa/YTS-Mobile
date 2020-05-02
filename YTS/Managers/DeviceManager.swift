@@ -18,6 +18,11 @@ class DeviceManager{
         case iPhone_X_Xs_11Pro
         case iPhone_Xr_11
         case iPhone_XsMax_11ProMax
+        case iPad_Pro_12_9
+        case iPad_Pro_11
+        case iPad_Pro_10_5
+        case iPad_Pro_9_7_Air2_Mini4
+        case iPad_Legacy
         case Unknown
     }
     
@@ -35,6 +40,16 @@ class DeviceManager{
             return .iPhone_Xr_11
         case CGFloat(UIDevice.ScreenSize.iPhone_XsMax_11ProMax.rawValue):
             return .iPhone_XsMax_11ProMax
+        case CGFloat(UIDevice.ScreenSize.iPad_Pro_12_9.rawValue):
+            return .iPad_Pro_12_9
+        case CGFloat(UIDevice.ScreenSize.iPad_Pro_11.rawValue):
+            return .iPad_Pro_11
+        case CGFloat(UIDevice.ScreenSize.iPad_Pro_10_5.rawValue):
+            return .iPad_Pro_10_5
+        case CGFloat(UIDevice.ScreenSize.iPad_Pro_9_7_Air2_Mini4.rawValue):
+            return .iPad_Pro_9_7_Air2_Mini4
+        case CGFloat(UIDevice.ScreenSize.iPad_Legacy.rawValue):
+            return .iPad_Legacy
         default:
             return .Unknown
             

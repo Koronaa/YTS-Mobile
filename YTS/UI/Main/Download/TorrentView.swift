@@ -26,10 +26,9 @@ class TorrentView: UIView {
     var torrentViewVM:TorrentViewViewModel!{
         didSet{
             setupUI()
-            titleLabel.text = "\(torrentViewVM.torrent.quality) \(torrentViewVM.torrent.type)"
+            titleLabel.text = "\(torrentViewVM.torrent.quality) \(torrentViewVM.torrent.type.capitalized)"
             sizeLabel.text = torrentViewVM.torrent.size
             movieImageView.kf.setImage(with: torrentViewVM.torrent.posterURL)
-            print(torrentViewVM.torrent.posterURL)
         }
     }
     

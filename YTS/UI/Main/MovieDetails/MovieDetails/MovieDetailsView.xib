@@ -20,11 +20,12 @@
                 <outlet property="noCastInfoLabel" destination="48M-gp-VuI" id="agn-eF-B2k"/>
                 <outlet property="ratingView" destination="gal-ib-9vC" id="BdR-dQ-6gH"/>
                 <outlet property="scrollView" destination="rLA-dF-VeR" id="PGg-lA-JB9"/>
+                <outlet property="shareButton" destination="Go4-fe-d5x" id="6pj-5a-Hak"/>
                 <outlet property="shortDescriptionLabel" destination="XIM-4t-2Cm" id="b4L-y0-h6a"/>
                 <outlet property="synopsisHeaderLabel" destination="fIa-5s-Rsz" id="poS-H5-juq"/>
                 <outlet property="synopsisLabel" destination="H8x-tm-XpX" id="y50-zr-k3A"/>
                 <outlet property="titleLabel" destination="JPE-2q-s9i" id="2hR-Qn-7Kw"/>
-                <outlet property="watchLaterButton" destination="ILp-5i-G97" id="g6i-Ik-fkW"/>
+                <outlet property="watchTrailerButton" destination="ILp-5i-G97" id="g6i-Ik-fkW"/>
                 <outlet property="yearLabel" destination="v9k-7n-3Tb" id="hdh-ao-FBj"/>
             </connections>
         </placeholder>
@@ -208,7 +209,7 @@
                             <constraints>
                                 <constraint firstItem="EUM-v6-Pbe" firstAttribute="top" secondItem="uUt-kp-wF3" secondAttribute="bottom" constant="10" id="0XC-gD-4OD"/>
                                 <constraint firstAttribute="trailing" secondItem="XIM-4t-2Cm" secondAttribute="trailing" id="2X4-bO-h4j"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AyL-mY-gsz" secondAttribute="bottom" constant="200" id="5X1-pw-FaK"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AyL-mY-gsz" secondAttribute="bottom" constant="100" id="5X1-pw-FaK"/>
                                 <constraint firstAttribute="trailing" secondItem="v9k-7n-3Tb" secondAttribute="trailing" id="5ce-NK-ntr"/>
                                 <constraint firstAttribute="trailing" secondItem="uUt-kp-wF3" secondAttribute="trailing" id="5oU-j0-soF"/>
                                 <constraint firstItem="pkA-As-JXE" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="9Pc-gt-Cek"/>

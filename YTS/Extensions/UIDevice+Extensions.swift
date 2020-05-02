@@ -18,7 +18,11 @@ extension UIDevice{
         case iPhone_X_Xs_11Pro = 2436.0
         case iPhone_Xr_11 = 1792.0
         case iPhone_XsMax_11ProMax = 2688.0
-        
+        case iPad_Pro_12_9 = 2732.0
+        case iPad_Pro_11 = 2388.0
+        case iPad_Pro_10_5 = 2224.0
+        case iPad_Pro_9_7_Air2_Mini4 = 2048.0
+        case iPad_Legacy = 1024.0
     }
 }
 

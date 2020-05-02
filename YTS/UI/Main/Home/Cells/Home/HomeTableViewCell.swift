@@ -51,7 +51,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
         if #available(iOS 13.0, *) {
             homeCollectionView.backgroundColor = .systemGray6
         } else {
-            // Fallback on earlier versions
+            homeCollectionView.backgroundColor = .systemGray6Fallback
         }
         homeCollectionView.isSkeletonable = true
         homeCollectionView.showsHorizontalScrollIndicator = false
