@@ -17,11 +17,11 @@ class HomeViewModel{
     var popularMovies: [Movie] = []
     var popularMoviesData:Data!
     
-    fileprivate var commonViewModel:CommonViewModel = CommonViewModel()
+    fileprivate var commonViewModel:CommonViewModel
     
-//    init(commonViewModel:CommonViewModel) {
-//        self.commonViewModel = commonViewModel
-//    }
+    init(commonViewModel:CommonViewModel) {
+        self.commonViewModel = commonViewModel
+    }
     
     func loadLatestMovies(onCompleted:@escaping()->Void){
         commonViewModel.loadLatestMovies { (latestMovies, data) in

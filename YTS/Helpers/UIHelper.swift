@@ -15,7 +15,7 @@ class UIHelper{
         return UIStoryboard(name: storyBoardName, bundle: nil).instantiateViewController(withIdentifier: viewControllerName)
     }
     
-    static func makeViewController<T:UIViewController>(in storyboard:UIConstants.StoryBoard = .Login,viewControllerName:UIConstants.StoryBoardID) -> T{
+    static func makeViewController<T:UIViewController>(in storyboard:UIConstants.StoryBoard = .Main,viewControllerName:UIConstants.StoryBoardID) -> T{
         return makeViewController(storyBoardName: storyboard.rawValue, viewControllerName: viewControllerName.rawValue) as! T
     }
     

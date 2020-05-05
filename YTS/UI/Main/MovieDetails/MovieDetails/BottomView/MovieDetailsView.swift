@@ -37,6 +37,7 @@ class MovieDetailsView: UIView {
     
     var movieDetailsVM:MovieDetailsViewModel!
     var movieDetailsDelegate:MovieDetailsDelegate!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -47,13 +48,26 @@ class MovieDetailsView: UIView {
         commonInit()
     }
     
+    private func commonInit(){
+        Bundle.main.loadNibNamed("MovieDetailsView", owner: self, options: nil)
+        addSubview(mainView)
+        mainView.frame = self.bounds
+        mainView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
+        setupUI()
+    }
+    
+    func configure(movieDetailsVM:MovieDetailsViewModel,movieDetailsDelegate:MovieDetailsDelegate){
+        self.movieDetailsVM = movieDetailsVM
+        self.movieDetailsDelegate = movieDetailsDelegate
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         setupRatingView()
     }
     
     @IBAction func trailerButtonOnTapped(_ sender: UIButton) {
-        if let trailerCode = movieDetailsVM.movie.youtubeTrailerCode{
+        if let trailerCode = movieDetailsVM.youtubeLinkCode{
             if trailerCode != "" {
                 var url = URL(string: "youtube://"+trailerCode)
                 if !UIApplication.shared.canOpenURL(url!){
@@ -165,13 +179,7 @@ class MovieDetailsView: UIView {
     }
     
     
-    private func commonInit(){
-        Bundle.main.loadNibNamed("MovieDetailsView", owner: self, options: nil)
-        addSubview(mainView)
-        mainView.frame = self.bounds
-        mainView.autoresizingMask = [.flexibleHeight,.flexibleWidth]
-        setupUI()
-    }
+    
 }
 
 

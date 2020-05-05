@@ -15,19 +15,28 @@ class MovieInfoBottomSheetViewController: UIViewController {
     @IBOutlet weak var movieDetailsView: MovieDetailsView!
     
     var count:Int!
-    var movieDetailsVM:MovieDetailsViewModel!
+    
+    fileprivate var movieDetailsVM:MovieDetailsViewModel!
+    fileprivate var downloadVCMaker:DependencyRegistryIMPL.DownloadViewControllerMaker!
+    
+    
+    func configure(with movieDetailsViewModel:MovieDetailsViewModel,
+                   downloadVCMaker:@escaping DependencyRegistryIMPL.DownloadViewControllerMaker){
+        self.movieDetailsVM = movieDetailsViewModel
+        self.downloadVCMaker = downloadVCMaker
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        movieDetailsView.movieDetailsDelegate = self
+        movieDetailsView.configure(movieDetailsVM: self.movieDetailsVM, movieDetailsDelegate: self)
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         backgroundView.addGestureRecognizer(gesture)
         count = 0
-        
-        movieDetailsView.movieDetailsVM = self.movieDetailsVM
         movieDetailsView.setupData()
     }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -86,8 +95,7 @@ extension MovieInfoBottomSheetViewController{
 extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
     
     func downloadButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
-        let downloadVC = UIHelper.makeViewController(in: .Main, viewControllerName: .DownloadVC) as! DownloadViewController
-        downloadVC.movieDetailsVM = movieDetailsVM
+        let downloadVC = downloadVCMaker(movieDetailsVM.movie)
         
         if #available(iOS 13, *){
         }else{
@@ -98,7 +106,7 @@ extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
     }
     
     func shareButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
-        let code = "Here's the YTS link for the movie '\(movieDetailsVM.movie.title)'. Enjoy! \n \n \(movieDetailsVM.movie.ytsPageURL)"
+        let code = "Here's the YTS link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(movieDetailsVM.pageURL.absoluteString)"
         let textToShare = [code]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

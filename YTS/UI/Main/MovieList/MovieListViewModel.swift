@@ -10,12 +10,12 @@ import Foundation
 class MovieListViewModel{
     
     
-    fileprivate var commonViewModel:CommonViewModel = CommonViewModel()
-    var searchViewModel:SearchViewModel?
+    fileprivate var commonViewModel:CommonViewModel?
+    var searchViewModel:SearchViewModel!
     var movieListType:MovieListType
     
-    init(searchViewModel:SearchViewModel?,movieListType:MovieListType) {
-        self.searchViewModel = searchViewModel
+    init(commonViewModel:CommonViewModel?,movieListType:MovieListType) {
+        self.commonViewModel = commonViewModel
         self.movieListType = movieListType
     }
     
@@ -40,17 +40,17 @@ class MovieListViewModel{
     func loadData(onCompleted:@escaping()->Void){
         switch movieListType {
         case .LATEST:
-            commonViewModel.loadLatestMovies(limit: 50, pageNo: currentPage) { (movies, data) in
+            commonViewModel!.loadLatestMovies(limit: 50, pageNo: currentPage) { (movies, data) in
                 self.addMovies(movies: movies, data: data)
                 onCompleted()
             }
         case .POPULAR:
-            commonViewModel.loadPopularMovies(limit: 50, pageNo: currentPage){ (movies, data) in
+            commonViewModel!.loadPopularMovies(limit: 50, pageNo: currentPage){ (movies, data) in
                 self.addMovies(movies: movies, data: data)
                 onCompleted()
             }
         case .RATED:
-            commonViewModel.loadMostRatedMovies(limit: 50, pageNo: currentPage){ (movies, data) in
+            commonViewModel!.loadMostRatedMovies(limit: 50, pageNo: currentPage){ (movies, data) in
                 self.addMovies(movies: movies, data: data)
                 onCompleted()
             }

@@ -34,6 +34,8 @@ class UIConstants{
         case HomeCollectionViewCell = "homeCVCell"
         case CastCollectionViewCell = "castCVCell"
         case FilterTableViewCell = "filterTVCell"
+        case FavouriteTableViewCell = "FavouriteTableViewCell"
+        case HomeTableViewCell = "HomeTableViewCell"
     }
     
 }

@@ -14,8 +14,20 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
     
     var homeCollectionView:UICollectionView!
     var section:Int!
-    var collectionViewDelegate:HomeCollectionViewDelegate?
-    var homeVM:HomeViewModel = HomeViewModel()
+    
+    fileprivate var homeCollectionViewCellMaker:DependencyRegistryIMPL.HomeCollectionViewCellMaker!
+    fileprivate var homeVM:HomeViewModel!
+    var collectionViewDelegate:HomeCollectionViewDelegate!
+    
+    func congifure(homeVM:HomeViewModel,
+                   homeCollectionViewCellMaker:@escaping DependencyRegistryIMPL.HomeCollectionViewCellMaker,
+                   collectionViewDelegate:HomeCollectionViewDelegate){
+        self.homeVM = homeVM
+        self.homeCollectionViewCellMaker = homeCollectionViewCellMaker
+        self.collectionViewDelegate = collectionViewDelegate
+        
+        loadData()
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,7 +36,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
             self.homeCollectionView.showAnimatedGradientSkeleton()
             self.homeCollectionView.startSkeletonAnimation()
         }
-        loadData()
+        
         
     }
     
@@ -84,8 +96,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
             movie = homeVM.topRatedMovies[indexPath.row]
         default:()
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue, for: indexPath) as! HomeCollectionViewCell
-        cell.homeCVCellVM = HomeCellViewModel(movie: movie)
+        let cell = homeCollectionViewCellMaker(collectionView,indexPath,movie)
         return cell
     }
     
@@ -98,7 +109,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
             movie = homeVM.topRatedMovies[indexPath.row]
         default:()
         }
-        collectionViewDelegate?.didSelectItem(for: movie)
+        collectionViewDelegate.didSelectItem(for: movie)
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -107,6 +118,12 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
+    }
+    
+    public static func dequeue(from tableView:UITableView,for indexPath:IndexPath) -> HomeTableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: UIConstants.Cell.HomeTableViewCell.rawValue, for: indexPath) as! HomeTableViewCell
+        cell.section = indexPath.section
+        return cell
     }
     
     

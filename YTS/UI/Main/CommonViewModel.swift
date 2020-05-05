@@ -9,11 +9,11 @@
 import Foundation
 class CommonViewModel{
     
-    fileprivate var modelLayer:ModelLayer = ModelLayer()
+    fileprivate var modelLayer:ModelLayer
     
-//    init(modelLayer:ModelLayer) {
-//        self.modelLayer = modelLayer
-//    }
+    init(modelLayer:ModelLayer) {
+        self.modelLayer = modelLayer
+    }
     
     
     func loadMostRatedMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){

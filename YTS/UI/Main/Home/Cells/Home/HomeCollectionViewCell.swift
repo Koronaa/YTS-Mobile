@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class HomeCollectionViewCell: UICollectionViewCell {
-
+    
     
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -21,15 +21,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     
-    var homeCVCellVM:HomeCellViewModel!{
-        didSet{
-            setupUI()
-            moviePosterImageView.kf.setImage(with: homeCVCellVM.imageURL)
-            movietitleLabel.text = homeCVCellVM.title
-            releasedYearLabel.text = homeCVCellVM.year
-            durationLabel.text = homeCVCellVM.duration
-            ratingLabel.text = homeCVCellVM.rating
-        }
+    private func configure(with homeCVCellVM:HomeCellViewModel){
+        setupUI()
+        moviePosterImageView.kf.setImage(with: homeCVCellVM.imageURL)
+        movietitleLabel.text = homeCVCellVM.title
+        releasedYearLabel.text = homeCVCellVM.year
+        durationLabel.text = homeCVCellVM.duration
+        ratingLabel.text = homeCVCellVM.rating
     }
     
     private func setupUI(){
@@ -38,4 +36,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         UIHelper.roundCorners(view: bottomView, corners: [.bottomLeft,.bottomRight], radius: 15)
     }
     
+    public static func dequeue(from collectionView:UICollectionView,for indexPath:IndexPath, with viewModel:HomeCellViewModel) -> HomeCollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue, for: indexPath) as! HomeCollectionViewCell
+        cell.configure(with: viewModel)
+        return cell
+    }
 }

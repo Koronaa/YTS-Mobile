@@ -9,16 +9,19 @@
 import Foundation
 class MovieDetailsViewModel{
     
-    fileprivate var modelLayer:ModelLayer = ModelLayer()
     var movie:Movie
+    fileprivate var modelLayer:ModelLayer
     
-    init(movie:Movie) {
+    init(modelLayer:ModelLayer,movie:Movie) {
+        self.modelLayer = modelLayer
         self.movie = movie
     }
     
     var imageURL:URL {return movie.imageURL}
     var title:String {return movie.title}
+    var pageURL:URL {return movie.ytsPageURL}
     var rating:Double {return movie.rating}
+    var youtubeLinkCode:String? {return movie.youtubeTrailerCode}
     var year:String {return movie.year.description}
     var genre:String {return movie.genre}
     var shortDescription:String {return "\(movie.language) | \(movie.mpaRating) | \(movie.durationString)"}

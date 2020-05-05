@@ -10,11 +10,11 @@ import Foundation
 
 class SearchViewModel{
     
-    fileprivate let modelLayer:ModelLayer = ModelLayer()
+    fileprivate let modelLayer:ModelLayer
     
-//    init(modelLayer:ModelLayer) {
-//        self.modelLayer = modelLayer
-//    }
+    init(modelLayer:ModelLayer) {
+        self.modelLayer = modelLayer
+    }
     
     var searchedMovies:[Movie] = []
     var searchedData:Data!

@@ -15,19 +15,20 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var holderView: UIView!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
-    var favouriteCellViewModel:FavouriteCellViewModel!{
-        didSet{
-            configure(for: self.favouriteCellViewModel.movieImageURL)
-        }
-    }
-    
-    func configure(for url:URL){
+    private func configure(with viewModel:FavouriteCellViewModel){
         setupCell()
-        moviePosterImageView.kf.setImage(with: url)
+        moviePosterImageView.kf.setImage(with: viewModel.movieImageURL)
     }
     
     private func setupCell(){
         UIHelper.addCornerRadius(to: holderView,withRadius: 15)
         UIHelper.addCornerRadius(to: moviePosterImageView, withRadius: 15)
+    }
+    
+    public static func dequeue(from collectionView:UICollectionView,for indexPath:IndexPath, with viewModel:FavouriteCellViewModel) -> FavouritesCollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue, for: indexPath) as! FavouritesCollectionViewCell
+        cell.configure(with: viewModel)
+        return cell
+        
     }
 }

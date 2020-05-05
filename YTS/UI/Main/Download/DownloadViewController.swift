@@ -10,17 +10,22 @@ import UIKit
 
 class DownloadViewController: UIViewController {
     
-    
-    var movieDetailsVM:MovieDetailsViewModel!
-    
     @IBOutlet weak var closeButtonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var carouselHolderView: CorouselView!
     
+    fileprivate var movieDetailsVM:MovieDetailsViewModel!
+    fileprivate var downloadViewModel:DownloadViewModel!
+    
+    
+    func configure(with movieDetailsVM:MovieDetailsViewModel,downloadViewModel:DownloadViewModel){
+        self.movieDetailsVM = movieDetailsVM
+        self.downloadViewModel = downloadViewModel
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        carouselHolderView.downloadVM = DownloadViewModel(torrents: movieDetailsVM.movie.torrents)
-        carouselHolderView.carousalViewDelegate = self
+        carouselHolderView.configure(downloadVM: self.downloadViewModel, carousalViewDelegate: self)
         carouselHolderView.setupUI()
         setupUI()
     }
@@ -44,7 +49,7 @@ class DownloadViewController: UIViewController {
 
 extension DownloadViewController:CorouselViewDelegate{
     func onDownloadButtonClicked(for torrentViewModel: TorrentViewViewModel) {
-        let code = "Here's YTS \(torrentViewModel.torrent.quality).\(torrentViewModel.torrent.type) torrent download link for the movie '\(movieDetailsVM.movie.title)'. Enjoy! \n \n \(torrentViewModel.torrent.downloadURL.absoluteString)"
+        let code = "Here's YTS \(torrentViewModel.torrent.quality).\(torrentViewModel.torrent.type) torrent download link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(torrentViewModel.torrent.downloadURL.absoluteString)"
         let textToShare = [code]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

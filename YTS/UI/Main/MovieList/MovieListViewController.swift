@@ -18,18 +18,23 @@ enum MovieListType{
 
 class MovieListViewController: UIViewController {
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTItleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    var movieListVM:MovieListViewModel!
+     var movieListVM:MovieListViewModel!
+    fileprivate var homeCollectionViewCellMaker:DependencyRegistryIMPL.HomeCollectionViewCellMaker!
+    fileprivate var movieDetailsVCMaker:DependencyRegistryIMPL.MovieDetailsViewControllerMaker!
     
     
-    func configure(with movieListVM:MovieListViewModel){
+    func configure(with movieListVM:MovieListViewModel,
+                   homeCollectionViewCellMaker:@escaping DependencyRegistryIMPL.HomeCollectionViewCellMaker,
+                   movieDetailsVCMaker:@escaping DependencyRegistryIMPL.MovieDetailsViewControllerMaker){
         self.movieListVM = movieListVM
+        self.homeCollectionViewCellMaker = homeCollectionViewCellMaker
+        self.movieDetailsVCMaker = movieDetailsVCMaker
     }
     
     override func viewDidLoad() {
@@ -107,16 +112,13 @@ extension MovieListViewController:UICollectionViewDelegate,SkeletonCollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let movie = movieListVM.movies[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.HomeCollectionViewCell.rawValue, for: indexPath) as! HomeCollectionViewCell
-        cell.homeCVCellVM = HomeCellViewModel(movie: movie)
+        let cell = homeCollectionViewCellMaker(collectionView,indexPath,movie)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = movieListVM.movies[indexPath.row]
-        let movieDetailsVM = MovieDetailsViewModel(movie: movie)
-        let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC) as! MovieDetailViewController
-        movieDetailsVC.movieDetailsVM = movieDetailsVM
+        let movieDetailsVC = movieDetailsVCMaker(movie)
         self.navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
     

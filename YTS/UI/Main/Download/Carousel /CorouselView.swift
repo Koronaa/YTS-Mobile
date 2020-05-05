@@ -22,7 +22,11 @@ class CorouselView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    }
+    
+    func configure(downloadVM:DownloadViewModel,carousalViewDelegate:CorouselViewDelegate){
+        self.downloadVM = downloadVM
+        self.carousalViewDelegate = carousalViewDelegate
     }
     
     required init?(coder: NSCoder) {

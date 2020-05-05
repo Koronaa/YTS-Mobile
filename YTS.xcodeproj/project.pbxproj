@@ -43,6 +43,8 @@
 		3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */; };
 		3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */; };
 		3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A92444A7AB0068C825 /* UIConstants.swift */; };
+		3D9DAF68245E946000726ED7 /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DAF66245E946000726ED7 /* SwinjectStoryboard+Extensions.swift */; };
+		3D9DAF69245E946000726ED7 /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DAF67245E946000726ED7 /* DependencyRegistry.swift */; };
 		3DAB134C2445A56D005A7D9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DAB134B2445A56D005A7D9B /* Main.storyboard */; };
 		3DAB134E2445A875005A7D9B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAB134D2445A875005A7D9B /* HomeViewController.swift */; };
 		3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DAB13582445CACA005A7D9B /* FavouritesCollectionViewCell.xib */; };
@@ -113,6 +115,8 @@
 		3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		3D9A54A92444A7AB0068C825 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		3D9DAF66245E946000726ED7 /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		3D9DAF67245E946000726ED7 /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
 		3DAB134B2445A56D005A7D9B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3DAB134D2445A875005A7D9B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3DAB13582445CACA005A7D9B /* FavouritesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouritesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 		3D9A54882444826B0068C825 /* YTS */ = {
 			isa = PBXGroup;
 			children = (
+				3D9DAF65245E946000726ED7 /* Injection */,
 				3DAB13562445C6ED005A7D9B /* Constants */,
 				3DAB13532445C67A005A7D9B /* Extensions */,
 				3DAB13522445C652005A7D9B /* Helpers */,
@@ -297,6 +302,15 @@
 				3DAB13512445C619005A7D9B /* UI */,
 			);
 			path = YTS;
+			sourceTree = "<group>";
+		};
+		3D9DAF65245E946000726ED7 /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				3D9DAF66245E946000726ED7 /* SwinjectStoryboard+Extensions.swift */,
+				3D9DAF67245E946000726ED7 /* DependencyRegistry.swift */,
+			);
+			path = Injection;
 			sourceTree = "<group>";
 		};
 		3DAB13512445C619005A7D9B /* UI */ = {
@@ -591,6 +605,7 @@
 			files = (
 				3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */,
 				3D3984ED2456B1280019E5B9 /* HomeViewModel.swift in Sources */,
+				3D9DAF69245E946000726ED7 /* DependencyRegistry.swift in Sources */,
 				3D16D798244B2A4400CECDDD /* MovieListViewController.swift in Sources */,
 				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
 				3D6E81F22456F83B00041BCB /* SearchViewModel.swift in Sources */,
@@ -622,6 +637,7 @@
 				3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */,
 				3DC6C373245AB85F00A754C5 /* Data.swift in Sources */,
 				3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */,
+				3D9DAF68245E946000726ED7 /* SwinjectStoryboard+Extensions.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
 				3DBBD8F6245D93C300E3FADC /* CommonViewModel.swift in Sources */,
 				3D0C5B3A24545C5E00C257EC /* ServiceManager.swift in Sources */,

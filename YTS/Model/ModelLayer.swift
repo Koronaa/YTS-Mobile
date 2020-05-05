@@ -11,13 +11,13 @@ import SwiftyJSON
 
 class ModelLayer{
     
-    fileprivate let networkLayer:NetworkLayer = NetworkLayer()
-    fileprivate let translationLayer:TranslationLayer = TranslationLayer()
+    fileprivate let networkLayer:NetworkLayer
+    fileprivate let translationLayer:TranslationLayer
     
-//    init(networkLayer:NetworkLayer,translationLayer:TranslationLayer) {
-//        self.networkLayer = networkLayer
-//        self.translationLayer = translationLayer
-//    }
+    init(networkLayer:NetworkLayer,translationLayer:TranslationLayer) {
+        self.networkLayer = networkLayer
+        self.translationLayer = translationLayer
+    }
     
     
     func getMostRatedMovies(limit:Int,pageNo:Int,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){

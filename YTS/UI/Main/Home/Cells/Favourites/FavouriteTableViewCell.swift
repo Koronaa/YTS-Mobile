@@ -16,11 +16,28 @@ protocol HomeCollectionViewDelegate {
 
 class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollectionViewDataSource{
     
-    let homeVM:HomeViewModel = HomeViewModel()
+    fileprivate var homeVM:HomeViewModel!
+    fileprivate var favouriteCollectionCellMaker:DependencyRegistryIMPL.FavouriteCollectionViewCellMaker!
+    var collectionViewDelegate:HomeCollectionViewDelegate!
+    
     
     var favouritesCollectionView:UICollectionView!
     var section:Int!
-    var collectionViewDelegate:HomeCollectionViewDelegate?
+    
+    
+    func configure(homeVM:HomeViewModel,
+                   favouriteCollectionCellMaker:@escaping DependencyRegistryIMPL.FavouriteCollectionViewCellMaker,
+                   collectionViewDelegate:HomeCollectionViewDelegate){
+        self.homeVM = homeVM
+        self.favouriteCollectionCellMaker = favouriteCollectionCellMaker
+        self.collectionViewDelegate = collectionViewDelegate
+        
+        homeVM.loadLatestMovies {
+            self.favouritesCollectionView.stopSkeletonAnimation()
+            self.favouritesCollectionView.hideSkeleton()
+            self.favouritesCollectionView.reloadData()
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,8 +46,6 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
             self.favouritesCollectionView.showAnimatedGradientSkeleton()
             self.favouritesCollectionView.startSkeletonAnimation()
         }
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -57,12 +72,6 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
         favouritesCollectionView.dataSource = self
         favouritesCollectionView.delegate = self
         self.addSubview(favouritesCollectionView)
-        
-        homeVM.loadLatestMovies { 
-            self.favouritesCollectionView.stopSkeletonAnimation()
-            self.favouritesCollectionView.hideSkeleton()
-            self.favouritesCollectionView.reloadData()
-        }
     }
     
     
@@ -75,9 +84,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
         switch self.section {
         case 0:
             let movie = homeVM.latestMovies[indexPath.row]
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UIConstants.Cell.FavouritesCollectionViewCell.rawValue, for: indexPath) as! FavouritesCollectionViewCell
-            cell.favouriteCellViewModel = FavouriteCellViewModel(movie: movie)
-            
+            let cell = favouriteCollectionCellMaker(collectionView,indexPath,movie)
             return cell
         default:
             return UICollectionViewCell()
@@ -85,7 +92,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionViewDelegate?.didSelectItem(for: homeVM.latestMovies[indexPath.row])
+        collectionViewDelegate.didSelectItem(for: homeVM.latestMovies[indexPath.row])
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
@@ -95,4 +102,12 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
+    
+    public static func dequeue(from tableView:UITableView,for indexPath:IndexPath) -> FavouriteTableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: UIConstants.Cell.FavouriteTableViewCell.rawValue, for: indexPath) as! FavouriteTableViewCell
+        cell.section = indexPath.section
+        return cell
+    }
+    
+    
 }

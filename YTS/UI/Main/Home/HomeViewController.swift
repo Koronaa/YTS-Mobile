@@ -14,7 +14,23 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    let homeVM = HomeViewModel()
+    fileprivate var movieListVCMaker:DependencyRegistryIMPL.MovieListViewControllerMaker!
+    fileprivate var movieDetailMaker:DependencyRegistryIMPL.MovieDetailsViewControllerMaker!
+    fileprivate var searchMaker:DependencyRegistryIMPL.SearchViewControllerMaker!
+    fileprivate var favouriteTableViewCellMaker:DependencyRegistryIMPL.FavouriteTableViewCellMaker!
+    fileprivate var homeTableViewCellMaker:DependencyRegistryIMPL.HomeTableViewCellMaker!
+    
+    func configure(movieListVCMaker:@escaping DependencyRegistryIMPL.MovieListViewControllerMaker,
+                   movieDetailMaker:@escaping DependencyRegistryIMPL.MovieDetailsViewControllerMaker,
+                   searchMaker: @escaping DependencyRegistryIMPL.SearchViewControllerMaker,
+                   favouriteTableViewCellMaker: @escaping DependencyRegistryIMPL.FavouriteTableViewCellMaker,
+                   homeTableViewCellMaker: @escaping DependencyRegistryIMPL.HomeTableViewCellMaker){
+        self.movieListVCMaker = movieListVCMaker
+        self.movieDetailMaker = movieDetailMaker
+        self.searchMaker = searchMaker
+        self.favouriteTableViewCellMaker = favouriteTableViewCellMaker
+        self.homeTableViewCellMaker = homeTableViewCellMaker
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +66,9 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FavouriteTableViewCell", for: indexPath) as! FavouriteTableViewCell
-            cell.collectionViewDelegate = self
-            cell.section = indexPath.section
-            return cell
+            return favouriteTableViewCellMaker(tableView,indexPath,self)
         case 1,2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
-            cell.section = indexPath.section
-            cell.collectionViewDelegate = self
-            return cell
+            return homeTableViewCellMaker(tableView,indexPath,self)
         default:
             return UITableViewCell()
         }
@@ -126,7 +136,6 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     
     @objc func seeMoreButtonTapped(sender:UIButton){
-        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
         var type:MovieListType?
         switch sender.tag {
         case 0:
@@ -137,8 +146,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
             type = .RATED
         default:()
         }
-        let movieListVM = MovieListViewModel(searchViewModel: nil, movieListType: type!)
-        movieListVC.configure(with: movieListVM)
+        let movieListVC = movieListVCMaker(type!, nil)
         self.navigationController?.pushViewController(movieListVC, animated: true)
         
     }
@@ -147,15 +155,13 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 extension HomeViewController:UITextFieldDelegate,HomeCollectionViewDelegate{
     
     func didSelectItem(for movie: Movie) {
-        let movieDetailsVM = MovieDetailsViewModel(movie: movie)
-        let movieDetailsVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieDetailsVC) as! MovieDetailViewController
-        movieDetailsVC.movieDetailsVM = movieDetailsVM
+        let movieDetailsVC = movieDetailMaker(movie)
         self.navigationController?.pushViewController(movieDetailsVC, animated: true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.view.endEditing(true)
-        let searchVC = UIHelper.makeViewController(in: .Main, viewControllerName: .SearchVC)
+        let searchVC = searchMaker()
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     

@@ -24,12 +24,19 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var closeButton: UIButton!
     
-    var searchVM:SearchViewModel!
+    fileprivate var searchVM:SearchViewModel!
+    fileprivate var movieListVCMaker:DependencyRegistryIMPL.MovieListViewControllerMaker!
+    
+    
+    func configure(with searchVM:SearchViewModel,
+                   movieListVCMaker:DependencyRegistryIMPL.MovieListViewControllerMaker!){
+        self.searchVM = searchVM
+        self.movieListVCMaker = movieListVCMaker
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchVM = SearchViewModel()
         setupFilters()
         tableView.register(UINib(nibName: "FiltersTableViewCell", bundle: .main), forCellReuseIdentifier: UIConstants.Cell.FilterTableViewCell.rawValue)
         tableView.dataSource = self
@@ -75,8 +82,7 @@ class SearchViewController: UIViewController {
     
     private func performSearch(){
         searchVM.queryString = searchTextField.text ?? ""
-        let movieListVC = UIHelper.makeViewController(in: .Main, viewControllerName: .MovieListVC) as! MovieListViewController
-        movieListVC.configure(with: MovieListViewModel(searchViewModel: self.searchVM, movieListType: .SEARCH))
+        let movieListVC = movieListVCMaker(.SEARCH, searchVM)
         self.navigationController?.pushViewController(movieListVC, animated: true)
     }
     

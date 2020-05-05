@@ -15,11 +15,18 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var movieCoverImageView: UIImageView!
     @IBOutlet weak var backButton: UIButton!
     
-    var movieDetailsVM:MovieDetailsViewModel!
+    fileprivate var movieDetailsVM:MovieDetailsViewModel!
+    fileprivate var movieInfoBottomSheetVCMaker:DependencyRegistryIMPL.MovieInfoBottomSheetViewControllerMaker!
+    
+    func configure(with movieDetailsVM:MovieDetailsViewModel,
+                   movieInfoBottomSheetVCMaker:@escaping DependencyRegistryIMPL.MovieInfoBottomSheetViewControllerMaker){
+        self.movieDetailsVM = movieDetailsVM
+        self.movieInfoBottomSheetVCMaker = movieInfoBottomSheetVCMaker
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movieCoverImageView.kf.setImage(with: movieDetailsVM.movie.imageURL)
+        movieCoverImageView.kf.setImage(with: movieDetailsVM.imageURL)
         setupUI()
     }
     
@@ -29,12 +36,10 @@ class MovieDetailViewController: UIViewController {
     }
     
     func addBottomSheetView(){
-        let detailsBottomSheetVC = MovieInfoBottomSheetViewController()
-        detailsBottomSheetVC.movieDetailsVM = self.movieDetailsVM
+        let detailsBottomSheetVC = movieInfoBottomSheetVCMaker(movieDetailsVM.movie)
         self.addChild(detailsBottomSheetVC)
         self.view.addSubview(detailsBottomSheetVC.view)
         detailsBottomSheetVC.didMove(toParent: self)
-        
         
         let height = view.frame.height
         let width  = view.frame.width
