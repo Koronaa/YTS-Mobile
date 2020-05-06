@@ -113,7 +113,7 @@ class DependencyRegistryIMPL/*:DependencyRegistry*/{
                                     for indexPath:IndexPath,
                                     collectionViewDelgate:HomeCollectionViewDelegate)->FavouriteTableViewCell{
         let cell = FavouriteTableViewCell.dequeue(from: tableView, for: indexPath)
-        cell.configure(homeVM: container.resolve(HomeViewModel.self)!, favouriteCollectionCellMaker: self.makeFavouritesCollectionViewCell, collectionViewDelegate: collectionViewDelgate)
+        cell.configure(favouriteCollectionCellMaker: self.makeFavouritesCollectionViewCell, collectionViewDelegate: collectionViewDelgate)
         return cell
     }
     
@@ -122,7 +122,7 @@ class DependencyRegistryIMPL/*:DependencyRegistry*/{
                                for indexPath:IndexPath,
                                collectionViewDelgate:HomeCollectionViewDelegate)->HomeTableViewCell{
         let cell = HomeTableViewCell.dequeue(from: tableView, for: indexPath)
-        cell.congifure(homeVM: container.resolve(HomeViewModel.self)!, homeCollectionViewCellMaker: self.makeHomeCollectionViewCell, collectionViewDelegate: collectionViewDelgate)
+        cell.congifure(homeCollectionViewCellMaker: self.makeHomeCollectionViewCell, collectionViewDelegate: collectionViewDelgate)
         return cell
     }
     

@@ -19,17 +19,20 @@ class HomeViewController: UIViewController {
     fileprivate var searchMaker:DependencyRegistryIMPL.SearchViewControllerMaker!
     fileprivate var favouriteTableViewCellMaker:DependencyRegistryIMPL.FavouriteTableViewCellMaker!
     fileprivate var homeTableViewCellMaker:DependencyRegistryIMPL.HomeTableViewCellMaker!
+    fileprivate var homeVM:HomeViewModel!
     
     func configure(movieListVCMaker:@escaping DependencyRegistryIMPL.MovieListViewControllerMaker,
                    movieDetailMaker:@escaping DependencyRegistryIMPL.MovieDetailsViewControllerMaker,
                    searchMaker: @escaping DependencyRegistryIMPL.SearchViewControllerMaker,
                    favouriteTableViewCellMaker: @escaping DependencyRegistryIMPL.FavouriteTableViewCellMaker,
-                   homeTableViewCellMaker: @escaping DependencyRegistryIMPL.HomeTableViewCellMaker){
+                   homeTableViewCellMaker: @escaping DependencyRegistryIMPL.HomeTableViewCellMaker,
+                   homeViewModel:HomeViewModel){
         self.movieListVCMaker = movieListVCMaker
         self.movieDetailMaker = movieDetailMaker
         self.searchMaker = searchMaker
         self.favouriteTableViewCellMaker = favouriteTableViewCellMaker
         self.homeTableViewCellMaker = homeTableViewCellMaker
+        self.homeVM = homeViewModel
     }
     
     override func viewDidLoad() {
@@ -40,7 +43,22 @@ class HomeViewController: UIViewController {
         tableView.register(FavouriteTableViewCell.self, forCellReuseIdentifier: "FavouriteTableViewCell")
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         searchTextField.delegate = self
-}
+        loadData()
+    }
+    
+    private func loadData(){
+        homeVM.loadHomeMovies {
+            let info = ["homeVM":self.homeVM]
+            let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+            NotificationCenter.default.post(notification)
+        }
+        
+        homeVM.loadLatestMovies {
+            let info = ["homeVM":self.homeVM]
+            let notification:Notification = Notification(name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+            NotificationCenter.default.post(notification)
+        }
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -141,7 +159,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             type = .LATEST
         case 1:
-           type = .POPULAR
+            type = .POPULAR
         case 2:
             type = .RATED
         default:()

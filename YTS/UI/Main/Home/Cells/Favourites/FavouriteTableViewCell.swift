@@ -25,18 +25,10 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     var section:Int!
     
     
-    func configure(homeVM:HomeViewModel,
-                   favouriteCollectionCellMaker:@escaping DependencyRegistryIMPL.FavouriteCollectionViewCellMaker,
+    func configure(favouriteCollectionCellMaker:@escaping DependencyRegistryIMPL.FavouriteCollectionViewCellMaker,
                    collectionViewDelegate:HomeCollectionViewDelegate){
-        self.homeVM = homeVM
         self.favouriteCollectionCellMaker = favouriteCollectionCellMaker
         self.collectionViewDelegate = collectionViewDelegate
-        
-        homeVM.loadLatestMovies {
-            self.favouritesCollectionView.stopSkeletonAnimation()
-            self.favouritesCollectionView.hideSkeleton()
-            self.favouritesCollectionView.reloadData()
-        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -46,11 +38,19 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
             self.favouritesCollectionView.showAnimatedGradientSkeleton()
             self.favouritesCollectionView.startSkeletonAnimation()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didFavouriteDataLoad(_:)), name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+    }
+    
+    @objc func didFavouriteDataLoad(_ notification:Notification){
+        self.homeVM = (notification.userInfo!["homeVM"] as! HomeViewModel)
+        self.favouritesCollectionView.stopSkeletonAnimation()
+        self.favouritesCollectionView.hideSkeleton()
+        self.favouritesCollectionView.reloadData()
     }
     
     private func setupFavouritesCollectionView(){

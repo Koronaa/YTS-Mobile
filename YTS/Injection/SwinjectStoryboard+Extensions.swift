@@ -22,7 +22,7 @@ extension SwinjectStoryboard{
         func main(){
             dependencyRegistry.container.storyboardInitCompleted(HomeViewController.self) { (resolver, viewController) in
                 
-                viewController.configure(movieListVCMaker: dependencyRegistry.makeMovieListViewController, movieDetailMaker: dependencyRegistry.makeMovieDetailsViewController, searchMaker: dependencyRegistry.makeSearchViewController, favouriteTableViewCellMaker: dependencyRegistry.makeFavouriteTableViewCell, homeTableViewCellMaker: dependencyRegistry.makeHomeTableViewCell)
+                viewController.configure(movieListVCMaker: dependencyRegistry.makeMovieListViewController, movieDetailMaker: dependencyRegistry.makeMovieDetailsViewController, searchMaker: dependencyRegistry.makeSearchViewController, favouriteTableViewCellMaker: dependencyRegistry.makeFavouriteTableViewCell, homeTableViewCellMaker: dependencyRegistry.makeHomeTableViewCell, homeViewModel: resolver.resolve(HomeViewModel.self)!)
             }
         }
         main()
