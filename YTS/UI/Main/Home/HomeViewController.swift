@@ -65,9 +65,14 @@ class HomeViewController: UIViewController {
         setupUI()
     }
     
-    func setupUI(){
+    private func setupUI(){
         UIHelper.hide(navigationController: self.navigationController)
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NotificationConstants.Keys.HOME_DATA_LOADED,object: nil)
     }
 }
 
