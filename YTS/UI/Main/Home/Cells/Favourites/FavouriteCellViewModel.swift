@@ -15,6 +15,6 @@ class FavouriteCellViewModel {
         self.movie = movie
     }
     
-    var movieImageURL:URL {return movie.imageURL}
+    var movieImageURL:URL {return URL(string: movie.imageURL)!}
     
 }

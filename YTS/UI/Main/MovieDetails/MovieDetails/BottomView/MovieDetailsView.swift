@@ -67,21 +67,17 @@ class MovieDetailsView: UIView {
     }
     
     @IBAction func trailerButtonOnTapped(_ sender: UIButton) {
-        if let trailerCode = movieDetailsVM.youtubeLinkCode{
-            if trailerCode != "" {
-                var url = URL(string: "youtube://"+trailerCode)
-                if !UIApplication.shared.canOpenURL(url!){
-                    url = URL(string:"http://www.youtube.com/watch?v="+trailerCode)!
-                }
-                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            }else{
-//                print("NO youtube link")
-                //ERROR
-            }
-        }else{
-//            print("NO youtube link")
-        }
         
+        if let trailerCode = movieDetailsVM.youtubeLinkCode,
+            let url = movieDetailsVM.trailerURL{
+            var urlSchemeURL = URL(string: "youtube://"+trailerCode)
+            if !UIApplication.shared.canOpenURL(urlSchemeURL!){
+                urlSchemeURL = url
+            }
+            UIApplication.shared.open(urlSchemeURL!, options: [:], completionHandler: nil)
+        }else{
+            //TODO: ERROR NO youtube link
+        }
     }
     
     @IBAction func downloadButtonOnTapped(_ sender: Any) {

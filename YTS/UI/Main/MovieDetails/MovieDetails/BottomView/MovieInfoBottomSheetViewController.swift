@@ -95,22 +95,30 @@ extension MovieInfoBottomSheetViewController{
 extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
     
     func downloadButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
-        let downloadVC = downloadVCMaker(movieDetailsVM.movie)
         
-        if #available(iOS 13, *){
+        if let _ = movieDetailsVM.movie.torrents{
+            let downloadVC = downloadVCMaker(movieDetailsVM.movie)
+            if #available(iOS 13, *){
+            }else{
+                downloadVC.modalPresentationStyle = .overCurrentContext
+            }
+            self.present(downloadVC, animated: true, completion: nil)
         }else{
-            downloadVC.modalPresentationStyle = .overCurrentContext
+            //TODO: No Torrent error
         }
-        
-        self.present(downloadVC, animated: true, completion: nil)
     }
     
     func shareButtonOnTapped(for movieDetailsVM: MovieDetailsViewModel) {
-        let code = "Here's the YTS link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(movieDetailsVM.pageURL.absoluteString)"
-        let textToShare = [code]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        
+        if let url = movieDetailsVM.pageURL {
+            let code = "Here's the YTS link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(url)"
+            let textToShare = [code]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            self.present(activityViewController, animated: true, completion: nil)
+        }else{
+            //TODO: Error
+        }
     }
 }
 

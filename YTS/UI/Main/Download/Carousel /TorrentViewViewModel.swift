@@ -10,9 +10,15 @@ import Foundation
 class TorrentViewViewModel{
     
     var torrent:Torrent
+    var movie:Movie
     
-    init(torrent:Torrent) {
+    init(torrent:Torrent,movie:Movie) {
         self.torrent = torrent
+        self.movie = movie
+    }
+    
+    var posterURL:URL {
+        return URL(string: movie.imageURL)!
     }
     
 }

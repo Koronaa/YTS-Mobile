@@ -10,9 +10,43 @@ import Foundation
 import Swinject
 import SwinjectStoryboard
 
-class DependencyRegistryIMPL/*:DependencyRegistry*/{
+protocol DependencyRegistry {
+    var container:Container {get}
     
-    //    var navigationCoordinator: NavigationCoordinatorIMPL!
+    typealias FavouriteCollectionViewCellMaker = (UICollectionView,IndexPath,Movie) -> FavouritesCollectionViewCell
+    func makeFavouritesCollectionViewCell(for collectionView:UICollectionView,at indexPath:IndexPath,movie:Movie) -> FavouritesCollectionViewCell
+    
+    typealias HomeCollectionViewCellMaker = (UICollectionView,IndexPath,Movie) -> HomeCollectionViewCell
+    func makeHomeCollectionViewCell(for collectionView:UICollectionView,at indexPath:IndexPath,movie:Movie) -> HomeCollectionViewCell
+    
+    typealias FavouriteTableViewCellMaker = (UITableView,IndexPath,HomeCollectionViewDelegate) -> FavouriteTableViewCell
+    func makeFavouriteTableViewCell(for tableView:UITableView,
+                                    for indexPath:IndexPath,
+                                    collectionViewDelgate:HomeCollectionViewDelegate)->FavouriteTableViewCell
+    
+    
+    typealias HomeTableViewCellMaker = (UITableView,IndexPath,HomeCollectionViewDelegate) -> HomeTableViewCell
+    func makeHomeTableViewCell(for tableView:UITableView,
+                               for indexPath:IndexPath,
+                               collectionViewDelgate:HomeCollectionViewDelegate)->HomeTableViewCell
+    
+    typealias MovieDetailsViewControllerMaker = (Movie) -> MovieDetailViewController
+    func makeMovieDetailsViewController(for movie:Movie) -> MovieDetailViewController
+    
+    typealias SearchViewControllerMaker = () -> SearchViewController
+    func makeSearchViewController() -> SearchViewController
+    
+    typealias DownloadViewControllerMaker = (Movie) -> DownloadViewController
+    func makeDownloadViewController(for movie:Movie) -> DownloadViewController
+    
+    typealias MovieInfoBottomSheetViewControllerMaker = (Movie) -> MovieInfoBottomSheetViewController
+    func makeMovieInfoBottomSheetViewController(for movie:Movie) -> MovieInfoBottomSheetViewController
+    
+}
+
+
+class DependencyRegistryIMPL:DependencyRegistry{
+    
     var container:Container
     
     init(container:Container) {
@@ -27,32 +61,29 @@ class DependencyRegistryIMPL/*:DependencyRegistry*/{
     
     
     func registerDependencies(){
-        container.register(NetworkLayer.self) { _ in NetworkLayer()}.inObjectScope(.container)
+        container.register(NetworkLayerIMPL.self) { _ in NetworkLayerIMPL()}.inObjectScope(.container)
         container.register(TranslationLayer.self){_ in TranslationLayer()}.inObjectScope(.container)
         
-        container.register(ModelLayer.self){resolver in
-            ModelLayer(networkLayer: resolver.resolve(NetworkLayer.self)!, translationLayer: resolver.resolve(TranslationLayer.self)!)
+        container.register(ModelLayerIMPL.self){resolver in
+            ModelLayerIMPL(networkLayer: resolver.resolve(NetworkLayerIMPL.self)!, translationLayer: resolver.resolve(TranslationLayer.self)!)
         }.inObjectScope(.container)
         
-        //        container.register(NavigationCoordinatorIMPL.self){(resolver,rootViewController:UIViewController) in
-        //            return NavigationCoordinatorIMPL(with: rootViewController, registry: self)
-        //        }.inObjectScope(.container)
     }
     
     func registerViewModels(){
         
-        container.register(CommonViewModel.self) { resolver in CommonViewModel(modelLayer: resolver.resolve(ModelLayer.self)!)}
+        container.register(CommonViewModel.self) { resolver in CommonViewModel(modelLayer: resolver.resolve(ModelLayerIMPL.self)!)}
         container.register(HomeViewModel.self) { resolver in HomeViewModel(commonViewModel: resolver.resolve(CommonViewModel.self)!)}
         container.register(FavouriteCellViewModel.self) { (resolver,movie:Movie) in FavouriteCellViewModel(movie: movie)}
         container.register(HomeCellViewModel.self) { (resolver,movie:Movie) in HomeCellViewModel(movie: movie)}
-        container.register(MovieDetailsViewModel.self) { (resolver,movie:Movie) in MovieDetailsViewModel(modelLayer: resolver.resolve(ModelLayer.self)!, movie: movie)}
+        container.register(MovieDetailsViewModel.self) { (resolver,movie:Movie) in MovieDetailsViewModel(modelLayer: resolver.resolve(ModelLayerIMPL.self)!, movie: movie)}
         container.register(CastCellViewModel.self) { (reslover, cast:Cast) in CastCellViewModel(cast: cast)}
-        container.register(SearchViewModel.self) { resolver in SearchViewModel(modelLayer: resolver.resolve(ModelLayer.self)!)}
+        container.register(SearchViewModel.self) { resolver in SearchViewModel(modelLayer: resolver.resolve(ModelLayerIMPL.self)!)}
         container.register(MovieListViewModel.self) { (resolver, listType:MovieListType) in MovieListViewModel(commonViewModel: resolver.resolve(CommonViewModel.self), movieListType: listType)}
-        container.register(TorrentViewViewModel.self) { (reslover,torrent:Torrent) in
-            TorrentViewViewModel(torrent: torrent)}
-        container.register(DownloadViewModel.self) { (reslover,torrents:[Torrent]) in
-            DownloadViewModel(torrents: torrents)
+        container.register(TorrentViewViewModel.self) { (reslover,torrent:Torrent,movie:Movie) in
+            TorrentViewViewModel(torrent: torrent,movie: movie)}
+        container.register(DownloadViewModel.self) { (reslover,movie:Movie) in
+            DownloadViewModel(movie: movie)
         }
         
         
@@ -69,7 +100,7 @@ class DependencyRegistryIMPL/*:DependencyRegistry*/{
         
         container.register(DownloadViewController.self) { (resolver,movie:Movie)  in
             let downloadVC = UIHelper.makeViewController(viewControllerName: .DownloadVC) as! DownloadViewController
-            downloadVC.configure(with: resolver.resolve(MovieDetailsViewModel.self, argument: movie)!, downloadViewModel: resolver.resolve(DownloadViewModel.self, argument: movie.torrents)!)
+            downloadVC.configure(with: resolver.resolve(MovieDetailsViewModel.self, argument: movie)!, downloadViewModel: resolver.resolve(DownloadViewModel.self, argument: movie)!)
             return downloadVC
         }
         

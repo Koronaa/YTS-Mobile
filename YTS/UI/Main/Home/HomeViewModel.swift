@@ -11,11 +11,11 @@ import Foundation
 class HomeViewModel{
     
     var latestMovies:[Movie] = []
-    var latestMovieData:Data!
+    var latestMovieData:ResultData!
     var topRatedMovies:[Movie] = []
-    var topRatedMoviesData:Data!
+    var topRatedMoviesData:ResultData!
     var popularMovies: [Movie] = []
-    var popularMoviesData:Data!
+    var popularMoviesData:ResultData!
     
     fileprivate var commonViewModel:CommonViewModel
     
@@ -24,20 +24,20 @@ class HomeViewModel{
     }
     
     func loadLatestMovies(onCompleted:@escaping()->Void){
-        commonViewModel.loadLatestMovies { (latestMovies, data) in
-            self.latestMovies = latestMovies
-            self.latestMovieData = data
+        commonViewModel.loadLatestMovies { moviesData in
+            self.latestMovies = moviesData.movies!
+            self.latestMovieData = ResultData(limit: moviesData.limit, pageNo: moviesData.pageNumber, movieCount: moviesData.movieCount)
             onCompleted()
         }
     }
     
     func loadHomeMovies(onCompleted:@escaping()->Void){
-        commonViewModel.loadPopularMovies { popularMovies,data in
-            self.popularMovies = popularMovies
-            self.popularMoviesData = data
-            self.commonViewModel.loadMostRatedMovies { topRatedMovies,data in
-                self.topRatedMovies = topRatedMovies
-                self.topRatedMoviesData = data
+        commonViewModel.loadPopularMovies { moviesData in
+            self.popularMovies = moviesData.movies!
+            self.popularMoviesData = ResultData(limit: moviesData.limit, pageNo: moviesData.pageNumber, movieCount: moviesData.movieCount)
+            self.commonViewModel.loadMostRatedMovies { moviesData in
+                self.topRatedMovies = moviesData.movies!
+                self.topRatedMoviesData = ResultData(limit: moviesData.limit, pageNo: moviesData.pageNumber, movieCount: moviesData.movieCount)
                 onCompleted()
             }
         }

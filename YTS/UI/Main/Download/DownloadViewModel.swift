@@ -9,9 +9,13 @@
 import Foundation
 class DownloadViewModel{
     
-    var torrents:[Torrent]
+    var movie:Movie
     
-    init(torrents:[Torrent]) {
-        self.torrents = torrents
+    init(movie:Movie) {
+        self.movie = movie
+    }
+    
+    var torrents:[Torrent] {
+        return movie.torrents ?? [Torrent]()
     }
 }

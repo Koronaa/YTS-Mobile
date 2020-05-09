@@ -24,7 +24,7 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var subTItleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-     var movieListVM:MovieListViewModel!
+    var movieListVM:MovieListViewModel!
     fileprivate var homeCollectionViewCellMaker:DependencyRegistryIMPL.HomeCollectionViewCellMaker!
     fileprivate var movieDetailsVCMaker:DependencyRegistryIMPL.MovieDetailsViewControllerMaker!
     
@@ -48,6 +48,7 @@ class MovieListViewController: UIViewController {
             self.collectionView.showAnimatedGradientSkeleton()
             self.collectionView.startSkeletonAnimation()
         }
+        
         loadData()
     }
     

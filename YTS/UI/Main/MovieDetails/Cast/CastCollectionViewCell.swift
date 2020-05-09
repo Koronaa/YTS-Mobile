@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 class CastCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var castImageView: UIImageView!
     @IBOutlet weak var castNameLabel: UILabel!
     
@@ -18,7 +18,11 @@ class CastCollectionViewCell: UICollectionViewCell {
     var castCellViewModel:CastCellViewModel!{
         didSet{
             setupCell()
-            castImageView.kf.setImage(with:castCellViewModel.imageURL)
+            if let url = castCellViewModel.imageURL{
+                castImageView.kf.setImage(with:url)
+            }else{
+                castImageView.image = UIImage(named: "avatar")!
+            }
             castNameLabel.text = castCellViewModel.name
         }
     }
@@ -27,5 +31,5 @@ class CastCollectionViewCell: UICollectionViewCell {
         UIHelper.circular(view: castImageView)
     }
     
-
+    
 }

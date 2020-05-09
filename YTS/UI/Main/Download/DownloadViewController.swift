@@ -49,7 +49,7 @@ class DownloadViewController: UIViewController {
 
 extension DownloadViewController:CorouselViewDelegate{
     func onDownloadButtonClicked(for torrentViewModel: TorrentViewViewModel) {
-        let code = "Here's YTS \(torrentViewModel.torrent.quality).\(torrentViewModel.torrent.type) torrent download link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(torrentViewModel.torrent.downloadURL.absoluteString)"
+        let code = "Here's YTS \(torrentViewModel.torrent.quality).\(torrentViewModel.torrent.type) torrent download link for the movie '\(movieDetailsVM.title)'. Enjoy! \n \n \(torrentViewModel.torrent.downloadURL)"
         let textToShare = [code]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view

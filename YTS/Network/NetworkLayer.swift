@@ -7,16 +7,19 @@
 //
 
 import Foundation
-import SwiftyJSON
 
-class NetworkLayer{
+protocol NetworkLayer {
+    func getResponseJSON(for url:URL,onCompleted: @escaping (_ responseData:Data)->Void)
+}
+
+class NetworkLayerIMPL:NetworkLayer{
     
-    func getMoviesJSON(for url:URL,onCompleted: @escaping (_ response:JSON)->Void){
-        ServiceManager.APIRequest(url: url, method: .get) { (responseJSON, responseCode) in
+    func getResponseJSON(for url:URL,onCompleted: @escaping (_ responseData:Data)->Void){
+        ServiceManagerIMPL.APIRequest(url: url, method: .get) { (responseData, responseCode) in
             if responseCode == 200{
-                onCompleted(responseJSON!)
+                onCompleted(responseData!)
             }else{
-                //ERROR
+                //TODO: ERROR
             }
         }
     }

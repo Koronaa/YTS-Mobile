@@ -8,10 +8,14 @@
 
 import Foundation
 
-struct Data{
-    
+class ResultData{
     var limit:Int
     var pageNo:Int
     var movieCount:Int
     
+    init(limit:Int,pageNo:Int,movieCount:Int){
+        self.limit = limit
+        self.pageNo = pageNo
+        self.movieCount = movieCount
+    }
 }

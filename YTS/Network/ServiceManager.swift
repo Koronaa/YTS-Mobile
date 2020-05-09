@@ -8,24 +8,22 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-typealias onAPIResponse = (_ response:JSON?, _ statusCode:Int)->()
+typealias onAPIResponse = (_ response:Data?, _ statusCode:Int)->()
 
-class ServiceManager{
+protocol ServiceManager {
+    static func APIRequest(url:URL,method:HTTPMethod,params:Parameters?,onResponse:onAPIResponse?)
+}
+
+class ServiceManagerIMPL:ServiceManager{
     static func APIRequest(url:URL,method:HTTPMethod,params:Parameters? = nil,onResponse:onAPIResponse?){
         
         if ReachabilityManager.isConnectedToNetwork(){
             AF.request(url, method: method, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil).responseJSON { response in
                 if let statusCode = response.response?.statusCode {
-                    do {
-                        if let data = response.data{
-                            let jsonResponse =  try JSON(data:data)
-                            onResponse!(jsonResponse,statusCode)
-                        }else{
-                            //TODO
-                        }
-                    }catch{
+                    if let data = response.data{
+                        onResponse!(data,statusCode)
+                    }else{
                         //TODO
                     }
                 }

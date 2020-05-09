@@ -10,7 +10,6 @@ target 'YTS' do
   pod 'Cosmos'
   pod "SkeletonView"
   pod 'Alamofire'
-  pod 'SwiftyJSON'
   pod 'NotificationBannerSwift'
   pod 'Swinject'
   pod 'SwinjectStoryboard', :git=> 'https://github.com/Swinject/SwinjectStoryboard.git', :tag => '2.2.0'
