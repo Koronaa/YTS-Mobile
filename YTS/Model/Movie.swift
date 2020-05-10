@@ -12,7 +12,7 @@ struct Movie:Decodable {
     var title:String
     var id:Int
     var year:Int
-    var genres:[String]
+    var genres:[String]?
     var rating:Double
     var language:String
     var mpaRating:String

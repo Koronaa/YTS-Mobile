@@ -8,6 +8,7 @@
 
 import UIKit
 import SkeletonView
+import RxSwift
 
 enum MovieListType{
     case SEARCH
@@ -27,6 +28,7 @@ class MovieListViewController: UIViewController {
     var movieListVM:MovieListViewModel!
     fileprivate var homeCollectionViewCellMaker:DependencyRegistryIMPL.HomeCollectionViewCellMaker!
     fileprivate var movieDetailsVCMaker:DependencyRegistryIMPL.MovieDetailsViewControllerMaker!
+    fileprivate let bag = DisposeBag()
     
     
     func configure(with movieListVM:MovieListViewModel,
@@ -92,10 +94,16 @@ class MovieListViewController: UIViewController {
     }
     
     func loadData(){
-        movieListVM.loadData {
-            self.collectionView.stopSkeletonAnimation()
-            self.collectionView.hideSkeleton()
-            self.collectionView.reloadData()
+        movieListVM.loadData { (errorObservable) in
+            errorObservable.subscribe(onNext: { error in
+                if let e = error{
+                    UIHelper.makeBanner(for: e).show()
+                }else{
+                    self.collectionView.stopSkeletonAnimation()
+                    self.collectionView.hideSkeleton()
+                    self.collectionView.reloadData()
+                }
+            }).disposed(by: self.bag)
         }
     }
     

@@ -7,26 +7,32 @@
 //
 
 import Foundation
+import RxSwift
 
 class TranslationLayer{
     
-    func getMovies(from responseData:Data,onCompleted: @escaping (_ moviesReponse:MoviesResponse)->Void){
+    func getMovies(from responseData:Data,onCompleted: @escaping (_ observable:Observable<(moviesReponse:MoviesResponse?,error:Error?)>)->Void){
         let decorder = JSONDecoder()
         do{
             let moviesResponse = try decorder.decode(MoviesResponse.self, from: responseData)
-            onCompleted(moviesResponse)
-        }catch{
-            print(error)
+            onCompleted(Observable.just((moviesResponse,nil)))
+        }catch(let e){
+            let error = Error(title: "Translation Error!", message: "Something went wrong while translating data.")
+            onCompleted(Observable.just((nil,error)))
+            print(e)
+            
         }
     }
     
-    func getMovieDetails(from responseData:Data,onCompleted: @escaping (_ movieResponse:MovieResponse)->Void){
+    func getMovieDetails(from responseData:Data,onCompleted: @escaping (_ observable:Observable<(movieResponse:MovieResponse?,error:Error?)>)->Void){
         let decorder = JSONDecoder()
         do{
             let movieResponse = try decorder.decode(MovieResponse.self, from: responseData)
-            onCompleted(movieResponse)
-        }catch{
-            print(error)
+            onCompleted(Observable.just((movieResponse,nil)))
+        }catch(let e){
+            let error = Error(title: "Translation Error!", message: "Something went wrong while translating data.")
+            onCompleted(Observable.just((nil,error)))
+            print(e)
         }
     }
 }

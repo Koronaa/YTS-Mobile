@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import RxSwift
+
 class MovieDetailsViewModel{
     
     var movie:Movie
     fileprivate var modelLayer:ModelLayerIMPL
+    fileprivate let bag = DisposeBag()
     
     init(modelLayer:ModelLayerIMPL,movie:Movie) {
         self.modelLayer = modelLayer
@@ -35,7 +38,15 @@ class MovieDetailsViewModel{
     
     var year:String {return movie.year.description}
     
-    var genre:String {return movie.genres.joined(separator: " / ") }
+    var genre:String {
+        if let genres = movie.genres{
+            return genres.joined(separator: " / ")
+        }else{
+            return "Unknown Genre"
+        }
+        
+        
+    }
     
     private  var durationString:String {
         if movie.duration != 0{
@@ -75,13 +86,18 @@ class MovieDetailsViewModel{
     
     var cast:[Cast] = []
     
-    func getCast(onCompleted:@escaping ()-> Void){
-        modelLayer.getMovieDetails(for: movie.id.description) { movieResponse in
-            if let cast = movieResponse.data.movie.cast{
-                self.cast = cast
-            }
-            onCompleted()
+    func getCast(onCompleted:@escaping (Observable<Error?>)-> Void){
+        modelLayer.getMovieDetails(for: movie.id.description) { (movieResponseObservable) in
+            movieResponseObservable.subscribe(onNext: { (movieResponse,error) in
+                if let movieDetails = movieResponse{
+                    if let cast = movieDetails.data.movie.cast{
+                        self.cast = cast
+                    }
+                    onCompleted(Observable.just(nil))
+                }else{
+                    onCompleted(Observable.just(error))
+                }
+            }).disposed(by: self.bag)
         }
     }
-    
 }

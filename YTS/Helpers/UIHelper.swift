@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 
 class UIHelper{
     
@@ -70,6 +71,10 @@ class UIHelper{
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.cornerRadius = view.frame.height/2
         view.clipsToBounds = true
+    }
+    
+    static func makeBanner(for error:Error,style:BannerStyle = .danger) -> GrowingNotificationBanner{
+        return GrowingNotificationBanner(title: error.title, subtitle: error.message, style: style)
     }
     
 }

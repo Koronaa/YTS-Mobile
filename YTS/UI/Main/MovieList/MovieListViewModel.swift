@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+
 class MovieListViewModel{
     
     
     fileprivate var commonViewModel:CommonViewModel?
+    fileprivate let bag = DisposeBag()
+    
     var searchViewModel:SearchViewModel!
     var movieListType:MovieListType
     
@@ -37,29 +41,52 @@ class MovieListViewModel{
     }
     
     
-    func loadData(onCompleted:@escaping()->Void){
+    func loadData(onCompleted:@escaping(Observable<Error?>)->Void){
         switch movieListType {
         case .LATEST:
-            commonViewModel!.loadLatestMovies(limit: 50, pageNo: currentPage) { moviesData in
-                self.addMovies(moviesData: moviesData)
-                onCompleted()
+            commonViewModel!.loadLatestMovies(limit: 50, pageNo: currentPage) { (moviesDataObservable) in
+                moviesDataObservable.subscribe(onNext: { moviesData,error in
+                    if let data = moviesData{
+                        self.addMovies(moviesData: data)
+                        onCompleted(Observable.just(nil))
+                    }else{
+                        onCompleted(Observable.just(error))
+                    }
+                }).disposed(by: self.bag)
             }
         case .POPULAR:
-            commonViewModel!.loadPopularMovies(limit: 50, pageNo: currentPage){ moviesData in
-                self.addMovies(moviesData: moviesData)
-                onCompleted()
+            commonViewModel!.loadPopularMovies(limit: 50, pageNo: currentPage) { (moviesDataObservable) in
+                moviesDataObservable.subscribe(onNext: { moviesData,error in
+                    if let data = moviesData{
+                        self.addMovies(moviesData: data)
+                        onCompleted(Observable.just(nil))
+                    }else{
+                        onCompleted(Observable.just(error))
+                    }
+                }).disposed(by: self.bag)
             }
         case .RATED:
-            commonViewModel!.loadMostRatedMovies(limit: 50, pageNo: currentPage){ moviesData in
-                self.addMovies(moviesData: moviesData)
-                onCompleted()
+            commonViewModel!.loadMostRatedMovies(limit: 50, pageNo: currentPage) { (moviesDataObservable) in
+                moviesDataObservable.subscribe(onNext: { moviesData,error in
+                    if let data = moviesData{
+                        self.addMovies(moviesData: data)
+                        onCompleted(Observable.just(nil))
+                    }else{
+                        onCompleted(Observable.just(error))
+                    }
+                }).disposed(by: self.bag)
             }
         case .SEARCH:
-            searchViewModel!.search(pageNo: currentPage, limit: 50) { moviesData in
-                self.addMovies(moviesData: moviesData)
-                onCompleted()
+            searchViewModel!.search(pageNo: currentPage, limit: 50){ (moviesDataObservable) in
+                moviesDataObservable.subscribe(onNext: { moviesData,error in
+                    if let data = moviesData{
+                        self.addMovies(moviesData: data)
+                        onCompleted(Observable.just(nil))
+                    }else{
+                        onCompleted(Observable.just(error))
+                    }
+                }).disposed(by: self.bag)
             }
-            
         }
     }
     

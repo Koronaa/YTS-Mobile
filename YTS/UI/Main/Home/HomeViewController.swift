@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import NotificationBannerSwift
 
 class HomeViewController: UIViewController {
     
@@ -20,6 +22,8 @@ class HomeViewController: UIViewController {
     fileprivate var favouriteTableViewCellMaker:DependencyRegistryIMPL.FavouriteTableViewCellMaker!
     fileprivate var homeTableViewCellMaker:DependencyRegistryIMPL.HomeTableViewCellMaker!
     fileprivate var homeVM:HomeViewModel!
+    
+    fileprivate let bag = DisposeBag()
     
     func configure(movieListVCMaker:@escaping DependencyRegistryIMPL.MovieListViewControllerMaker,
                    movieDetailMaker:@escaping DependencyRegistryIMPL.MovieDetailsViewControllerMaker,
@@ -47,16 +51,41 @@ class HomeViewController: UIViewController {
     }
     
     private func loadData(){
-        homeVM.loadHomeMovies {
-            let info = ["homeVM":self.homeVM]
-            let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
-            NotificationCenter.default.post(notification)
+        
+        homeVM.loadPopularMovies { errorObservable in
+            errorObservable.subscribe(onNext: { error in
+                if let e = error{
+                    UIHelper.makeBanner(for: e).show()
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
         }
         
-        homeVM.loadLatestMovies {
-            let info = ["homeVM":self.homeVM]
-            let notification:Notification = Notification(name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
-            NotificationCenter.default.post(notification)
+        homeVM.loadTopRatedMovies{ errorObservable in
+            errorObservable.subscribe(onNext: { error in
+                if let e = error{
+                    UIHelper.makeBanner(for: e).show()
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
+        }
+        
+        homeVM.loadLatestMovies { errorObservable in
+            errorObservable.subscribe(onNext: { (error) in
+                if let e = error{
+                    UIHelper.makeBanner(for: e).show()
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
         }
     }
     

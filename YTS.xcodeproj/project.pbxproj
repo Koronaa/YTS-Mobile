@@ -55,6 +55,7 @@
 		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
 		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
 		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
+		3DB9A5B02467DB99004782DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9A5AF2467DB99004782DE /* Error.swift */; };
 		3DBBD8F6245D93C300E3FADC /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */; };
 		3DC6C373245AB85F00A754C5 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C372245AB85F00A754C5 /* ResultData.swift */; };
 		3DC6C376245AF59300A754C5 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C375245AF59300A754C5 /* DeviceManager.swift */; };
@@ -124,6 +125,7 @@
 		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3DB9A5AF2467DB99004782DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		3DC6C372245AB85F00A754C5 /* ResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 		3DC6C375245AF59300A754C5 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				3DC6C372245AB85F00A754C5 /* ResultData.swift */,
 				3D3390C92465888E00167483 /* MoviesResponse.swift */,
 				3D3390CB24658B8100167483 /* MovieResponse.swift */,
+				3DB9A5AF2467DB99004782DE /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				3D3984E92456AAB60019E5B9 /* NetworkLayer.swift in Sources */,
 				3D3390CA2465888E00167483 /* MoviesResponse.swift in Sources */,
 				3D41BC962446F9D900220B20 /* MovieDetailsView.swift in Sources */,
+				3DB9A5B02467DB99004782DE /* Error.swift in Sources */,
 				3D0C5B332454567C00C257EC /* Torrent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

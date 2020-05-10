@@ -8,31 +8,25 @@
 
 import Foundation
 import Alamofire
-
-typealias onAPIResponse = (_ response:Data?, _ statusCode:Int)->()
+import RxSwift
 
 protocol ServiceManager {
-    static func APIRequest(url:URL,method:HTTPMethod,params:Parameters?,onResponse:onAPIResponse?)
+    typealias onAPIRxResponse = (_ observable:Observable<(Data?,Int)>)->()
+    static func APIRequest(url:URL,method:HTTPMethod,params:Parameters?,onResponse:@escaping onAPIRxResponse)
 }
 
 class ServiceManagerIMPL:ServiceManager{
-    static func APIRequest(url:URL,method:HTTPMethod,params:Parameters? = nil,onResponse:onAPIResponse?){
+    static func APIRequest(url:URL,method:HTTPMethod,params:Parameters? = nil,onResponse: @escaping onAPIRxResponse){
         
         if ReachabilityManager.isConnectedToNetwork(){
             AF.request(url, method: method, parameters: params, encoding: JSONEncoding.default, headers: nil, interceptor: nil).responseJSON { response in
                 if let statusCode = response.response?.statusCode {
-                    if let data = response.data{
-                        onResponse!(data,statusCode)
-                    }else{
-                        //TODO
-                    }
+                    onResponse(Observable.just((response.data,statusCode)))
                 }
             }
         }else{
-            onResponse!(nil,999)
+            onResponse(Observable.just((nil,999)))
         }
-        
-        
     }
 }
 

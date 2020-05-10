@@ -7,17 +7,19 @@
 //
 
 import Foundation
+import RxSwift
 
 class SearchViewModel{
     
     fileprivate let modelLayer:ModelLayerIMPL
+    fileprivate let bag = DisposeBag()
     
     init(modelLayer:ModelLayerIMPL) {
         self.modelLayer = modelLayer
     }
     
-//    var searchedMovies:[Movie] = []
-//    var searchedData:ResultData!
+    //    var searchedMovies:[Movie] = []
+    //    var searchedData:ResultData!
     
     var selectedGenre:String = ""
     var selectedQuality:String = ""
@@ -58,11 +60,11 @@ class SearchViewModel{
     }
     
     
-    func search(pageNo:Int = 1,limit:Int = 10,onCompleted:@escaping (_ movieData:DataClass)->Void){
-        modelLayer.searchMovies(for: queryString, quality: selectedQuality, genre: selectedGenre, rating: selectedRating, orderBy: selectedOrderBy,pageNo: pageNo,limit: limit) { moviesResponse in
-//            self.searchedMovies = moviesResponse.data.movies ?? [Movie]()
-//            self.searchedData = ResultData(limit: moviesResponse.data.limit, pageNo: moviesResponse.data.pageNumber, movieCount: moviesResponse.data.movieCount)
-            onCompleted(moviesResponse.data)
+    func search(pageNo:Int = 1,limit:Int = 10,onCompleted:@escaping (_ dataObservable:Observable<(DataClass?,Error?)>)->Void){
+        modelLayer.searchMovies(for: queryString, quality: selectedQuality, genre: selectedGenre, rating: selectedRating, orderBy: selectedOrderBy,pageNo: pageNo,limit: limit) { moviesResponseObservable in
+            moviesResponseObservable.subscribe(onNext: { (movieResponse,error) in
+                onCompleted(Observable.just((movieResponse?.data,error)))
+            }).disposed(by: self.bag)
         }
     }
 }

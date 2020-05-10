@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import RxSwift
 
 protocol MovieDetailsDelegate {
     func downloadButtonOnTapped(for movieDetailsVM:MovieDetailsViewModel)
@@ -37,6 +38,8 @@ class MovieDetailsView: UIView {
     
     var movieDetailsVM:MovieDetailsViewModel!
     var movieDetailsDelegate:MovieDetailsDelegate!
+    
+    fileprivate let bag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,13 +167,21 @@ class MovieDetailsView: UIView {
         UIHelper.addCornerRadius(to: castHeaderLabel)
         castHeaderLabel.layer.masksToBounds = true
         
-        movieDetailsVM.getCast {
-            self.collectionView.reloadData()
-            if self.movieDetailsVM.cast.count == 0{
-                self.collectionView.isHidden = true
-            }else{
-                self.collectionView.isHidden = false
-            }
+        
+        movieDetailsVM.getCast { (errorObservable) in
+            errorObservable.subscribe(onNext: { (error) in
+                if let e = error{
+                    UIHelper.makeBanner(for: e).show()
+                }else{
+                    self.collectionView.reloadData()
+                    if self.movieDetailsVM.cast.count == 0{
+                        self.collectionView.isHidden = true
+                    }else{
+                        self.collectionView.isHidden = false
+                    }
+                }
+            }).disposed(by: self.bag)
+            
         }
     }
     
