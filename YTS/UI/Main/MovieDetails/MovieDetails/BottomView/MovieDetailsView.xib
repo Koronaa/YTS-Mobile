@@ -38,28 +38,28 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="715"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPS-bG-bTt">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="880.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="790.33333333333337"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman: Hush" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPE-2q-s9i">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="41"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
+                                    <rect key="frame" x="0.0" y="10" width="414" height="41"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="30"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9k-7n-3Tb">
-                                    <rect key="frame" x="0.0" y="36" width="414" height="24.666666666666671"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                    <rect key="frame" x="0.0" y="46" width="414" height="24.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action / Adventure / Animation / Sci-Fi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLT-eD-Eft">
-                                    <rect key="frame" x="0.0" y="60.666666666666664" width="414" height="24.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="70.666666666666671" width="414" height="24.666666666666671"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gal-ib-9vC" customClass="CosmosView" customModule="Cosmos">
-                                    <rect key="frame" x="0.0" y="85.333333333333329" width="414" height="25"/>
+                                    <rect key="frame" x="0.0" y="95.333333333333329" width="414" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="bjQ-oY-Faa"/>
                                     </constraints>
@@ -96,13 +96,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English | PG-13 | 1hr 21 min " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIM-4t-2Cm">
-                                    <rect key="frame" x="0.0" y="110.33333333333333" width="414" height="23.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="120.33333333333333" width="414" height="23.333333333333329"/>
                                     <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pkA-As-JXE">
-                                    <rect key="frame" x="0.0" y="153.66666666666666" width="414" height="30.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="163.66666666666666" width="414" height="30.333333333333343"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILp-5i-G97">
                                             <rect key="frame" x="0.0" y="4" width="138" height="22.666666666666668"/>
@@ -142,44 +142,44 @@
                                     </subviews>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Available in:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUt-kp-wF3">
-                                    <rect key="frame" x="0.0" y="204" width="414" height="24.666666666666657"/>
+                                    <rect key="frame" x="0.0" y="214" width="414" height="24.666666666666657"/>
                                     <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="720p.BluRay , 1080p.BluRay , 720p.WEB , 1080p.WEB " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-v6-Pbe">
-                                    <rect key="frame" x="0.0" y="238.66666666666666" width="414" height="23.333333333333343"/>
+                                    <rect key="frame" x="0.0" y="248.66666666666666" width="414" height="23.333333333333343"/>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Synopsis:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIa-5s-Rsz">
-                                    <rect key="frame" x="0.0" y="272" width="414" height="24.666666666666686"/>
+                                    <rect key="frame" x="0.0" y="282" width="414" height="24.666666666666686"/>
                                     <color key="backgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8x-tm-XpX">
-                                    <rect key="frame" x="0.0" y="306.66666666666669" width="414" height="209.00000000000006"/>
+                                    <rect key="frame" x="0.0" y="316.66666666666669" width="414" height="209.00000000000006"/>
                                     <string key="text">BATMAN: HUSH is a thrilling mystery of action, intrigue, and deception based on the New York Times bestseller of the same name penned by Jeph Loeb (Batman: The Long Halloween) and illustrated by comics superstar Jim Lee (All Star Batman &amp; Robin, The Boy Wonder). Batman sets out to discover the identity of a mysterious mastermind using the Joker, Riddler, Ra's al Ghul, and the Dark Knight's other enemies and allies as pawns in a plan to wreak havoc.</string>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Cast:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BT2-1o-k2y">
-                                    <rect key="frame" x="0.0" y="525.66666666666663" width="414" height="24.666666666666629"/>
+                                    <rect key="frame" x="0.0" y="535.66666666666663" width="414" height="24.666666666666629"/>
                                     <color key="backgroundColor" red="0.29803921570000003" green="0.68627450980000004" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyL-mY-gsz">
-                                    <rect key="frame" x="0.0" y="560.33333333333337" width="414" height="120"/>
+                                    <rect key="frame" x="0.0" y="570.33333333333337" width="414" height="120"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No cast info available. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48M-gp-VuI">
-                                            <rect key="frame" x="131" y="29.666666666666629" width="152" height="20.666666666666671"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast info not available. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48M-gp-VuI">
+                                            <rect key="frame" x="128.66666666666666" y="29.666666666666629" width="156.99999999999997" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -227,7 +227,7 @@
                                 <constraint firstItem="BT2-1o-k2y" firstAttribute="top" secondItem="H8x-tm-XpX" secondAttribute="bottom" constant="10" id="X31-tp-gPa"/>
                                 <constraint firstAttribute="trailing" secondItem="ZLT-eD-Eft" secondAttribute="trailing" id="YTw-fA-lMf"/>
                                 <constraint firstItem="uUt-kp-wF3" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="Zwj-fc-HuA"/>
-                                <constraint firstItem="JPE-2q-s9i" firstAttribute="top" secondItem="VPS-bG-bTt" secondAttribute="top" id="btP-e2-Lba"/>
+                                <constraint firstItem="JPE-2q-s9i" firstAttribute="top" secondItem="VPS-bG-bTt" secondAttribute="top" constant="10" id="btP-e2-Lba"/>
                                 <constraint firstItem="H8x-tm-XpX" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="fJf-Ap-Ntz"/>
                                 <constraint firstAttribute="trailing" secondItem="JPE-2q-s9i" secondAttribute="trailing" id="fih-ma-KTJ"/>
                                 <constraint firstItem="BT2-1o-k2y" firstAttribute="leading" secondItem="VPS-bG-bTt" secondAttribute="leading" id="hGA-kO-qLU"/>
@@ -257,7 +257,6 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="1DU-Lv-9Vw"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DsT-9L-Diu"/>
                 <constraint firstItem="rLA-dF-VeR" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="XmZ-Y1-EC6"/>

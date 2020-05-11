@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.0.5)
+  - Alamofire (5.1.0)
   - Cosmos (21.0.0)
   - Kingfisher (5.13.3):
     - Kingfisher/Core (= 5.13.3)
@@ -8,9 +8,9 @@ PODS:
   - NotificationBannerSwift (3.0.2):
     - MarqueeLabel (~> 4.0.0)
     - SnapKit (~> 5.0.0)
+  - RxSwift (5.1.1)
   - SkeletonView (1.8.7)
   - SnapKit (5.0.1)
-  - SwiftyJSON (5.0.0)
   - Swinject (2.7.1)
   - SwinjectStoryboard (2.2.0):
     - Swinject (~> 2.6)
@@ -20,8 +20,8 @@ DEPENDENCIES:
   - Cosmos
   - Kingfisher
   - NotificationBannerSwift
+  - RxSwift
   - SkeletonView
-  - SwiftyJSON
   - Swinject
   - SwinjectStoryboard (from `https://github.com/Swinject/SwinjectStoryboard.git`, tag `2.2.0`)
 
@@ -32,9 +32,9 @@ SPEC REPOS:
     - Kingfisher
     - MarqueeLabel
     - NotificationBannerSwift
+    - RxSwift
     - SkeletonView
     - SnapKit
-    - SwiftyJSON
     - Swinject
 
 EXTERNAL SOURCES:
@@ -48,17 +48,17 @@ CHECKOUT OPTIONS:
     :tag: 2.2.0
 
 SPEC CHECKSUMS:
-  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   Cosmos: 3dfb6e4ba48bd48b8c9aa2a77048ae11ed114f96
   Kingfisher: d2b3d6a7200c93b34de9afcdf25c8dd9282ec277
   MarqueeLabel: f762aa681ae201f66c1d511858b171f75d83013a
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: b95e2afed59e94ab6ace4b3d84d58149bb8666ce
+PODFILE CHECKSUM: 9acdc9d5a927c4d604a56b9d99fd90aee93f5479
 
 COCOAPODS: 1.9.1

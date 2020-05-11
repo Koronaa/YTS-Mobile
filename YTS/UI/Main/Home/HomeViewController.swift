@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import NotificationBannerSwift
 
 class HomeViewController: UIViewController {
     
@@ -19,17 +21,22 @@ class HomeViewController: UIViewController {
     fileprivate var searchMaker:DependencyRegistryIMPL.SearchViewControllerMaker!
     fileprivate var favouriteTableViewCellMaker:DependencyRegistryIMPL.FavouriteTableViewCellMaker!
     fileprivate var homeTableViewCellMaker:DependencyRegistryIMPL.HomeTableViewCellMaker!
+    fileprivate var homeVM:HomeViewModel!
+    
+    fileprivate let bag = DisposeBag()
     
     func configure(movieListVCMaker:@escaping DependencyRegistryIMPL.MovieListViewControllerMaker,
                    movieDetailMaker:@escaping DependencyRegistryIMPL.MovieDetailsViewControllerMaker,
                    searchMaker: @escaping DependencyRegistryIMPL.SearchViewControllerMaker,
                    favouriteTableViewCellMaker: @escaping DependencyRegistryIMPL.FavouriteTableViewCellMaker,
-                   homeTableViewCellMaker: @escaping DependencyRegistryIMPL.HomeTableViewCellMaker){
+                   homeTableViewCellMaker: @escaping DependencyRegistryIMPL.HomeTableViewCellMaker,
+                   homeViewModel:HomeViewModel){
         self.movieListVCMaker = movieListVCMaker
         self.movieDetailMaker = movieDetailMaker
         self.searchMaker = searchMaker
         self.favouriteTableViewCellMaker = favouriteTableViewCellMaker
         self.homeTableViewCellMaker = homeTableViewCellMaker
+        self.homeVM = homeViewModel
     }
     
     override func viewDidLoad() {
@@ -40,16 +47,96 @@ class HomeViewController: UIViewController {
         tableView.register(FavouriteTableViewCell.self, forCellReuseIdentifier: "FavouriteTableViewCell")
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         searchTextField.delegate = self
-}
+        loadData()
+    }
+    
+    private func loadData(){
+        loadLatestMovies()
+        loadPopularMovies()
+        loadTopRatedMovies()
+    }
+    
+    
+    private func loadPopularMovies(){
+        homeVM.loadPopularMovies { errorObservable in
+            errorObservable.subscribe(onNext: { error in
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        let banner = UIHelper.makeBanner(for: e)
+                        if NotificationBannerQueue.default.numberOfBanners >= 1{
+                            banner.dismiss()
+                        }else{
+                            banner.show()
+                        }
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadPopularMovies).show()
+                    }
+                    
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
+        }
+    }
+    
+    private func loadTopRatedMovies(){
+        homeVM.loadTopRatedMovies{ errorObservable in
+            errorObservable.subscribe(onNext: { error in
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        let banner = UIHelper.makeBanner(for: e)
+                        if NotificationBannerQueue.default.numberOfBanners >= 1{
+                            banner.dismiss()
+                        }else{
+                            banner.show()
+                        }
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadTopRatedMovies).show()
+                    }
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
+        }
+    }
+    
+    private func loadLatestMovies(){
+        homeVM.loadLatestMovies { errorObservable in
+            errorObservable.subscribe(onNext: { (error) in
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadData).show()
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadLatestMovies).show()
+                    }
+                }else{
+                    let info = ["homeVM":self.homeVM]
+                    let notification:Notification = Notification(name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
+                    NotificationCenter.default.post(notification)
+                }
+            }).disposed(by: self.bag)
+        }
+    }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupUI()
     }
     
-    func setupUI(){
+    private func setupUI(){
         UIHelper.hide(navigationController: self.navigationController)
         UIHelper.roundCorners(view: bottomView, corners: [.topLeft,.topRight], radius: 25)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NotificationConstants.Keys.HOME_DATA_LOADED,object: nil)
     }
 }
 
@@ -141,7 +228,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
         case 0:
             type = .LATEST
         case 1:
-           type = .POPULAR
+            type = .POPULAR
         case 2:
             type = .RATED
         default:()

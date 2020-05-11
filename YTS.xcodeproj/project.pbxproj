@@ -15,11 +15,14 @@
 		3D0C5B3D245465D900C257EC /* TranslationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C5B3C245465D900C257EC /* TranslationLayer.swift */; };
 		3D0C5B3F24546EA400C257EC /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C5B3E24546EA400C257EC /* URLConstants.swift */; };
 		3D16D798244B2A4400CECDDD /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D16D797244B2A4400CECDDD /* MovieListViewController.swift */; };
+		3D3390CA2465888E00167483 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3390C92465888E00167483 /* MoviesResponse.swift */; };
+		3D3390CC24658B8100167483 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3390CB24658B8100167483 /* MovieResponse.swift */; };
 		3D3984E92456AAB60019E5B9 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3984E82456AAB60019E5B9 /* NetworkLayer.swift */; };
 		3D3984EB2456AC940019E5B9 /* ModelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3984EA2456AC940019E5B9 /* ModelLayer.swift */; };
 		3D3984ED2456B1280019E5B9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3984EC2456B1280019E5B9 /* HomeViewModel.swift */; };
 		3D3984EF2456BD2F0019E5B9 /* FavouriteCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3984EE2456BD2F0019E5B9 /* FavouriteCellViewModel.swift */; };
 		3D3984F22456C3B10019E5B9 /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3984F12456C3B10019E5B9 /* HomeCellViewModel.swift */; };
+		3D3E116B24630092007DFC2D /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3E116A24630092007DFC2D /* NotificationConstant.swift */; };
 		3D41BC8C2446DCEA00220B20 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41BC8B2446DCEA00220B20 /* MovieDetailViewController.swift */; };
 		3D41BC902446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */; };
 		3D41BC912446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */; };
@@ -32,16 +35,10 @@
 		3D6E81F42457069400041BCB /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6E81F32457069400041BCB /* MovieListViewModel.swift */; };
 		3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54892444826B0068C825 /* AppDelegate.swift */; };
 		3D9A548C2444826B0068C825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548B2444826B0068C825 /* SceneDelegate.swift */; };
-		3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A548D2444826B0068C825 /* WelcomeViewController.swift */; };
-		3D9A54912444826B0068C825 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A548F2444826B0068C825 /* Login.storyboard */; };
 		3D9A54932444826C0068C825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54922444826C0068C825 /* Assets.xcassets */; };
 		3D9A54962444826C0068C825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9A54942444826C0068C825 /* LaunchScreen.storyboard */; };
-		3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549D244491E30068C825 /* LoginViewController.swift */; };
-		3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A549F244492000068C825 /* RegisterViewController.swift */; };
 		3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A12444924D0068C825 /* UIHelper.swift */; };
 		3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */; };
-		3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */; };
-		3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */; };
 		3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9A54A92444A7AB0068C825 /* UIConstants.swift */; };
 		3D9DAF68245E946000726ED7 /* SwinjectStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DAF66245E946000726ED7 /* SwinjectStoryboard+Extensions.swift */; };
 		3D9DAF69245E946000726ED7 /* DependencyRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9DAF67245E946000726ED7 /* DependencyRegistry.swift */; };
@@ -58,8 +55,9 @@
 		3DB5D1282449D5D2009AF3B8 /* FiltersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */; };
 		3DB5D1292449D5D2009AF3B8 /* FiltersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */; };
 		3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5D12B2449ECAC009AF3B8 /* Filter.swift */; };
+		3DB9A5B02467DB99004782DE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9A5AF2467DB99004782DE /* Error.swift */; };
 		3DBBD8F6245D93C300E3FADC /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */; };
-		3DC6C373245AB85F00A754C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C372245AB85F00A754C5 /* Data.swift */; };
+		3DC6C373245AB85F00A754C5 /* ResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C372245AB85F00A754C5 /* ResultData.swift */; };
 		3DC6C376245AF59300A754C5 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C375245AF59300A754C5 /* DeviceManager.swift */; };
 		3DC6C378245AF67500A754C5 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6C377245AF67500A754C5 /* UIDevice+Extensions.swift */; };
 		3DC6C37A245AFFA800A754C5 /* TorrentViewSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DC6C379245AFFA800A754C5 /* TorrentViewSmall.xib */; };
@@ -85,11 +83,14 @@
 		3D0C5B3C245465D900C257EC /* TranslationLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLayer.swift; sourceTree = "<group>"; };
 		3D0C5B3E24546EA400C257EC /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		3D16D797244B2A4400CECDDD /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		3D3390C92465888E00167483 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
+		3D3390CB24658B8100167483 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		3D3984E82456AAB60019E5B9 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		3D3984EA2456AC940019E5B9 /* ModelLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLayer.swift; sourceTree = "<group>"; };
 		3D3984EC2456B1280019E5B9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3D3984EE2456BD2F0019E5B9 /* FavouriteCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCellViewModel.swift; sourceTree = "<group>"; };
 		3D3984F12456C3B10019E5B9 /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
+		3D3E116A24630092007DFC2D /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		3D41BC8B2446DCEA00220B20 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		3D41BC8E2446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoBottomSheetViewController.swift; sourceTree = "<group>"; };
 		3D41BC8F2446E5BA00220B20 /* MovieInfoBottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieInfoBottomSheetViewController.xib; sourceTree = "<group>"; };
@@ -103,17 +104,11 @@
 		3D9A54862444826B0068C825 /* YTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9A54892444826B0068C825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9A548B2444826B0068C825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D9A548D2444826B0068C825 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		3D9A54902444826B0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		3D9A54922444826C0068C825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9A54952444826C0068C825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D9A54972444826C0068C825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D9A549D244491E30068C825 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3D9A549F244492000068C825 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3D9A54A12444924D0068C825 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
-		3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		3D9A54A92444A7AB0068C825 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		3D9DAF66245E946000726ED7 /* SwinjectStoryboard+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 		3D9DAF67245E946000726ED7 /* DependencyRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyRegistry.swift; sourceTree = "<group>"; };
@@ -130,8 +125,9 @@
 		3DB5D1262449D5D2009AF3B8 /* FiltersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersTableViewCell.swift; sourceTree = "<group>"; };
 		3DB5D1272449D5D2009AF3B8 /* FiltersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiltersTableViewCell.xib; sourceTree = "<group>"; };
 		3DB5D12B2449ECAC009AF3B8 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3DB9A5AF2467DB99004782DE /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3DBBD8F5245D93C300E3FADC /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
-		3DC6C372245AB85F00A754C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		3DC6C372245AB85F00A754C5 /* ResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultData.swift; sourceTree = "<group>"; };
 		3DC6C375245AF59300A754C5 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		3DC6C377245AF67500A754C5 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		3DC6C379245AFFA800A754C5 /* TorrentViewSmall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TorrentViewSmall.xib; sourceTree = "<group>"; };
@@ -317,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				3D9A54942444826C0068C825 /* LaunchScreen.storyboard */,
-				3DAB13552445C6B9005A7D9B /* Login */,
 				3DAB13542445C6B3005A7D9B /* Main */,
 			);
 			path = UI;
@@ -354,23 +349,11 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		3DAB13552445C6B9005A7D9B /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				3D9A548D2444826B0068C825 /* WelcomeViewController.swift */,
-				3D9A548F2444826B0068C825 /* Login.storyboard */,
-				3D9A549D244491E30068C825 /* LoginViewController.swift */,
-				3D9A549F244492000068C825 /* RegisterViewController.swift */,
-				3D9A54A52444A3A90068C825 /* ForgetPasswordViewController.swift */,
-				3D9A54A72444A3CC0068C825 /* ResetPasswordViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
 		3DAB13562445C6ED005A7D9B /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				3D9A54A92444A7AB0068C825 /* UIConstants.swift */,
+				3D3E116A24630092007DFC2D /* NotificationConstant.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -389,12 +372,15 @@
 		3DB5D12A2449EC9E009AF3B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D3984EA2456AC940019E5B9 /* ModelLayer.swift */,
 				3DB5D12B2449ECAC009AF3B8 /* Filter.swift */,
 				3D0C5B30245451AE00C257EC /* Movie.swift */,
 				3D0C5B322454567C00C257EC /* Torrent.swift */,
 				3D0C5B342454568D00C257EC /* Cast.swift */,
-				3D3984EA2456AC940019E5B9 /* ModelLayer.swift */,
-				3DC6C372245AB85F00A754C5 /* Data.swift */,
+				3DC6C372245AB85F00A754C5 /* ResultData.swift */,
+				3D3390C92465888E00167483 /* MoviesResponse.swift */,
+				3D3390CB24658B8100167483 /* MovieResponse.swift */,
+				3DB9A5AF2467DB99004782DE /* Error.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,7 +529,6 @@
 				3DAB135F2445CD9A005A7D9B /* HomeCollectionViewCell.xib in Resources */,
 				3DF9E0922459759A00EEB3EE /* CarouselView.xib in Resources */,
 				3D9A54932444826C0068C825 /* Assets.xcassets in Resources */,
-				3D9A54912444826B0068C825 /* Login.storyboard in Resources */,
 				3DB34D2F24483A0600FB5205 /* CastCollectionViewCell.xib in Resources */,
 				3DAB134C2445A56D005A7D9B /* Main.storyboard in Resources */,
 				3DAB13592445CACA005A7D9B /* FavouritesCollectionViewCell.xib in Resources */,
@@ -607,10 +592,8 @@
 				3D3984ED2456B1280019E5B9 /* HomeViewModel.swift in Sources */,
 				3D9DAF69245E946000726ED7 /* DependencyRegistry.swift in Sources */,
 				3D16D798244B2A4400CECDDD /* MovieListViewController.swift in Sources */,
-				3D9A54A82444A3CC0068C825 /* ResetPasswordViewController.swift in Sources */,
 				3D6E81F22456F83B00041BCB /* SearchViewModel.swift in Sources */,
 				3D6E81F42457069400041BCB /* MovieListViewModel.swift in Sources */,
-				3D9A549E244491E30068C825 /* LoginViewController.swift in Sources */,
 				3DF9E096245978AF00EEB3EE /* DownloadViewModel.swift in Sources */,
 				3D0C5B3824545BEE00C257EC /* ReachabilityManager.swift in Sources */,
 				3D0C5B352454568D00C257EC /* Cast.swift in Sources */,
@@ -619,7 +602,7 @@
 				3D6E81EC2456CBB100041BCB /* MovieDetailsViewModel.swift in Sources */,
 				3DF9E09824597A7700EEB3EE /* TorrentView.swift in Sources */,
 				3D9A54A4244493E90068C825 /* UIColor+Extensions.swift in Sources */,
-				3D9A54A0244492000068C825 /* RegisterViewController.swift in Sources */,
+				3D3390CC24658B8100167483 /* MovieResponse.swift in Sources */,
 				3DB34D2E24483A0600FB5205 /* CastCollectionViewCell.swift in Sources */,
 				3DAB135B2445CB56005A7D9B /* FavouritesCollectionViewCell.swift in Sources */,
 				3D41BC902446E5BA00220B20 /* MovieInfoBottomSheetViewController.swift in Sources */,
@@ -631,11 +614,10 @@
 				3D0C5B3D245465D900C257EC /* TranslationLayer.swift in Sources */,
 				3DF9E08C2459744100EEB3EE /* iCarousel.m in Sources */,
 				3D4D2D33244873D600E42FF1 /* SearchViewController.swift in Sources */,
-				3D9A548E2444826B0068C825 /* WelcomeViewController.swift in Sources */,
 				3D0C5B31245451AE00C257EC /* Movie.swift in Sources */,
 				3DC6C378245AF67500A754C5 /* UIDevice+Extensions.swift in Sources */,
 				3DB5D12C2449ECAC009AF3B8 /* Filter.swift in Sources */,
-				3DC6C373245AB85F00A754C5 /* Data.swift in Sources */,
+				3DC6C373245AB85F00A754C5 /* ResultData.swift in Sources */,
 				3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */,
 				3D9DAF68245E946000726ED7 /* SwinjectStoryboard+Extensions.swift in Sources */,
 				3D9A548A2444826B0068C825 /* AppDelegate.swift in Sources */,
@@ -647,12 +629,14 @@
 				3D41BC8C2446DCEA00220B20 /* MovieDetailViewController.swift in Sources */,
 				3D3984EB2456AC940019E5B9 /* ModelLayer.swift in Sources */,
 				3D9A54AA2444A7AB0068C825 /* UIConstants.swift in Sources */,
-				3D9A54A62444A3A90068C825 /* ForgetPasswordViewController.swift in Sources */,
 				3D6E81F02456D47A00041BCB /* CastCellViewModel.swift in Sources */,
 				3DF9E0902459758400EEB3EE /* CorouselView.swift in Sources */,
+				3D3E116B24630092007DFC2D /* NotificationConstant.swift in Sources */,
 				3D9A54A22444924D0068C825 /* UIHelper.swift in Sources */,
 				3D3984E92456AAB60019E5B9 /* NetworkLayer.swift in Sources */,
+				3D3390CA2465888E00167483 /* MoviesResponse.swift in Sources */,
 				3D41BC962446F9D900220B20 /* MovieDetailsView.swift in Sources */,
+				3DB9A5B02467DB99004782DE /* Error.swift in Sources */,
 				3D0C5B332454567C00C257EC /* Torrent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,14 +644,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3D9A548F2444826B0068C825 /* Login.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D9A54902444826B0068C825 /* Base */,
-			);
-			name = Login.storyboard;
-			sourceTree = "<group>";
-		};
 		3D9A54942444826C0068C825 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -799,8 +775,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -808,10 +785,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -825,8 +802,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -834,10 +812,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS App Store";
+				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

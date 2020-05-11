@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import RxSwift
 
 protocol MovieDetailsDelegate {
     func downloadButtonOnTapped(for movieDetailsVM:MovieDetailsViewModel)
@@ -38,6 +39,8 @@ class MovieDetailsView: UIView {
     var movieDetailsVM:MovieDetailsViewModel!
     var movieDetailsDelegate:MovieDetailsDelegate!
     
+    fileprivate let bag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -67,21 +70,18 @@ class MovieDetailsView: UIView {
     }
     
     @IBAction func trailerButtonOnTapped(_ sender: UIButton) {
-        if let trailerCode = movieDetailsVM.youtubeLinkCode{
-            if trailerCode != "" {
-                var url = URL(string: "youtube://"+trailerCode)
-                if !UIApplication.shared.canOpenURL(url!){
-                    url = URL(string:"http://www.youtube.com/watch?v="+trailerCode)!
-                }
-                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-            }else{
-//                print("NO youtube link")
-                //ERROR
-            }
-        }else{
-//            print("NO youtube link")
-        }
         
+        if let trailerCode = movieDetailsVM.youtubeLinkCode,
+            let url = movieDetailsVM.trailerURL{
+            var urlSchemeURL = URL(string: "youtube://"+trailerCode)
+            if !UIApplication.shared.canOpenURL(urlSchemeURL!){
+                urlSchemeURL = url
+            }
+            UIApplication.shared.open(urlSchemeURL!, options: [:], completionHandler: nil)
+        }else{
+            let error = Error(title: "Trailer Not Found!", message: "Cannot find the trailer for this movie.")
+            UIHelper.makeBanner(for: error).show()
+        }
     }
     
     @IBAction func downloadButtonOnTapped(_ sender: Any) {
@@ -94,6 +94,7 @@ class MovieDetailsView: UIView {
     
     
     private func setupUI(){
+        
         UIHelper.addCornerRadius(to: watchTrailerButton)
         UIHelper.addCornerRadius(to: downloadButton)
         collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.CastCollectionViewCell.rawValue)
@@ -168,17 +169,27 @@ class MovieDetailsView: UIView {
         UIHelper.addCornerRadius(to: castHeaderLabel)
         castHeaderLabel.layer.masksToBounds = true
         
-        movieDetailsVM.getCast {
-            self.collectionView.reloadData()
-            if self.movieDetailsVM.cast.count == 0{
-                self.collectionView.isHidden = true
-            }else{
-                self.collectionView.isHidden = false
-            }
-        }
+        getCast()
+        
     }
     
-    
+    private func getCast(){
+        movieDetailsVM.getCast { (errorObservable) in
+            errorObservable.subscribe(onNext: { (error) in
+                if var e = error{
+                    UIHelper.showRetryBanner(for: &e, onTap: self.getCast).show()
+                }else{
+                    self.collectionView.reloadData()
+                    if self.movieDetailsVM.cast.count == 0{
+                        self.collectionView.isHidden = true
+                    }else{
+                        self.collectionView.isHidden = false
+                    }
+                }
+            }).disposed(by: self.bag)
+            
+        }
+    }
     
 }
 

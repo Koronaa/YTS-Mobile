@@ -16,9 +16,20 @@ class HomeCellViewModel{
         self.movie = movie
     }
     
-    var imageURL:URL {return movie.imageURL}
+    var imageURL:URL {return URL(string: movie.imageURL)!}
     var title:String {return movie.title}
     var year:String {return movie.year.description}
-    var duration:String {return movie.durationString}
+    var duration:String {
+        if movie.duration != 0{
+            let durationHours = (movie.duration/60)
+            let durationMin = movie.duration % 60
+            return "\(durationHours) hr \(durationMin) min"
+        }else{
+            return "N/A"
+        }
+        
+    }
+    
+    
     var rating:String {return "IMDB: \(movie.rating)/10"}
 }

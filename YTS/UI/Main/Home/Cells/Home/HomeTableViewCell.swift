@@ -19,14 +19,10 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
     fileprivate var homeVM:HomeViewModel!
     var collectionViewDelegate:HomeCollectionViewDelegate!
     
-    func congifure(homeVM:HomeViewModel,
-                   homeCollectionViewCellMaker:@escaping DependencyRegistryIMPL.HomeCollectionViewCellMaker,
+    func congifure(homeCollectionViewCellMaker:@escaping DependencyRegistryIMPL.HomeCollectionViewCellMaker,
                    collectionViewDelegate:HomeCollectionViewDelegate){
-        self.homeVM = homeVM
         self.homeCollectionViewCellMaker = homeCollectionViewCellMaker
         self.collectionViewDelegate = collectionViewDelegate
-        
-        loadData()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -37,20 +33,21 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
             self.homeCollectionView.startSkeletonAnimation()
         }
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(didHomeDataLoad(_:)), name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    fileprivate func loadData() {
-        homeVM.loadHomeMovies {
-            self.homeCollectionView.stopSkeletonAnimation()
-            self.homeCollectionView.hideSkeleton()
-            self.homeCollectionView.reloadData()
-        }
+    
+    @objc func didHomeDataLoad(_ notification:Notification) {
+        self.homeVM = (notification.userInfo!["homeVM"] as! HomeViewModel)
+        self.homeCollectionView.stopSkeletonAnimation()
+        self.homeCollectionView.hideSkeleton()
+        self.homeCollectionView.reloadData()
     }
+    
     
     private func setupHomeCollectionView(){
         
@@ -117,7 +114,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
     
     public static func dequeue(from tableView:UITableView,for indexPath:IndexPath) -> HomeTableViewCell{
@@ -125,8 +122,5 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
         cell.section = indexPath.section
         return cell
     }
-    
-    
-    
 }
 

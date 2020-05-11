@@ -7,10 +7,19 @@
 //
 
 import Foundation
-struct Torrent {
-    var downloadURL:URL
+
+struct Torrent:Decodable {
+    var downloadURL:String
     var quality:String
     var type:String
     var size:String
-    var posterURL:URL
+    
+    
+    enum CodingKeys:String,CodingKey{
+        case downloadURL = "url"
+        case quality
+        case type
+        case size
+    }
 }
+

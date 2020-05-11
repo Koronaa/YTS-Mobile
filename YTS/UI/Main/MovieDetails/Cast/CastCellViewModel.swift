@@ -15,7 +15,7 @@ class CastCellViewModel {
         self.cast = cast
     }
     
-    var imageURL:URL {return cast.imageURL}
+    var imageURL:URL? {return URL(string: cast.imageURL ?? "")}
     var name:String {return cast.name}
 
 }

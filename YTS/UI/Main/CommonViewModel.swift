@@ -7,32 +7,40 @@
 //
 
 import Foundation
+import RxSwift
+
 class CommonViewModel{
     
-    fileprivate var modelLayer:ModelLayer
+    fileprivate var bag = DisposeBag()
+    fileprivate var modelLayer:ModelLayerIMPL
     
-    init(modelLayer:ModelLayer) {
+    init(modelLayer:ModelLayerIMPL) {
         self.modelLayer = modelLayer
     }
     
     
-    func loadMostRatedMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
-           modelLayer.getMostRatedMovies(limit: limit, pageNo: pageNo) { movies,data in
-               onCompleted(movies,data)
-           }
-       }
-       
-       
-       func loadPopularMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ movies:[Movie],_ data:Data)->Void){
-           modelLayer.getPopularMovies(limit: limit, pageNo: pageNo) { movies,data in
-               onCompleted(movies,data)
-           }
-       }
+    func loadMostRatedMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ dataObservable:Observable<(DataClass?,Error?)>)->Void){
+        modelLayer.getMostRatedMovies(limit: limit, pageNo: pageNo) { (movieResponseObservable) in
+            movieResponseObservable.subscribe(onNext: { (movieResponse,error) in
+                onCompleted(Observable.just((movieResponse?.data,error)))
+            }).disposed(by: self.bag)
+        }
+    }
     
-    func loadLatestMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping(_ movies:[Movie],_ data:Data)->Void){
-           modelLayer.getLatestMovies(limit: limit, pageNo: pageNo) { latestMovies,data  in
-               onCompleted(latestMovies,data)
-           }
-       }
     
+    func loadPopularMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ dataObservable:Observable<(DataClass?,Error?)>)->Void){
+        modelLayer.getPopularMovies(limit: limit, pageNo: pageNo) { (movieResponseObservable) in
+            movieResponseObservable.subscribe(onNext: { (movieResponse,error) in
+                onCompleted(Observable.just((movieResponse?.data,error)))
+            }).disposed(by: self.bag)
+        }
+    }
+    
+    func loadLatestMovies(limit:Int = 10,pageNo:Int = 1,onCompleted:@escaping (_ dataObservable:Observable<(DataClass?,Error?)>)->Void){
+        modelLayer.getLatestMovies(limit: limit, pageNo: pageNo) { (movieResponseObservable) in
+            movieResponseObservable.subscribe(onNext: { (movieResponse,error) in
+                onCompleted(Observable.just((movieResponse?.data,error)))
+            }).disposed(by: self.bag)
+        }
+    }
 }

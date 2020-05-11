@@ -8,6 +8,8 @@
 
 import UIKit
 import SkeletonView
+import RxSwift
+import NotificationBannerSwift
 
 enum MovieListType{
     case SEARCH
@@ -24,9 +26,11 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var subTItleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-     var movieListVM:MovieListViewModel!
+    var movieListVM:MovieListViewModel!
     fileprivate var homeCollectionViewCellMaker:DependencyRegistryIMPL.HomeCollectionViewCellMaker!
     fileprivate var movieDetailsVCMaker:DependencyRegistryIMPL.MovieDetailsViewControllerMaker!
+    fileprivate let bag = DisposeBag()
+    fileprivate var dataLoaded:Bool = false
     
     
     func configure(with movieListVM:MovieListViewModel,
@@ -48,6 +52,7 @@ class MovieListViewController: UIViewController {
             self.collectionView.showAnimatedGradientSkeleton()
             self.collectionView.startSkeletonAnimation()
         }
+        
         loadData()
     }
     
@@ -78,6 +83,11 @@ class MovieListViewController: UIViewController {
             }else{
                 subTItleLabel.isHidden = true
             }
+            
+            if dataLoaded && movieListVM.movies.count == 0{
+                subTItleLabel.text = "Couldn't find any movies for '\(movieListVM.searchViewModel!.queryString)'"
+            }
+            
         case .LATEST:
             titleLabel.text = "Latest Movies"
             subTItleLabel.text = "Showing the latest uploads on YTS"
@@ -91,10 +101,30 @@ class MovieListViewController: UIViewController {
     }
     
     func loadData(){
-        movieListVM.loadData {
-            self.collectionView.stopSkeletonAnimation()
-            self.collectionView.hideSkeleton()
-            self.collectionView.reloadData()
+        movieListVM.loadData { (errorObservable) in
+            errorObservable.subscribe(onNext: { error in
+                if var e = error{
+                    UIHelper.showRetryBanner(for: &e, onTap: self.loadData).show()
+                }else{
+                    self.collectionView.stopSkeletonAnimation()
+                    self.collectionView.hideSkeleton()
+                    self.collectionView.reloadData()
+                    self.updateUI()
+                    self.dataLoaded = true
+                }
+            }).disposed(by: self.bag)
+        }
+    }
+    
+    func updateUI(){
+        if movieListVM.movieListType == .SEARCH{
+            if movieListVM.movies.count == 0{
+                let error = Error(title: "No Results!", message: "Couldn't find any movies for '\(movieListVM.searchViewModel!.queryString)'")
+                UIHelper.makeBanner(for: error, style: .warning).show()
+                subTItleLabel.text = "Couldn't find any movies for '\(movieListVM.searchViewModel!.queryString)'"
+            }else{
+                subTItleLabel.text = "Showing results for '\(movieListVM.searchViewModel!.queryString)'"
+            }
         }
     }
     

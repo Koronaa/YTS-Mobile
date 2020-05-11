@@ -7,73 +7,32 @@
 //
 
 import Foundation
-import SwiftyJSON
+import RxSwift
 
 class TranslationLayer{
     
-    func getMovies(from json:JSON) -> (Data,[Movie]){
-        var receivedMovies:[Movie] = []
-        var receivedTorrents:[Torrent]
-        var receivedData:Data!
-        if let data = json["data"].dictionary{
+    func getMovies(from responseData:Data,onCompleted: @escaping (_ observable:Observable<(moviesReponse:MoviesResponse?,error:Error?)>)->Void){
+        let decorder = JSONDecoder()
+        do{
+            let moviesResponse = try decorder.decode(MoviesResponse.self, from: responseData)
+            onCompleted(Observable.just((moviesResponse,nil)))
+        }catch(let e){
+            let error = Error(title: "Translation Error!", message: "Something went wrong while translating data.")
+            onCompleted(Observable.just((nil,error)))
+            print(e)
             
-            if let movieCount = data["movie_count"]?.int,
-                let limit = data["limit"]?.int,
-                let pageNO = data["page_number"]?.int{
-                receivedData = Data(limit: limit, pageNo: pageNO, movieCount: movieCount)
-            }
-            
-            if let movies = data["movies"]?.array{
-                for movie in movies{
-                    receivedTorrents = []
-                    if let title = movie["title"].string,
-                        let id = movie["id"].int,
-                        let year = movie["year"].int,
-                        let genre = movie["genres"].arrayObject as? [String],
-                        let rating = movie["rating"].double,
-                        let lang = movie["language"].string,
-                        let mpaRating = movie["mpa_rating"].string,
-                        let duration = movie["runtime"].int,
-                        let trailerCode = movie["yt_trailer_code"].string,
-                        let pageURLString = movie["url"].string,
-                        let description = movie["synopsis"].string,
-                        let imageURLString = movie["large_cover_image"].string,
-                        let torrents = movie["torrents"].array {
-                        for torrent in torrents{
-                            if let downloadURLString = torrent["url"].string,
-                                let quality = torrent["quality"].string,
-                                let type = torrent["type"].string,
-                                let size = torrent["size"].string{
-                                let torrent = Torrent(downloadURL:  URL(string: downloadURLString)! , quality: quality, type: type, size: size, posterURL: URL(string: imageURLString)!)
-                                receivedTorrents.append(torrent)
-                            }
-                        }
-                        let movie = Movie(title: title, id: id, year: year, genre: genre.joined(separator: " / "), rating: rating, language: lang, mpaRating: mpaRating, duration: duration, youtubeTrailerCode: trailerCode, ytsPageURL: URL(string: pageURLString)!, description: description, imageURL: URL(string: imageURLString)!, torrents: receivedTorrents, cast: nil)
-                        receivedMovies.append(movie)
-                    }
-                }
-            }
         }
-        return (receivedData,receivedMovies)
     }
     
-    func  getCastDetails(from json:JSON) -> [Cast]{
-        var castDetails:[Cast] = []
-        if let movieData = json["data"].dictionary{
-            if let movie = movieData["movie"]?.dictionary{
-                if let casts = movie["cast"]?.array{
-                    for cast in casts{
-                        if let name = cast["name"].string,
-                            let url = cast["url_small_image"].string{
-                            let cast = Cast(name: name, imageURL: URL(string: url)!)
-                            castDetails.append(cast)
-                        }
-                    }
-                }
-            }
+    func getMovieDetails(from responseData:Data,onCompleted: @escaping (_ observable:Observable<(movieResponse:MovieResponse?,error:Error?)>)->Void){
+        let decorder = JSONDecoder()
+        do{
+            let movieResponse = try decorder.decode(MovieResponse.self, from: responseData)
+            onCompleted(Observable.just((movieResponse,nil)))
+        }catch(let e){
+            let error = Error(title: "Translation Error!", message: "Something went wrong while translating data.")
+            onCompleted(Observable.just((nil,error)))
+            print(e)
         }
-        return castDetails
     }
-    
-    
 }

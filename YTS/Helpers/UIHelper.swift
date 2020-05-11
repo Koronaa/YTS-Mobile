@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 
 class UIHelper{
     
@@ -72,4 +73,18 @@ class UIHelper{
         view.clipsToBounds = true
     }
     
+    static func makeBanner(for error:Error,style:BannerStyle = .danger) -> GrowingNotificationBanner{
+        return GrowingNotificationBanner(title: error.title, subtitle: error.message, style: style)
+    }
+    
+    static func showRetryBanner(for error:inout Error,onTap:@escaping (()->Void)) -> GrowingNotificationBanner{
+        error.message += "Tap here to retry."
+        let banner = UIHelper.makeBanner(for: error)
+        banner.autoDismiss = false
+        banner.onTap = {
+            banner.dismiss()
+            onTap()
+        }
+        return banner
+    }
 }

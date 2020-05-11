@@ -7,7 +7,14 @@
 //
 
 import Foundation
-struct Cast {
+
+struct Cast:Decodable {
     var name:String
-    var imageURL:URL
+    var imageURL:String?
+    
+    
+    enum CodingKeys:String,CodingKey{
+        case name
+        case imageURL = "url_small_image"
+    }
 }
