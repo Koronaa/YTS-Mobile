@@ -35,6 +35,9 @@
             <size key="customSize" width="174" height="252"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="movie"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="holderView" destination="k8z-vu-Ave" id="MLR-TK-dcb"/>

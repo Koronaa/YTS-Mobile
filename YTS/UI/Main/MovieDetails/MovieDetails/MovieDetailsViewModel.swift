@@ -82,7 +82,13 @@ class MovieDetailsViewModel{
         return "Torrent info not available."
     }
     
-    var synopsis:String {return movie.description}
+    var synopsis:String {
+        if movie.description == ""{
+            return "Synopsis not available."
+        }else{
+            return movie.description
+        }
+    }
     
     var cast:[Cast] = []
     

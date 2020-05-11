@@ -65,6 +65,9 @@
                     <navigationItem key="navigationItem" id="9L0-Ey-PEO"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomView" destination="p0L-8x-IZG" id="A33-Y0-RMe"/>
                         <outlet property="searchTextField" destination="myi-5M-eR7" id="Avf-uW-yF8"/>
@@ -85,6 +88,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lza-7n-kzo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="444.5"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="movie"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-io-VMG">
                                 <rect key="frame" x="20" y="0.0" width="30" height="30"/>
@@ -110,6 +116,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lbv-e3-Le8"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="backButton" destination="u6a-io-VMG" id="dOx-TR-InR"/>
                         <outlet property="movieCoverImageView" destination="lza-7n-kzo" id="Lhl-u8-Ycd"/>
