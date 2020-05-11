@@ -62,7 +62,12 @@ class HomeViewController: UIViewController {
             errorObservable.subscribe(onNext: { error in
                 if var e = error{
                     if e.title == "No Connectivity!"{
-                        UIHelper.makeBanner(for: e).show()
+                        let banner = UIHelper.makeBanner(for: e)
+                        if NotificationBannerQueue.default.numberOfBanners >= 1{
+                            banner.dismiss()
+                        }else{
+                            banner.show()
+                        }
                     }else{
                         UIHelper.showRetryBanner(for: &e, onTap: self.loadPopularMovies).show()
                     }
@@ -81,7 +86,12 @@ class HomeViewController: UIViewController {
             errorObservable.subscribe(onNext: { error in
                 if var e = error{
                     if e.title == "No Connectivity!"{
-                        UIHelper.makeBanner(for: e).show()
+                        let banner = UIHelper.makeBanner(for: e)
+                        if NotificationBannerQueue.default.numberOfBanners >= 1{
+                            banner.dismiss()
+                        }else{
+                            banner.show()
+                        }
                     }else{
                         UIHelper.showRetryBanner(for: &e, onTap: self.loadTopRatedMovies).show()
                     }
