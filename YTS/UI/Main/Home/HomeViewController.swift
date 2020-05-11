@@ -51,11 +51,22 @@ class HomeViewController: UIViewController {
     }
     
     private func loadData(){
-        
+        loadLatestMovies()
+        loadPopularMovies()
+        loadTopRatedMovies()
+    }
+    
+    
+    private func loadPopularMovies(){
         homeVM.loadPopularMovies { errorObservable in
             errorObservable.subscribe(onNext: { error in
-                if let e = error{
-                    UIHelper.makeBanner(for: e).show()
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        UIHelper.makeBanner(for: e).show()
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadPopularMovies).show()
+                    }
+                    
                 }else{
                     let info = ["homeVM":self.homeVM]
                     let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
@@ -63,11 +74,17 @@ class HomeViewController: UIViewController {
                 }
             }).disposed(by: self.bag)
         }
-        
+    }
+    
+    private func loadTopRatedMovies(){
         homeVM.loadTopRatedMovies{ errorObservable in
             errorObservable.subscribe(onNext: { error in
-                if let e = error{
-                    UIHelper.makeBanner(for: e).show()
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        UIHelper.makeBanner(for: e).show()
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadTopRatedMovies).show()
+                    }
                 }else{
                     let info = ["homeVM":self.homeVM]
                     let notification:Notification = Notification(name: NotificationConstants.Keys.HOME_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
@@ -75,11 +92,17 @@ class HomeViewController: UIViewController {
                 }
             }).disposed(by: self.bag)
         }
-        
+    }
+    
+    private func loadLatestMovies(){
         homeVM.loadLatestMovies { errorObservable in
             errorObservable.subscribe(onNext: { (error) in
-                if let e = error{
-                    UIHelper.makeBanner(for: e).show()
+                if var e = error{
+                    if e.title == "No Connectivity!"{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadData).show()
+                    }else{
+                        UIHelper.showRetryBanner(for: &e, onTap: self.loadLatestMovies).show()
+                    }
                 }else{
                     let info = ["homeVM":self.homeVM]
                     let notification:Notification = Notification(name: NotificationConstants.Keys.FAVOURITE_DATA_LOADED, object: nil, userInfo: info as [AnyHashable : Any])
@@ -88,6 +111,8 @@ class HomeViewController: UIViewController {
             }).disposed(by: self.bag)
         }
     }
+    
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

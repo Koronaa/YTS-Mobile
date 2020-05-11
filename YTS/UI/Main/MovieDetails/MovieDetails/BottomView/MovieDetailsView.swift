@@ -79,7 +79,8 @@ class MovieDetailsView: UIView {
             }
             UIApplication.shared.open(urlSchemeURL!, options: [:], completionHandler: nil)
         }else{
-            //TODO: ERROR NO youtube link
+            let error = Error(title: "Trailer Not Found!", message: "Cannot find the trailer for this movie.")
+            UIHelper.makeBanner(for: error).show()
         }
     }
     
@@ -93,6 +94,7 @@ class MovieDetailsView: UIView {
     
     
     private func setupUI(){
+        
         UIHelper.addCornerRadius(to: watchTrailerButton)
         UIHelper.addCornerRadius(to: downloadButton)
         collectionView.register(UINib(nibName: "CastCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: UIConstants.Cell.CastCollectionViewCell.rawValue)
@@ -167,11 +169,15 @@ class MovieDetailsView: UIView {
         UIHelper.addCornerRadius(to: castHeaderLabel)
         castHeaderLabel.layer.masksToBounds = true
         
+        getCast()
         
+    }
+    
+    private func getCast(){
         movieDetailsVM.getCast { (errorObservable) in
             errorObservable.subscribe(onNext: { (error) in
-                if let e = error{
-                    UIHelper.makeBanner(for: e).show()
+                if var e = error{
+                    UIHelper.showRetryBanner(for: &e, onTap: self.getCast).show()
                 }else{
                     self.collectionView.reloadData()
                     if self.movieDetailsVM.cast.count == 0{
@@ -184,8 +190,6 @@ class MovieDetailsView: UIView {
             
         }
     }
-    
-    
     
 }
 

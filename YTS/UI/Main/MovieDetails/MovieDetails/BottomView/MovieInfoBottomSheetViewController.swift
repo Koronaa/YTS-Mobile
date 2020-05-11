@@ -104,7 +104,8 @@ extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
             }
             self.present(downloadVC, animated: true, completion: nil)
         }else{
-            //TODO: No Torrent error
+            let error = Error(title: "No Torrent!", message: "Cannot find the torrent info for this movie.")
+            UIHelper.makeBanner(for: error).show()
         }
     }
     
@@ -117,7 +118,8 @@ extension MovieInfoBottomSheetViewController:MovieDetailsDelegate{
             activityViewController.popoverPresentationController?.sourceView = self.view
             self.present(activityViewController, animated: true, completion: nil)
         }else{
-            //TODO: Error
+            let error = Error(title: "URL Not Found!", message: "Cannot find the details for this Movie.")
+            UIHelper.makeBanner(for: error).show()
         }
     }
 }
