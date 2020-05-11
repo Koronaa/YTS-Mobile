@@ -114,7 +114,7 @@ class HomeTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCollect
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
     
     public static func dequeue(from tableView:UITableView,for indexPath:IndexPath) -> HomeTableViewCell{

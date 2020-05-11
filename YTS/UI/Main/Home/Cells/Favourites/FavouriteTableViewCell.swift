@@ -100,7 +100,7 @@ class FavouriteTableViewCell:UITableViewCell,UICollectionViewDelegate,SkeletonCo
     }
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 10
     }
     
     public static func dequeue(from tableView:UITableView,for indexPath:IndexPath) -> FavouriteTableViewCell{
