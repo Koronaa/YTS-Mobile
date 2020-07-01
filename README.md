@@ -1,4 +1,4 @@
-# YTS
+# YTS-Mobile
 
 Movie browser app written in Swift 5 using [YTS APIs](https://yts.mx/api).
 
@@ -18,7 +18,7 @@ iOS 11+
 
 ## Pods Used
 
-YTS uses number of open source dependencies to for its magic 
+YTS-Mobile uses number of open source dependencies to for its magic 
 
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
