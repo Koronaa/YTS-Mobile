@@ -18,7 +18,7 @@ iOS 11+
 
 ## Pods Used
 
-YTS-Mobile uses number of open source dependencies to for its magic 
+YTS-Mobile uses number of open source dependencies for its magic 
 
 * [Alamofire](https://github.com/Alamofire/Alamofire)
 * [RxSwift](https://github.com/ReactiveX/RxSwift)
