@@ -9,7 +9,7 @@ Movie browser app written in Swift 5 using [YTS APIs](https://yts.mx/api).
 [![blog](https://img.shields.io/badge/blog-techkoronå-brightgreen)](https://techkoronaa.blogspot.com/)
 
 
-![](yts.gif)
+![](yts.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](YTS-Light.gif)
 
 ## Supports
 
