@@ -70,6 +70,7 @@
 		3DF9E09A24597A8400EEB3EE /* TorrentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9E09924597A8400EEB3EE /* TorrentView.xib */; };
 		3DF9E09C2459819200EEB3EE /* TorrentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */; };
 		B2804D5E25CB4C3DCB9C0108 /* Pods_YTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A843879D611DF5B474C14 /* Pods_YTS.framework */; };
+		B6D3AB9226D51CDD00C99813 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D3AB9126D51CDD00C99813 /* UITableViewCell+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		3DF9E09924597A8400EEB3EE /* TorrentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
 		3DF9E09B2459819200EEB3EE /* TorrentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorrentViewViewModel.swift; sourceTree = "<group>"; };
 		A84E68A2CA5D02A95559048D /* Pods-YTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTS.release.xcconfig"; path = "Target Support Files/Pods-YTS/Pods-YTS.release.xcconfig"; sourceTree = "<group>"; };
+		B6D3AB9126D51CDD00C99813 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 		3DAB13532445C67A005A7D9B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B6D3AB9126D51CDD00C99813 /* UITableViewCell+Extensions.swift */,
 				3D9A54A3244493E90068C825 /* UIColor+Extensions.swift */,
 				3DC6C377245AF67500A754C5 /* UIDevice+Extensions.swift */,
 			);
@@ -638,6 +641,7 @@
 				3D41BC962446F9D900220B20 /* MovieDetailsView.swift in Sources */,
 				3DB9A5B02467DB99004782DE /* Error.swift in Sources */,
 				3D0C5B332454567C00C257EC /* Torrent.swift in Sources */,
+				B6D3AB9226D51CDD00C99813 /* UITableViewCell+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,8 +779,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
@@ -785,10 +789,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -802,8 +806,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R3GW2NEGBJ;
 				INFOPLIST_FILE = YTS/SupportingFiles/Info.plist;
@@ -812,10 +816,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.korona.YTS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "YTS Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "YTS/Libs/YTS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
